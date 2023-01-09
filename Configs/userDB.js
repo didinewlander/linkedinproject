@@ -4,7 +4,7 @@ mongoose.set('strictQuery', false);
 
 const classDBConnection = (uri)=>{
     mongoose.connect(uri)
-    .then(()=>console.log('connected to class DB'))
+    .then(()=>console.log('connected to user DB'))
     .catch((error)=>console.log(error));
 }
 
