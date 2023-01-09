@@ -2,13 +2,13 @@ const mongoose = require('mongoose');
 
 mongoose.set('strictQuery', false);
 
-const classDBConnection = (uri)=>{
+const classDBConnection = (uri) => {
     mongoose.connect(uri)
-    .then(()=>console.log('connected to class DB'))
-    .catch((error)=>console.log(error));
+        .then(() => console.log('connected to class DB'))
+        .catch((error) => console.log(error));
 }
 
 const connection = mongoose.connection;
-connection.once("open", ()=>console.log('connection established'))
+connection.once("open", () => console.log('connection established'))
 
 module.exports = classDBConnection;
