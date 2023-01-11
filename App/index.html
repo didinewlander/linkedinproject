@@ -1,0 +1,209 @@
+<html>
+
+<head>
+    <title>ישיבת ההסדר קרני שומרון</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Heebo;
+            padding: 10px;
+
+        }
+
+        #top-image {
+            position: relative;
+
+            background: url(IMG_9207.jpg);
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: cover;
+            padding: 5rem;
+        }
+
+        .header h1 {
+            font-size: 50px;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #25b900;
+        }
+
+        .topnav a {
+            float: right;
+            display: block;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            padding: 6px 16px;
+            text-decoration: none;
+        }
+
+        .topnav a:hover {
+            background-color: rgb(0, 81, 255);
+            /*add text shadow*/
+        }
+
+        .rightcolumn {
+            float: right;
+            width: 75%;
+        }
+
+        .leftcolumn {
+            float: left;
+            width: 25%;
+
+            padding: 10px;
+        }
+
+        .content {
+
+            width: 100%;
+            padding: 18px;
+        }
+
+        .card {
+
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .main:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .social {
+            border-color: #000000;
+            border-width: 2px 2px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .fa {
+            position: relative;
+            font-size: 25px;
+            width: 30px;
+            text-align: center;
+            text-decoration: none;
+            margin: 2px 1px;
+        }
+
+        .fa:hover {
+            opacity: 0.7;
+        }
+
+        .fa-facebook {
+            color: #3B5998;
+        }
+
+        .fa-whatsapp {
+            color: #11c029;
+        }
+
+        .fa-phone {
+            color: #000000;
+        }
+
+        .fa-youtube {
+            color: #bb0000;
+        }
+
+        @media screen and (max-width:760px) {
+
+            .rightcolumn,
+            .leftcolumn {
+                width: 100%;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body dir="rtl">
+    <div class="header" id="top-image">
+        <h1>ברוכים הבאים לאתר בית המדרש</h1>
+        <h2> ישיבת ההסדר בקרני שומרון</h2>
+        <p>לאסוקי שמעתא - אליבא דהלכתא</p>
+    </div>
+    <div class="topnav">
+        <a href="#">חיפוש שיעור</a>
+        <a href="#">מאגר השיעורים</a>
+        <a href="#">לוח שיעורים</a>
+        <a href="#" style="float: left;">כניסה/רישום לאתר</a>
+    </div>
+
+    <div class="main">
+        <div class="search-bar">
+            place free text searchbar here
+        </div>
+        <div class="rightcolumn">
+            <div class="card">
+                <h2>גלריית השיעורים</h2>
+                <h5>כאן תוכלו לדפדף בין השיעורים המומלצים שלנו</h5>
+                <div class="content" id="recommended" style="height: 200px;">
+                    <!-- Videos Carousle
+                    Based on a card template to use across the main page
+                    -->
+                    <div class="class-card"></div>
+                    <div class="class-card"></div>
+                    <div class="class-card"></div>
+                    <div class="class-card"></div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>שיעורים אחרונים</h2>
+                <div class="content" id="recent" style="height: 200px;">
+                    <!-- Videos Carousle 
+                    Based on a card template to use across the main page
+                    -->
+                    <div class="class-card"></div>
+                    <div class="class-card"></div>
+                    <div class="class-card"></div>
+                    <div class="class-card"></div>
+                    <div class="class-card"></div>
+                    <div class="class-card"></div>
+                </div>
+            </div>
+        </div>
+        <div class="leftcolumn">
+            <div class="card">
+                <div class="membersonly" style="height: 100px;">
+                    <h2>אזור זה הוא למשתמשים רשומים בלבד</h2>
+                </div>
+            </div>
+            <div class="card">
+                <h2>השיעורים הנצפים ביותר</h2>
+                <div class="content" id="most-viewed" style="height: 100px;">
+                    <!--
+                        Three videos from youtube, Based on a card template to use across the main page
+                    -->
+                    <div class="class-card"></div>
+                    <div class="class-card"></div>
+                    <div class="class-card"></div>
+                </div>
+            </div>
+            <div class="social" style="height: 100px;">
+                <h3>צור קשר</h3>
+                <a href="tel:+97297929145" class="fa fa-phone"></a>
+                <a href="https://wa.me/972587929144" class="fa fa-whatsapp"></a>
+                <a href="https://www.facebook.com/YeshivatKarnash/" class="fa fa-facebook"></a>
+                <a href="https://www.youtube.com/@YeshivatKarnash" class="fa fa-youtube"></a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+    </script>
+    <div class="credit" style="height: 50px;">
+        <p>האתר נבנה על-ידי ידידיה נוילנדר ה'תשפ"ג 2023</p>
+    </div>
+</body>
+
+</html>
