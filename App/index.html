@@ -8,10 +8,12 @@
             font-size: 16px;
             font-family: 'Heebo';
             --text-primary: black;
-            --text-secondary: gray;
+            --text-secondary: rgb(255, 255, 255);
             --bg-primary: #23232e;
             --bg-secondary: #141418;
             --transition-speed: 200ms;
+            --card-height: 4000px;
+            --card-width: 350px;
         }
 
         * {
@@ -19,7 +21,6 @@
         }
 
         body {
-            color: black;
             background-color: white;
             margin: 0;
             padding: 0;
@@ -27,10 +28,11 @@
 
         body::-webkit-scrollbar {
             width: 0.25rem;
+
         }
 
         body::-webkit-scrollbar-track {
-            background: #4a4ac4;
+            background: #0000ff;
         }
 
         body::-webkit-scrollbar-thumb {
@@ -39,13 +41,13 @@
 
         main {
             margin-right: 5rem;
-            padding: 1rem;
         }
 
         .navbar {
             position: fixed;
             background-color: var(--bg-primary);
             transition: width 200ms ease;
+            z-index: 1;
 
         }
 
@@ -62,6 +64,7 @@
 
         .nav-item {
             width: 100%;
+            
         }
 
         .nav-item:last-child {
@@ -75,11 +78,14 @@
             text-decoration: none;
             filter: grayscale(100%) opacity(0.7);
             transition: var(--transition-speed);
+            color:white;
+
         }
 
         .nav-link:hover {
             filter: grayscale(0%) opacity(1);
             background: var(--bg-secondary);
+            color: white
         }
 
         .link-text {
@@ -92,15 +98,12 @@
             margin: 0 1.5rem;
         }
 
-
-
-
         .fa-primary {
-            color: #4a4ac4;
+            color: #3ec450;
         }
 
         .fa-secondary {
-            color: #3ec450;
+            color: #4476ff;
         }
 
         .fa-primary,
@@ -111,8 +114,8 @@
         .logo {
             margin-bottom: 1rem;
             text-align: center;
-            font-weight:bold;
-            font-size:2vw;
+            font-weight: bold;
+            font-size: 2vw;
             color: var(--text-secondary);
             background: var(--bg-secondary);
             font-size: 1rem;
@@ -129,46 +132,22 @@
             transform: rotate(-180deg);
         }
 
-        #top-image {
-            position: relative;
-
+        .header {
             background: url(IMG_9207.jpg);
+            height: 50%;
+            background-position: center;
             background-repeat: no-repeat;
-            background-position: bottom;
             background-size: cover;
-            padding: 5rem;
         }
 
-        /* .topnav {
-            overflow: hidden;
-
-            border: none;
-            color: black;
-            padding: 10px 20px;
+        .titles {
+            color: white;
+            font-size: 4vh;
             text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            margin: 4px 2px;
-            cursor: pointer;
-
-
+            font-weight: bold;
+            text-shadow: 2px 2px blue;
+            padding: 3rem;
         }
-
-        .topnav a {
-            float: right;
-            background-color: #25b900;
-            border-radius: 16px;
-            display: block;
-            color: rgb(255, 255, 255);
-            text-align: center;
-            padding: 6px 16px;
-            text-decoration: none;
-        }
-
-        .topnav a:hover {
-            border-radius: 16px;
-            background-color: rgb(0, 81, 255);
-    } */
 
         .rightcolumn {
             float: right;
@@ -179,19 +158,125 @@
             float: left;
             width: 25%;
 
-            padding: 10px;
+            padding: 5px;
         }
 
         .content {
-
             width: 100%;
             padding: 18px;
         }
 
-        .card {
+        .card-list {
+            display: flex;
+            padding: 3rem;
+            overflow: scroll;
+        }
 
+        .card-list::-webkit-scrollbar {
+            width: 0.25rem;
+
+        }
+
+        .card-list::-webkit-scrollbar-track {
+            visibility: hidden;
+        }
+
+        .card-list::-webkit-scrollbar-thumb {
+            visibility: hidden;
+        }
+
+        .card-list .card {
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            height: --card-height;
+            width: --card-width;
+            min-width: 250px;
+            padding: 1.5rem;
+            margin: 20px;
+            border-radius: 16px;
+            background: #ffffff;
+            box-shadow: .2rem 0 2rem rgb(200, 200, 200);
+            transition: .2s;
+        }
+
+        .card-list .card:hover {
+            transform: translateY(-1rem);
+        }
+
+        .card-list .card:hover~.card {
+            transform: translateX(-130px);
+        }
+
+        .card-list .card:not(:first-child) {
+            margin-right: -130px;
+        }
+
+        .video-title {
+            word-wrap: break-word;
+
+        }
+
+        .thumbnail-image {
+            width: 200px;
+            border-radius: 10px;
+        }
+
+        .thumbnail-image:hover {
+            box-shadow: 0 0 2px 1px rgba(0, 84, 186, 0.5);
+        }
+
+        .sikum-link {
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+            ;
+        }
+
+        .card {
             padding: 20px;
             margin-top: 20px;
+        }
+
+        .card-speaker {
+            position: relative;
+            display: grid;
+            bottom: 0px;
+            grid-template-columns: 80px 1fr;
+            align-items: center;
+            margin: 3rem 0 10;
+        }
+
+        .speaker-avatar img {
+            display: block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            filter: grayscale(100%);
+            margin: 10px 10px;
+        }
+
+        .half-circle {
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            width: 60px;
+            fill: none;
+            stroke: #11c029;
+            stroke-width: 8;
+            stroke-linecap: round;
+            pointer-events: none;
+        }
+
+        .speaker-name-prefix {
+            font-weight: bold;
+            color: #102148;
+        }
+
+        .video-topic {
+            font-style: italic;
+            font-weight: bold;
+
         }
 
         .social {
@@ -199,6 +284,10 @@
             border-width: 2px 2px 0;
             text-align: center;
             margin-top: 20px;
+        }
+
+        .credit {
+            height: 100px;
         }
 
         .fa {
@@ -230,18 +319,26 @@
             color: #bb0000;
         }
 
+        .fa-file {
+            font-size: 18px;
+        }
+
         @media only screen and (max-width:760px) {
 
             .rightcolumn,
             .leftcolumn {
                 width: 100%;
-                padding: 0;
             }
 
             .navbar {
                 bottom: 0;
                 width: 100vw;
                 height: 5rem;
+
+            }
+
+            svg {
+                width: 6vw;
             }
 
             .logo {
@@ -252,11 +349,13 @@
             .navbar-nav {
                 flex-direction: row;
             }
+
             .nav-link {
                 justify-content: center;
             }
-            main{
-                margin:0;
+
+            main {
+                margin: 0;
             }
         }
 
@@ -265,6 +364,10 @@
                 top: 0;
                 width: 5rem;
                 height: 100vh;
+            }
+
+            svg {
+                width: 2vw;
             }
 
             .navbar:hover {
@@ -276,18 +379,19 @@
                 transition: opacity var(--transition-speed);
             }
 
+            article {
+                width: 250px;
+            }
+
+            .card-list {
+                padding: 0;
+            }
+
         }
     </style>
 </head>
 
 <body dir="rtl">
-
-    <!-- <div class="topnav">
-        <a href="#">חיפוש שיעור</a>
-        <a href="#">מאגר השיעורים</a>
-        <a href="#">לוח שיעורים</a>
-        <a href="#" style="float: left;">כניסה/רישום לאתר</a>
-    </div>-->
     <nav class="navbar">
         <ul class="navbar-nav">
             <li class="logo">
@@ -332,11 +436,13 @@
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
                         class="svg-inline--fa fa-alien-monster fa-w-18 fa-9x">
                         <g class="fa-group">
-                            
+
                             <path fill="currentColor"
                                 d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V384c0 11.8-6.5 22.6-16.9 28.2s-23 5-32.9-1.6l-96-64L416 337.1V320 192 174.9l14.2-9.5 96-64c9.8-6.5 22.4-7.2 32.9-1.6z"
                                 class="fa-secondary"></path>
-                            <path fill="currentColor" d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V384c0 11.8-6.5 22.6-16.9 28.2s-23 5-32.9-1.6l-96-64L416 337.1V320 192 174.9l14.2-9.5 96-64c9.8-6.5 22.4-7.2 32.9-1.6z" class="fa-primary">
+                            <path fill="currentColor"
+                                d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V384c0 11.8-6.5 22.6-16.9 28.2s-23 5-32.9-1.6l-96-64L416 337.1V320 192 174.9l14.2-9.5 96-64c9.8-6.5 22.4-7.2 32.9-1.6z"
+                                class="fa-primary">
                             </path>
                         </g>
                     </svg>
@@ -349,7 +455,7 @@
                     <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="space-station-moon-alt"
                         role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                         class="svg-inline--fa fa-space-station-moon-alt fa-w-16 fa-5x">
-                        
+                        <g class="fa-group">
                             <path fill="currentColor"
                                 d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"
                                 class="fa-secondary"></path>
@@ -368,7 +474,7 @@
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"
                         class="svg-inline--fa fa-space-shuttle fa-w-20 fa-5x">
                         <g class="fa-group">
-                            
+
                             <path fill="currentColor"
                                 d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"
                                 class="fa-secondary"></path>
@@ -387,7 +493,7 @@
                         data-icon="moon-stars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                         class="svg-inline--fa fa-moon-stars fa-w-16 fa-7x">
                         <g class="fa-group">
-                            
+
                             <path fill="currentColor"
                                 d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"
                                 class="fa-secondary"></path>
@@ -396,33 +502,109 @@
                                 class="fa-primary"></path>
                         </g>
                     </svg>
-                    <span class="link-text">Themify</span>
+                    <span class="link-text">אזור אישי</span>
                 </a>
             </li>
         </ul>
     </nav>
     <main>
         <div class="header" id="top-image">
-            <h1>ברוכים הבאים לאתר בית המדרש</h1>
-            <h2> ישיבת ההסדר בקרני שומרון</h2>
-            <p>לאסוקי שמעתא - אליבא דהלכתא</p>
+            <div class="titles">
+                ברוכים הבאים לאתר בית המדרש<br />
+                ישיבת ההסדר בקרני שומרון<br />
+                לאסוקי שמעתא - אליבא דהלכתא<br />
+            </div>
         </div>
         <div class="search-bar">
-            place free text searchbar here
+          <!--  place free text searchbar here-->
         </div>
         <div class="rightcolumn">
             <div class="card">
                 <h2>גלריית השיעורים</h2>
                 <h5>כאן תוכלו לדפדף בין השיעורים המומלצים שלנו</h5>
-                <div class="content" id="recommended" style="height: 200px;">
-                    <!-- Videos Carousle
-                    Based on a card template to use across the main page
-                    -->
-                    <div class="class-card"></div>
-                    <div class="class-card"></div>
-                    <div class="class-card"></div>
-                    <div class="class-card"></div>
-                </div>
+                <section class="card-list">
+                    <article class="card">
+                        <header class="card-header">
+                            <p class="video-topic">הלכה בהליכה</p>
+                            <div class="thumbnail">
+                                <a href="https://www.youtube.com/watch?v=55rovvAZ0xo">
+                                    <img src="https://i3.ytimg.com/vi/55rovvAZ0xo/maxresdefault.jpg"
+                                        class="thumbnail-image">
+                                </a>
+                                <p class="video-title">ספר תורה שנמצא בו טעות</p>
+                            </div>
+                        </header>
+                        <div class="card-speaker">
+                            <a href="#" class="speaker-avatar">
+                                <img src="IMG_9207.jpg">
+                            </a>
+                            <svg class="half-circle" viewBox="0 0 106 57">
+                                <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+                            </svg>
+                            <div class="speaker-name">
+                                <div class="speaker-name-prefix">הרב</div>
+                                יצחק הלוי
+                            </div>
+                        </div>
+                        <div class="download-sikum">
+                            <p class="fa fa-file"></p><a href="#" class="sikum-link">הורדת סיכום</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <header class="card-header">
+                            <p class="video-topic">פרשת השבוע</p>
+                            <div class="thumbnail">
+                                <a href="https://www.youtube.com/watch?v=Nc4z-ANTnKU">
+                                    <img src="https://i3.ytimg.com/vi/Nc4z-ANTnKU/hqdefault.jpg"
+                                        class="thumbnail-image">
+                                </a>
+                                <p class="video-title">"ואלה שמות בני ישראל"- שם זה מהות והמתכון הסודי לגאולה</p>
+                            </div>
+                        </header>
+                        <div class="card-speaker">
+                            <a href="#" class="speaker-avatar">
+                                <img src="IMG_9207.jpg">
+                            </a>
+                            <svg class="half-circle" viewBox="0 0 106 57">
+                                <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+                            </svg>
+                            <div class="speaker-name">
+                                <div class="speaker-name-prefix">הרב</div>
+                                שי גרין
+                            </div>
+                        </div>
+                        <div class="download-sikum">
+                            <p class="fa fa-file"></p><a href="#" class="sikum-link">הורדת סיכום</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <header class="card-header">
+                            <p class="video-topic">רב אלוף</p>
+                            <div class="thumbnail">
+                                <a href="https://www.youtube.com/watch?v=GjwGowDxe9IU">
+                                    <img src="http://i3.ytimg.com/vi/GjwGowDxe9I/hqdefault.jpg" class="thumbnail-image">
+                                </a>
+                                <p class="video-title">שליחותו של משה</p>
+                            </div>
+                        </header>
+                        <div class="card-speaker">
+                            <a href="#" class="speaker-avatar">
+                                <img src="IMG_9207.jpg">
+                            </a>
+                            <svg class="half-circle" viewBox="0 0 106 57">
+                                <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+                            </svg>
+                            <div class="speaker-name">
+                                <div class="speaker-name-prefix">הרב</div>
+                                מידן דריהם
+                            </div>
+                        </div>
+
+                        <div class="download-sikum">
+                            <p class="fa fa-file"></p><a href="#" class="sikum-link">הורדת סיכום</a>
+                        </div>
+                    </article>
+                </section>
             </div>
             <div class="card">
                 <h2>שיעורים אחרונים</h2>
