@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const path = require('path');
 require('dotenv').config();
 
 const class_connection = require('./Configs/classDB');
@@ -15,7 +16,7 @@ const userUri = process.env.USER_DB_CONNECTION;
 const classUri = process.env.CLASS_DB_CONNECTION;
 const sikumUri = process.env.SIKUM_DB_CONNECTION;
 const youtubeAPI = process.env.YOUTUBE_KARNASH_API;
-
+const port = 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -24,20 +25,14 @@ app.use(express.urlencoded({ extended: true }));
 /*----------------Routes in the website--------------------*/
 
 app.get('/', function (req, res) {
-    try {
-        res.sendFile('index.html', { root: './App' })
-    } catch (error) {
-        res.json(error);
-    }
+    res.sendFile(path.join('./App', '/index.html'));
 });
 
-app.get('/dashboard', function (req, res) {
-    try {
-        res.sendFile('Dashboard.html', { root: './App' })
-    } catch (error) {
-        res.json(error);
-    }
-});
+app.get('/Dashboard', (req, res) => {
+
+    res.sendFile(path.join('./App', '/Dashboard.html'));
+}
+);
 
 app.use('/classes', () => {
     classRouter;
@@ -55,3 +50,5 @@ app.use('/sikumim', () => {
 app.use('/schedule', () => {
     scheduleRouter;
 });
+
+app.listen(port, () => console.log('listening on port '+port));

@@ -1,0 +1,352 @@
+{
+  "kind": "youtube#searchListResponse",
+  "etag": "ZpkSMuoIaojvqKduMPxK6BAPgIM",
+  "nextPageToken": "CAoQAA",
+  "regionCode": "IL",
+  "pageInfo": {
+    "totalResults": 1818,
+    "resultsPerPage": 10
+  },
+  "items": [
+    {
+      "kind": "youtube#searchResult",
+      "etag": "0gORjhWv3WSQyuziJwXkF9tjFAo",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "3TSn5MbXFqc"
+      },
+      "snippet": {
+        "publishedAt": "2021-11-25T17:05:13Z",
+        "channelId": "UCPVvBjoprUsc008y9zGiBKw",
+        "title": "פרשת שבוע | וישב 05 | לא מוותרים על האמת - הגודל שבאמת הניצחית | הרב שי גרין",
+        "description": "פרשת וישב תשפ\"ב.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/3TSn5MbXFqc/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/3TSn5MbXFqc/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/3TSn5MbXFqc/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "ישיבת ההסדר קרני שומרון",
+        "liveBroadcastContent": "none",
+        "publishTime": "2021-11-25T17:05:13Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "1x9tKk-iWel3oMScp2LPVS-nRUE",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "bcShve0z650"
+      },
+      "snippet": {
+        "publishedAt": "2023-01-03T15:54:09Z",
+        "channelId": "UCPVvBjoprUsc008y9zGiBKw",
+        "title": "סרטון קמפיין שיפוץ ביהכנ&quot;ס הספרדי &quot;חסדי דוד&quot; - הרב יצחק הלוי",
+        "description": "ביהכנ\"ס הספרדי \"חסדי דוד\" ביישוב משמש כאכסניה לשיעורים רבים ופעלויות תורניות, כעת יוצאים מתפללי ביהכנ\"ס לקמפיין גיוס למטרת שיפוץ והרחבה ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/bcShve0z650/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/bcShve0z650/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/bcShve0z650/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "ישיבת ההסדר קרני שומרון",
+        "liveBroadcastContent": "none",
+        "publishTime": "2023-01-03T15:54:09Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "3BYDRkfvtWHGPa0gN1eo7k-AHrA",
+      "id": {
+        "kind": "youtube#playlist",
+        "playlistId": "PLGHsKG-vis44r2DobdL2747qmaK9TN678"
+      },
+      "snippet": {
+        "publishedAt": "2022-02-15T18:11:26Z",
+        "channelId": "UCPVvBjoprUsc008y9zGiBKw",
+        "title": "דעת תבונות | תשפ&quot;ב | רה&quot;י הרב אברהם קורצוייל",
+        "description": "בפעם בשבוע מעביר רה\"י הרב אברהם קורצוייל חבורא לתלמידי הישיבה ולבוגריה בספר \"דעת תבונות\".",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/4XQHieuupU4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/4XQHieuupU4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/4XQHieuupU4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "ישיבת ההסדר קרני שומרון",
+        "liveBroadcastContent": "none",
+        "publishTime": "2022-02-15T18:11:26Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "FKhzCizKXfg7sTMkjfSL6tl4GKI",
+      "id": {
+        "kind": "youtube#playlist",
+        "playlistId": "PLGHsKG-vis44K-kQypiWEy4eothuJmqzt"
+      },
+      "snippet": {
+        "publishedAt": "2021-10-17T16:27:52Z",
+        "channelId": "UCPVvBjoprUsc008y9zGiBKw",
+        "title": "תניא | תשפ&#39;&#39;ב | הרב שי גרין",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/WyehVqKPga4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/WyehVqKPga4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/WyehVqKPga4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "ישיבת ההסדר קרני שומרון",
+        "liveBroadcastContent": "none",
+        "publishTime": "2021-10-17T16:27:52Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "OFwseSNaTXibhG5nr-fkwMmCuus",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "EX_XSPZ-jSI"
+      },
+      "snippet": {
+        "publishedAt": "2023-01-01T13:16:28Z",
+        "channelId": "UCPVvBjoprUsc008y9zGiBKw",
+        "title": "עין טובה | הרב דוד מור יוסף",
+        "description": "בשיעור הרב דוד מור יוסף מדבר על חשיבות ההסתכלות בעין טובה על הזולת. ד' טבת תשפ\"ג.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/EX_XSPZ-jSI/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/EX_XSPZ-jSI/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/EX_XSPZ-jSI/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "ישיבת ההסדר קרני שומרון",
+        "liveBroadcastContent": "none",
+        "publishTime": "2023-01-01T13:16:28Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "V3lFtE__kdMxAdCZOP-iWPq65uU",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "pSyODbuf0Mk"
+      },
+      "snippet": {
+        "publishedAt": "2023-01-05T17:37:20Z",
+        "channelId": "UCPVvBjoprUsc008y9zGiBKw",
+        "title": "פרשת שבוע | ויחי 63 | ויחי יעקב - הציפייה לישועה גדולה מהישועה עצמה | הרב שי גרין",
+        "description": "איך קשורה פרשת ויחי לשאלת האם ציפית לישועה?",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/pSyODbuf0Mk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/pSyODbuf0Mk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/pSyODbuf0Mk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "ישיבת ההסדר קרני שומרון",
+        "liveBroadcastContent": "none",
+        "publishTime": "2023-01-05T17:37:20Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "kM5HK9_FfK2qdRJiaOJ_bFid2NE",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "wiXYIwSjIio"
+      },
+      "snippet": {
+        "publishedAt": "2022-10-12T20:07:08Z",
+        "channelId": "UCPVvBjoprUsc008y9zGiBKw",
+        "title": "פרשת שבוע| שבת חוה&quot;מ סוכות 51 | אולי באמת היינו צריכים לגנוז את ספר קהלת? | הרב שי גרין",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/wiXYIwSjIio/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/wiXYIwSjIio/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/wiXYIwSjIio/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "ישיבת ההסדר קרני שומרון",
+        "liveBroadcastContent": "none",
+        "publishTime": "2022-10-12T20:07:08Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "Vw3mc8LrYChsrRC2gjKUfn48ZZo",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "-MGYfWdc4ro"
+      },
+      "snippet": {
+        "publishedAt": "2022-12-22T18:30:00Z",
+        "channelId": "UCPVvBjoprUsc008y9zGiBKw",
+        "title": "הלכה בהליכה | 150 | שבת חנוכה | הרב יצחק הלוי",
+        "description": "מקץ תשפ''ג.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/-MGYfWdc4ro/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/-MGYfWdc4ro/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/-MGYfWdc4ro/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "ישיבת ההסדר קרני שומרון",
+        "liveBroadcastContent": "none",
+        "publishTime": "2022-12-22T18:30:00Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "Wdyp1WetjcDoi3b-Dkf6_rX-U4w",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "svj4GkQ9GzM"
+      },
+      "snippet": {
+        "publishedAt": "2022-07-28T16:20:12Z",
+        "channelId": "UCPVvBjoprUsc008y9zGiBKw",
+        "title": "פרשת שבוע | מסעי 40 | המפגש עם המסעות שכל אחד עובר בחייו - ללמוד להפוך את הקושי לגאולה | הרב שי גרין",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/svj4GkQ9GzM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/svj4GkQ9GzM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/svj4GkQ9GzM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "ישיבת ההסדר קרני שומרון",
+        "liveBroadcastContent": "none",
+        "publishTime": "2022-07-28T16:20:12Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "WFnYPUufkHW00gHV_fX9N_2yQIk",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "WPWjBW51-m8"
+      },
+      "snippet": {
+        "publishedAt": "2022-10-20T17:01:57Z",
+        "channelId": "UCPVvBjoprUsc008y9zGiBKw",
+        "title": "פרשת שבוע ן בראשית 52 ן האם באמת היו להקב&quot;ה פאשלות בבריאה ן הרב שי גרין",
+        "description": "ללמוד פרשת שבוע זה מצריך חרדת קודש כדי לפגוש את רצון ה המתגלה אלינו דרך התורה.כשמעיינים בפסוקי הבריאה ובפרשנות של רשי נראה שיש המון ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/WPWjBW51-m8/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/WPWjBW51-m8/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/WPWjBW51-m8/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "ישיבת ההסדר קרני שומרון",
+        "liveBroadcastContent": "none",
+        "publishTime": "2022-10-20T17:01:57Z"
+      }
+    }
+  ]
+}
