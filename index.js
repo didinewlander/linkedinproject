@@ -25,14 +25,14 @@ app.use(express.urlencoded({ extended: true }));
 /*----------------Routes in the website--------------------*/
 
 app.get('/', function (req, res) {
-    res.sendFile(path.join('./App', '/index.html'));
+    res.sendFile('/index.html', { root: './App' });
 });
 
-app.get('/Dashboard', (req, res) => {
+// app.get('/Dashboard', (req, res) => {
 
-    res.sendFile(path.join('./App', '/Dashboard.html'));
-}
-);
+//     res.sendFile(path.join('./App', '/Dashboard.html'));
+// }
+// );
 
 // app.use('/classes', () => {
 //     classRouter;
@@ -51,4 +51,4 @@ app.get('/Dashboard', (req, res) => {
 //     scheduleRouter;
 // });
 
-app.listen(port, () => console.log('listening on port '+port));
+app.listen(port, () => console.log('listening on port ' + port));
