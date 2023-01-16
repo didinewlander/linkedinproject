@@ -21,11 +21,11 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use('/Static', express.static('Public'));
 /*----------------Routes in the website--------------------*/
 
 app.get('/', function (req, res) {
-    res.sendFile('/index.html', { root: './App' });
+    res.sendFile('App/index.html');
 });
 
 // app.get('/Dashboard', (req, res) => {

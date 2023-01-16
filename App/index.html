@@ -142,7 +142,7 @@
         }
 
         .titles {
-            color: white;
+            color: rgb(52, 187, 93);
             font-size: 4vh;
             text-align: center;
             font-weight: bold;
@@ -396,8 +396,8 @@
         async function generateCard() {
 
             //const url ='https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCPVvBjoprUsc008y9zGiBKw&maxResults=10&order=date&key=AIzaSyDPfRDUAbOkhJRcVsRABhppv9MSUhkfW0Q';
-            const url = 'data.json';
-            await fetch(url)
+            const url = '/Static/json/data.json';
+            fetch(url)
                 .then((resp) => resp.json())
                 .then((data) => {
                     for (const video of data.items) {
@@ -448,7 +448,7 @@
 
                         //speaker section
                         //image section
-                        speakerImage.setAttribute('src', "./IMG_9207.jpg"); //change to real images in future
+                        speakerImage.setAttribute('src', "/Static/images/IMG_9207.jpg"); //change to real images in future
                         speakerLink.setAttribute('href', `/${titleArray.slice(0, titleArray.length)}}`) //will give the page with the speaker's videos
                         speakerLink.appendChild(speakerImage);
                         speakerSection.appendChild(speakerLink);
@@ -621,7 +621,7 @@
                         </header>
                         <div class="card-speaker">
                             <a href="#" class="speaker-avatar">
-                                <img src="IMG_9207.jpg">
+                                <img src="/Static/images/IMG_9207.jpg">
                             </a>
                             <svg class="half-circle" viewBox="0 0 106 57">
                                 <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
@@ -648,7 +648,7 @@
                         </header>
                         <div class="card-speaker">
                             <a href="#" class="speaker-avatar">
-                                <img src="IMG_9207.jpg">
+                                <img src="/Static/images/IMG_9207.jpg">
                             </a>
                             <svg class="half-circle" viewBox="0 0 106 57">
                                 <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
@@ -675,7 +675,7 @@
                         </header>
                         <div class="card-speaker">
                             <a href="#" class="speaker-avatar">
-                                <img src="IMG_9207.jpg">
+                                <img src="/Static/images/IMG_9207.jpg">
                             </a>
                             <svg class="half-circle" viewBox="0 0 106 57">
                                 <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
