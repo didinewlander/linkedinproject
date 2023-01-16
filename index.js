@@ -34,21 +34,21 @@ app.get('/Dashboard', (req, res) => {
 }
 );
 
-app.use('/classes', () => {
-    classRouter;
-    class_connection(classUri);
-});
-app.use('/live', () => {
-    userRouter;
-    users_connection(userUri);
-});
-app.use('/sikumim', () => {
-    sikumRouter;
-    sikumim_connection(sikumUri);
-});
+// app.use('/classes', () => {
+//     classRouter;
+//     class_connection(classUri);
+// });
+// app.use('/live', () => {
+//     userRouter;
+//     users_connection(userUri);
+// });
+// app.use('/sikumim', () => {
+//     sikumRouter;
+//     sikumim_connection(sikumUri);
+// });
 
-app.use('/schedule', () => {
-    scheduleRouter;
-});
+// app.use('/schedule', () => {
+//     scheduleRouter;
+// });
 
 app.listen(port, () => console.log('listening on port '+port));
