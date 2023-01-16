@@ -4,13 +4,13 @@ const app = express();
 const path = require('path');
 require('dotenv').config();
 
-const class_connection = require('./Configs/classDB');
-const sikumim_connection = require('./Configs/sikumDB');
-const users_connection = require('./Configs/userDB');
+const class_connection = require('../Configs/classDB');
+const sikumim_connection = require('../Configs/sikumDB');
+const users_connection = require('../Configs/userDB');
 
-const userRouter = require('./Routers/userRouter');
-const classRouter = require('./Routers/classRouter');
-const sikumRouter = require('./Routers/sikumRouter');
+const userRouter = require('../Routers/userRouter');
+const classRouter = require('../Routers/classRouter');
+const sikumRouter = require('../Routers/sikumRouter');
 
 const userUri = process.env.USER_DB_CONNECTION;
 const classUri = process.env.CLASS_DB_CONNECTION;
@@ -25,7 +25,7 @@ app.use('/Static', express.static('Public'));
 /*----------------Routes in the website--------------------*/
 
 app.get('/', function (req, res) {
-    res.sendFile('App/index.html');
+    res.sendFile('index.html');
 });
 
 // app.get('/Dashboard', (req, res) => {
