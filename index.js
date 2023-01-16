@@ -14,7 +14,7 @@ const sikumRouter = require('./Routers/sikumRouter');
 const userUri = process.env.USER_DB_CONNECTION;
 const classUri = process.env.CLASS_DB_CONNECTION;
 const sikumUri = process.env.SIKUM_DB_CONNECTION;
-
+const youtubeAPI = process.env.YOUTUBE_KARNASH_API;
 
 
 app.use(cors());
@@ -31,25 +31,27 @@ app.get('/', function (req, res) {
     }
 });
 
-app.get('/admin', function (req, res) {
+app.get('/dashboard', function (req, res) {
     try {
-        res.sendFile('admin.html', { root: './App' })
+        res.sendFile('Dashboard.html', { root: './App' })
     } catch (error) {
         res.json(error);
     }
-});
-
-app.use('/users', () => {
-    userRouter;
-    users_connection(userUri);
 });
 
 app.use('/classes', () => {
     classRouter;
     class_connection(classUri);
 });
-
+app.use('/live', () => {
+    userRouter;
+    users_connection(userUri);
+});
 app.use('/sikumim', () => {
     sikumRouter;
     sikumim_connection(sikumUri);
+});
+
+app.use('/schedule', () => {
+    scheduleRouter;
 });
