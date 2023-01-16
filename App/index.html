@@ -397,7 +397,7 @@
 
             //const url ='https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCPVvBjoprUsc008y9zGiBKw&maxResults=10&order=date&key=AIzaSyDPfRDUAbOkhJRcVsRABhppv9MSUhkfW0Q';
             const url = 'data.json';
-            fetch(url)
+            await fetch(url)
                 .then((resp) => resp.json())
                 .then((data) => {
                     for (const video of data.items) {
