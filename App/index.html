@@ -396,7 +396,7 @@
         async function generateCard() {
 
             //const url ='https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCPVvBjoprUsc008y9zGiBKw&maxResults=10&order=date&key=AIzaSyDPfRDUAbOkhJRcVsRABhppv9MSUhkfW0Q';
-            const url = '../Data/data.json';
+            const url = '/data.json';
             const request = await fetch(url)
                 .then((resp) => {
                     return resp.json();
@@ -452,7 +452,7 @@
 
                 //speaker section
                 //image section
-                speakerImage.setAttribute('src', "IMG_9207.jpg"); //change to real images in future
+                speakerImage.setAttribute('src', "./IMG_9207.jpg"); //change to real images in future
                 // speakerLink.setAttribute('href', `/${titleArray[titleArray.length - 1]}}`) //will give the page with the speaker's videos
                 speakerLink.appendChild(speakerImage);
                 speakerSection.appendChild(speakerLink);
