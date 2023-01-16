@@ -25,7 +25,7 @@ app.use('/Static', express.static('Public'));
 /*----------------Routes in the website--------------------*/
 
 app.get('/', function (req, res) {
-    res.sendFile('/index.html');
+    res.sendFile('index.html', { root: "./App" });
 });
 
 // app.get('/Dashboard', (req, res) => {
