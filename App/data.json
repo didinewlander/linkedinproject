@@ -1,12 +1,4 @@
 {
-  "kind": "youtube#searchListResponse",
-  "etag": "ZpkSMuoIaojvqKduMPxK6BAPgIM",
-  "nextPageToken": "CAoQAA",
-  "regionCode": "IL",
-  "pageInfo": {
-    "totalResults": 1818,
-    "resultsPerPage": 10
-  },
   "items": [
     {
       "kind": "youtube#searchResult",
