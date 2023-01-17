@@ -16,16 +16,28 @@ const userUri = process.env.USER_DB_CONNECTION;
 const classUri = process.env.CLASS_DB_CONNECTION;
 const sikumUri = process.env.SIKUM_DB_CONNECTION;
 const youtubeAPI = process.env.YOUTUBE_KARNASH_API;
-const port = 3000;
-
+const port = 5500;
+let options = {
+    dotfiles: 'ignore',
+    etag: false,
+    extensions: ['htm', 'html'],
+    index: false,
+    maxAge: '1d',
+    redirect: false,
+    setHeaders: function (res, path, stat) {
+        res.set('x-timestamp', Date.now())
+    }
+};
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/Static', express.static('Public'));
+app.use(express.static("Static", options));
 /*----------------Routes in the website--------------------*/
 
 app.get('/', function (req, res) {
-    res.sendFile('index.html');
+    let url = "/Static/json/data.json";
+    let webPage = 'index.html';
+    res.send(webPage.json());
 });
 
 // app.get('/Dashboard', (req, res) => {

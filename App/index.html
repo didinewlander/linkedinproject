@@ -454,9 +454,13 @@
                         speakerSection.appendChild(speakerLink);
                         //svg section
                         speakerSVG.setAttribute('viewBox', "0 0 106 57");
-                        const path = document.createElement("path");
-                        path.setAttribute('d',"M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4");
-                        speakerSVG.appendChild(path);
+                        speakerSVG.setAttribute('class', "half-circle");
+                        speakerSVG.innerHTML = `
+                        <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+                           `;
+                        //const path = document.createElement("path");
+                        //path.setAttribute('d',"M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4");
+                        //speakerSVG.appendChild(path);
                         speakerSection.appendChild(speakerSVG);
                         //name section
                         let prefix = titleArray.slice(titleArray.length - 2, titleArray.length - 1);
