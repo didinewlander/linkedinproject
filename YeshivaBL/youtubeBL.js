@@ -15,4 +15,8 @@ const getAllVideos = async () => {
   return Items;
 };
 
-module.exports = { getAllVideos };
+const getJsonVideos = async () => {
+  const { items } = await youtubeWS.getJsonVideos();
+  return items;
+};
+module.exports = { getAllVideos, getJsonVideos };

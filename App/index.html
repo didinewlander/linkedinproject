@@ -74,7 +74,7 @@
 
         .nav-link {
             display: flex;
-            justify-content: center;
+            justify-content: right;
             align-items: center;
             height: 5rem;
             text-decoration: none;
@@ -395,8 +395,8 @@
 
         async function generateCard() {
 
-            //const url ='https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCPVvBjoprUsc008y9zGiBKw&maxResults=10&order=date&key=AIzaSyDPfRDUAbOkhJRcVsRABhppv9MSUhkfW0Q';
-            const url = '/Static/json/data.json';
+            const url ='https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCPVvBjoprUsc008y9zGiBKw&maxResults=10&order=date&key=AIzaSyDPfRDUAbOkhJRcVsRABhppv9MSUhkfW0Q';
+           // const url = '/json';
             fetch(url)
                 .then((resp) => resp.json())
                 .then((data) => {
@@ -448,7 +448,7 @@
 
                         //speaker section
                         //image section
-                        speakerImage.setAttribute('src', "/Static/images/IMG_9207.jpg"); //change to real images in future
+                        speakerImage.setAttribute('src', "/images/IMG_9207.jpg"); //change to real images in future
                         speakerLink.setAttribute('href', `/${titleArray.slice(0, titleArray.length)}}`) //will give the page with the speaker's videos
                         speakerLink.appendChild(speakerImage);
                         speakerSection.appendChild(speakerLink);
@@ -577,7 +577,7 @@
             </li>
 
             <li class="nav-item" id="themeButton">
-                <a href="/App/Dashboard.html" class="nav-link">
+                <a href="/Dashboard" class="nav-link">
                     <svg class="theme-icon" id="lightIcon" aria-hidden="true" focusable="false" data-prefix="fad"
                         data-icon="moon-stars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                         class="svg-inline--fa fa-moon-stars fa-w-16 fa-7x">
@@ -625,7 +625,7 @@
                         </header>
                         <div class="card-speaker">
                             <a href="#" class="speaker-avatar">
-                                <img src="/Static/images/IMG_9207.jpg">
+                                <img src="/images/IMG_9207.jpg">
                             </a>
                             <svg class="half-circle" viewBox="0 0 106 57">
                                 <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
@@ -652,7 +652,7 @@
                         </header>
                         <div class="card-speaker">
                             <a href="#" class="speaker-avatar">
-                                <img src="/Static/images/IMG_9207.jpg">
+                                <img src="/images/IMG_9207.jpg">
                             </a>
                             <svg class="half-circle" viewBox="0 0 106 57">
                                 <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
@@ -679,7 +679,7 @@
                         </header>
                         <div class="card-speaker">
                             <a href="#" class="speaker-avatar">
-                                <img src="/Static/images/IMG_9207.jpg">
+                                <img src="/images/IMG_9207.jpg">
                             </a>
                             <svg class="half-circle" viewBox="0 0 106 57">
                                 <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
