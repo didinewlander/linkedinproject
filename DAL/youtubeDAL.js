@@ -8,4 +8,4 @@ const getAllVideos = () => {
 // const getJsonVideos = () => {
 //     return fs.readFile(file);
 // }
-module.exports = { getAllVideos, getJsonVideos };
+module.exports = { getAllVideos };
