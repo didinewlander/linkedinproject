@@ -1,6 +1,7 @@
 const youtubeWS = require('../DAL/youtubeDAL');
 
 const getAllVideos = async () => {
+  console.log("started working on items");
   let { data: Items } = await youtubeWS.getAllVideos();
 
   Items = Items.map((video) => {
@@ -11,7 +12,7 @@ const getAllVideos = async () => {
       date: video.snippet.publishTime,
     };
   });
-
+  console.log("all items prepared");
   return Items;
 };
 

@@ -3,7 +3,7 @@
 <head>
     <title>ישיבת ההסדר קרני שומרון</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <style>
         :root {
             font-size: 16px;
@@ -14,7 +14,7 @@
             --bg-secondary: #141418;
             --transition-speed: 200ms;
             --card-height: 4000px;
-            --card-width: 350px;
+            --card-width: 250px;
         }
 
         * {
@@ -74,7 +74,7 @@
 
         .nav-link {
             display: flex;
-            justify-content: right;
+            justify-content: center;
             align-items: center;
             height: 5rem;
             text-decoration: none;
@@ -86,7 +86,8 @@
         .nav-link:hover {
             filter: grayscale(0%) opacity(1);
             background: var(--bg-secondary);
-            color: white
+            color: white;
+
         }
 
         .link-text {
@@ -135,7 +136,7 @@
         }
 
         .header {
-            height: 50%;
+            padding: 1rem;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -143,7 +144,7 @@
 
         .titles {
             color: rgb(52, 187, 93);
-            font-size: 4vh;
+            font-size: 30px;
             text-align: center;
             font-weight: bold;
             text-shadow: 2px 2px blue;
@@ -159,7 +160,7 @@
             float: left;
             width: 25%;
 
-            padding: 5px;
+
         }
 
         .card-list.content .card {
@@ -172,7 +173,6 @@
 
         .card-list {
             display: flex;
-            padding: 3rem;
             overflow: scroll;
         }
 
@@ -195,7 +195,6 @@
             flex-direction: column;
             height: --card-height;
             width: --card-width;
-            min-width: 250px;
             padding: 1.5rem;
             margin: 20px;
             border-radius: 16px;
@@ -285,6 +284,24 @@
 
         }
 
+        /*----------Members Only Area----------*/
+        .membersonly {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .membersonly .button {
+            flex-direction: column;
+            height: --card-height;
+            width: --card-width;
+            padding: 1.5rem;
+            margin: 2px;
+            border-radius: 8px;
+            box-shadow: 0 0 4px #000000;
+            background-color: #0000ff;
+        }
+
+        /*----------Social Area----------*/
         .social {
             border-color: #000000;
             border-width: 2px 2px 0;
@@ -292,6 +309,7 @@
             margin-top: 20px;
         }
 
+        /*---------creadit area-------*/
         .credit {
             height: 100px;
         }
@@ -381,6 +399,10 @@
                 transition: opacity var(--transition-speed);
             }
 
+            .nav-link {
+                justify-content: right;
+            }
+
             article {
                 width: 250px;
             }
@@ -395,8 +417,8 @@
 
         async function generateCard() {
 
-            const url ='https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCPVvBjoprUsc008y9zGiBKw&maxResults=10&order=date&key=AIzaSyDPfRDUAbOkhJRcVsRABhppv9MSUhkfW0Q';
-           // const url = '/json';
+            const url = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCPVvBjoprUsc008y9zGiBKw&maxResults=10&order=date&key=AIzaSyDPfRDUAbOkhJRcVsRABhppv9MSUhkfW0Q';
+            // const url = '/json';
             fetch(url)
                 .then((resp) => resp.json())
                 .then((data) => {
@@ -577,7 +599,7 @@
             </li>
 
             <li class="nav-item" id="themeButton">
-                <a href="#" class="nav-link">
+                <a href="/Dashboard" class="nav-link">
                     <svg class="theme-icon" id="lightIcon" aria-hidden="true" focusable="false" data-prefix="fad"
                         data-icon="moon-stars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                         class="svg-inline--fa fa-moon-stars fa-w-16 fa-7x">
@@ -703,11 +725,12 @@
             </div>
         </div>
         <div class="leftcolumn">
-            <div class="card">
-                <div class="membersonly" style="height: 100px;">
-                    <h2>אזור זה הוא למשתמשים רשומים בלבד</h2>
-                </div>
+            <div class="membersonly" style="height: 100px;">
+                <div class="button 1"></div>
+                <div class="button 2"></div>
+                <div class="button 3"></div>
             </div>
+
             <div class="card">
                 <h2>השיעורים הנצפים ביותר</h2>
                 <div class="content" id="most-viewed" style="height: 100px;">
@@ -737,87 +760,3 @@
 </body>
 
 </html>
-
-
-<!-- <article class="card">
-                        <header class="card-header">
-                            <p class="video-topic">הלכה בהליכה</p>
-                            <div class="thumbnail">
-                                <a href="https://www.youtube.com/watch?v=55rovvAZ0xo">
-                                    <img src="https://i3.ytimg.com/vi/55rovvAZ0xo/maxresdefault.jpg"
-                                        class="thumbnail-image">
-                                </a>
-                                <p class="video-title">ספר תורה שנמצא בו טעות</p>
-                            </div>
-                        </header>
-                        <div class="card-speaker">
-                            <a href="#" class="speaker-avatar">
-                                <img src="IMG_9207.jpg">
-                            </a>
-                            <svg class="half-circle" viewBox="0 0 106 57">
-                                <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
-                            </svg>
-                            <div class="speaker-name">
-                                <div class="speaker-name-prefix">הרב</div>
-                                יצחק הלוי
-                            </div>
-                        </div>
-                        <div class="download-sikum">
-                            <p class="fa fa-file"></p><a href="#" class="sikum-link">הורדת סיכום</a>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <header class="card-header">
-                            <p class="video-topic">פרשת השבוע</p>
-                            <div class="thumbnail">
-                                <a href="https://www.youtube.com/watch?v=Nc4z-ANTnKU">
-                                    <img src="https://i3.ytimg.com/vi/Nc4z-ANTnKU/hqdefault.jpg"
-                                        class="thumbnail-image">
-                                </a>
-                                <p class="video-title">"ואלה שמות בני ישראל"- שם זה מהות והמתכון הסודי לגאולה</p>
-                            </div>
-                        </header>
-                        <div class="card-speaker">
-                            <a href="#" class="speaker-avatar">
-                                <img src="IMG_9207.jpg">
-                            </a>
-                            <svg class="half-circle" viewBox="0 0 106 57">
-                                <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
-                            </svg>
-                            <div class="speaker-name">
-                                <div class="speaker-name-prefix">הרב</div>
-                                שי גרין
-                            </div>
-                        </div>
-                        <div class="download-sikum">
-                            <p class="fa fa-file"></p><a href="#" class="sikum-link">הורדת סיכום</a>
-                        </div>
-                    </article>
-
-                    <article class="card">
-                        <header class="card-header">
-                            <p class="video-topic">רב אלוף</p>
-                            <div class="thumbnail">
-                                <a href="https://www.youtube.com/watch?v=GjwGowDxe9IU">
-                                    <img src="http://i3.ytimg.com/vi/GjwGowDxe9I/hqdefault.jpg" class="thumbnail-image">
-                                </a>
-                                <p class="video-title">שליחותו של משה</p>
-                            </div>
-                        </header>
-                        <div class="card-speaker">
-                            <a href="#" class="speaker-avatar">
-                                <img src="IMG_9207.jpg">
-                            </a>
-                            <svg class="half-circle" viewBox="0 0 106 57">
-                                <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
-                            </svg>
-                            <div class="speaker-name">
-                                <div class="speaker-name-prefix">הרב</div>
-                                מידן דריהם
-                            </div>
-                        </div>
-
-                        <div class="download-sikum">
-                            <p class="fa fa-file"></p><a href="#" class="sikum-link">הורדת סיכום</a>
-                        </div>
-                    </article>-->

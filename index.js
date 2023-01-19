@@ -25,9 +25,9 @@ app.use('/', express.static(path.join(__dirname, '/Static')))
 /*----------------Routes in the website--------------------*/
 
 app.use('/', require('./Routers/rootRouter'));
-//app.use('/Dashboard', require('./Routers/dashboardRouter'));
+app.use('/Dashboard', require('./Routers/dashboardRouter'));
 
-//app.use('/json', require('./Routers/youtubeRouter'))
+app.use('/json', require('./Routers/youtubeRouter'))
 
 app.all('*', (req, res) => {
     res.status(404)
