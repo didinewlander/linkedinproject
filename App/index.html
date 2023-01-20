@@ -16,8 +16,9 @@
             --bg-primary: #23232e;
             --bg-secondary: #141418;
             --transition-speed: 200ms;
-            --card-height: 4000px;
+            --card-height: 450px;
             --card-width: 250px;
+            --user-width: 100%;
         }
 
         * {
@@ -196,8 +197,8 @@
             display: flex;
             position: relative;
             flex-direction: column;
-            height: --card-height;
-            width: --card-width;
+            height: var(--card-height);
+            width: var(--card-width);
             padding: 1.5rem;
             margin: 20px;
             border-radius: 16px;
@@ -291,18 +292,53 @@
         .membersonly {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin:10px;
         }
 
         .membersonly .button {
+            width: var(--user-width);
+            font-weight: bold;
+            align-items: center;
+            background-color: #0276FF;
+            border-radius: 8px;
+            border-style: none;
+            box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+            box-sizing: border-box;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            flex-shrink: 0;
+            line-height: 1.15;
+            margin: 1px;
+            padding: 10px 21px;
+        }
+
+        .membersonly .button:active {
+            background-color: #006AE8;
+        }
+
+        .membersonly .button:hover {
+            background-color: #1C84FF;
+        }
+
+        /* 
+        .membersonly .button {
             flex-direction: column;
-            height: --card-height;
-            width: --card-width;
-            padding: 1.5rem;
+            height: var(--card-height);
+            width: var(--user-width);
             margin: 2px;
             border-radius: 8px;
             box-shadow: 0 0 4px #000000;
-            background-color: #0000ff;
-        }
+            background-color: #55c764;
+            text-size-adjust: 80%;
+            text-align: center;
+            text-anchor: middle;
+            font-weight: bold;
+        } */
+
 
         /*----------Social Area----------*/
         .social {
@@ -432,17 +468,12 @@
                         const imageLink = document.createElement('a');
                         const videoImage = document.createElement('img');
                         const videoTitle = document.createElement('p');
-
                         const speakerSection = document.createElement('div');
                         const speakerLink = document.createElement('a');
                         const speakerImage = document.createElement('img');
-                        //don't forget to write the link to the image in this tag
                         const speakerSVG = document.createElement('svg');
-                        //create path with innerHTML and  <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
                         const speakerName = document.createElement('div');
-                        // create name and prefix with innerHTML and  
                         const fileDownload = document.createElement('div');
-                        //if file exists then use innerHTML with   <p class="fa fa-file"></p><a href="#" class="sikum-link">הורדת סיכום</a>
 
                         article.setAttribute('class', 'card');
                         header.setAttribute('class', 'card-header')
@@ -458,7 +489,7 @@
                         fileDownload.setAttribute('class', 'download-sikum');
 
                         //header section
-                        titleArray = (video.title).split('|');
+                        titleArray = (video.title).split(/[|,-]+/);
                         videoTopic.innerText = titleArray[0];
                         header.appendChild(videoTopic);
                         //thumbnail section
@@ -471,9 +502,11 @@
                         article.appendChild(header);
 
                         //speaker section
+                        let prefix = titleArray[titleArray.length - 1].split(" ");
+                        let fullName = prefix.slice(2, prefix.length).join(" ");
                         //image section
                         speakerImage.setAttribute('src', "/images/IMG_9207.jpg"); //change to real images in future
-                        speakerLink.setAttribute('href', `/${titleArray.slice(0, titleArray.length)}}`) //will give the page with the speaker's videos
+                        speakerLink.setAttribute('href', `/${prefix.join('_')}}`) //will give the page with the speaker's videos
                         speakerLink.appendChild(speakerImage);
                         speakerSection.appendChild(speakerLink);
                         //svg section
@@ -482,20 +515,14 @@
                         speakerSVG.innerHTML = `
                         <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
                            `;
-                        //const path = document.createElement("path");
-                        //path.setAttribute('d',"M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4");
-                        //speakerSVG.appendChild(path);
                         speakerSection.appendChild(speakerSVG);
                         //name section
-                        let prefix = titleArray.slice(titleArray.length - 2, titleArray.length - 1);
-                        let fullName = titleArray.slice(0, titleArray.length);
-                        speakerName.innerHTML = `<div class="speaker-name-prefix">${prefix}</div>${fullName}`;
+                        speakerName.innerHTML = `<div class="speaker-name-prefix">${prefix[1]}</div>${fullName}`;
                         speakerSection.appendChild(speakerName);
                         article.appendChild(speakerSection);
                         // //final
                         document.getElementById("card-list content").appendChild(article);
                     }
-
                 });
         }
         window.onload = async () => {
@@ -728,9 +755,9 @@
         </div>
         <div class="leftcolumn">
             <div class="membersonly" style="height: 100px;">
-                <div class="button 1"></div>
-                <div class="button 2"></div>
-                <div class="button 3"></div>
+                <div class="button 1">להעלאת סיכום</div>
+                <div class="button 2">להמלצה על שיעור</div>
+                <div class="button 3">כניסת גבאים</div>
             </div>
 
             <div class="card">
