@@ -11,7 +11,7 @@ const users_connection = require('./Configs/userDB');
 const userRouter = require('./Routers/userRouter');
 const classRouter = require('./Routers/classRouter');
 const sikumRouter = require('./Routers/sikumRouter');
-
+const youtubeAPIRouter = require('./Routers/youtubeRouter');
 const userUri = process.env.USER_DB_CONNECTION;
 const classUri = process.env.CLASS_DB_CONNECTION;
 const sikumUri = process.env.SIKUM_DB_CONNECTION;
@@ -27,7 +27,7 @@ app.use('/', express.static(path.join(__dirname, '/Static')))
 app.use('/', require('./Routers/rootRouter'));
 app.use('/Dashboard', require('./Routers/dashboardRouter'));
 
-app.use('/json', require('./Routers/youtubeRouter'))
+app.use('/json', youtubeAPIRouter);
 
 app.all('*', (req, res) => {
     res.status(404)

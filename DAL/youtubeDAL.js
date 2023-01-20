@@ -1,11 +1,10 @@
 const axios = require('axios');
-//const fs = require('jsonfile');
-const file = '../Static/json/data.json';
+require('dotenv').config();
+
 const getAllVideos = () => {
     console.log("retrived api");
-    return axios.get("https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCPVvBjoprUsc008y9zGiBKw&maxResults=100&key=AIzaSyDPfRDUAbOkhJRcVsRABhppv9MSUhkfW0Q");
+    const url = process.env.YOUTUBE_KARNASH_LATEST_TEN;
+    return axios.get(url);
 };
-// const getJsonVideos = () => {
-//     return fs.readFile(file);
-// }
+
 module.exports = { getAllVideos };

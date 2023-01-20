@@ -1,10 +1,9 @@
 const youtubeWS = require('../DAL/youtubeDAL');
 
 const getAllVideos = async () => {
+  let { data } = await youtubeWS.getAllVideos();
   console.log("started working on items");
-  let { data: Items } = await youtubeWS.getAllVideos();
-
-  Items = Items.map((video) => {
+  const videosList = data.items.map((video) => {
     return {
       title: video.snippet.title,
       videoId: video.id.videoId,
@@ -12,12 +11,7 @@ const getAllVideos = async () => {
       date: video.snippet.publishTime,
     };
   });
-  console.log("all items prepared");
-  return Items;
+  console.log("items completed successfully");
+  return videosList;
 };
-
-const getJsonVideos = async () => {
-  const { items } = await youtubeWS.getJsonVideos();
-  return items;
-};
-module.exports = { getAllVideos, getJsonVideos };
+module.exports = { getAllVideos };//, getJsonVideos

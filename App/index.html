@@ -5,7 +5,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap');
+
         :root {
+
             font-size: 16px;
             font-family: 'Heebo';
             --text-primary: black;
@@ -417,12 +420,11 @@
 
         async function generateCard() {
 
-            const url = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCPVvBjoprUsc008y9zGiBKw&maxResults=10&order=date&key=AIzaSyDPfRDUAbOkhJRcVsRABhppv9MSUhkfW0Q';
             // const url = '/json';
-            fetch(url)
+            fetch('/json')
                 .then((resp) => resp.json())
                 .then((data) => {
-                    for (const video of data.items) {
+                    for (const video of data) {
                         const article = document.createElement('article');
                         const header = document.createElement('header');
                         const videoTopic = document.createElement('p');
@@ -456,12 +458,12 @@
                         fileDownload.setAttribute('class', 'download-sikum');
 
                         //header section
-                        titleArray = (video.snippet.title).split('|');
+                        titleArray = (video.title).split('|');
                         videoTopic.innerText = titleArray[0];
                         header.appendChild(videoTopic);
                         //thumbnail section
-                        videoImage.setAttribute('src', video.snippet.thumbnails.high.url); // the image itself
-                        imageLink.setAttribute('href', "https://www.youtube.com/watch?v=" + video.id.videoId); //link to video
+                        videoImage.setAttribute('src', video.imageLink); // the image itself
+                        imageLink.setAttribute('href', "https://www.youtube.com/watch?v=" + video.videoId); //link to video
                         //close header section
                         imageLink.appendChild(videoImage);
                         thumbnailDiv.appendChild(imageLink);
