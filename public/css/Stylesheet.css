@@ -40,7 +40,22 @@ body::-webkit-scrollbar-thumb {
 main {
     margin-right: 5rem;
 }
+.message {
+    box-shadow:  0 2px 10px rgba(0, 84, 186, 0.5);            
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    vertical-align: middle;
+    margin: 30px;
+    padding: 2rem;
+    color: var(--text-color);
 
+}
+.message a{
+    color:#000000;
+    text-decoration: none;
+}
 .navbar {
     position: fixed;
     background-color: var(--bg-primary);

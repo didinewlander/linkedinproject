@@ -1,7 +1,147 @@
 <html>
 
 <head>
-    <title>ממשק ניהול</title>
+    <title>ממשק הניהול</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="stylesheet" href="../css/Stylesheet.css"></link>
+    <script src="../js/javascript.js"></script>
+
 </head>
+
+<body dir="rtl">
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="logo">
+                <a href="/" class="nav-link">
+                    <span class="link-text logo-text">בימ"ד קרנ"ש</span>
+                    <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="angle-double-right"
+                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                        class="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x">
+                        <g class="fa-group">
+                            <path fill="currentColor"
+                                d="M224 273L88.37 409a23.78 23.78 0 0 1-33.8 0L32 386.36a23.94 23.94 0 0 1 0-33.89l96.13-96.37L32 159.73a23.94 23.94 0 0 1 0-33.89l22.44-22.79a23.78 23.78 0 0 1 33.8 0L223.88 239a23.94 23.94 0 0 1 .1 34z"
+                                class="fa-secondary"></path>
+                            <path fill="currentColor"
+                                d="M415.89 273L280.34 409a23.77 23.77 0 0 1-33.79 0L224 386.26a23.94 23.94 0 0 1 0-33.89L320.11 256l-96-96.47a23.94 23.94 0 0 1 0-33.89l22.52-22.59a23.77 23.77 0 0 1 33.79 0L416 239a24 24 0 0 1-.11 34z"
+                                class="fa-primary"></path>
+                        </g>
+                    </svg>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="collection" class="nav-link">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="cat" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                        class="svg-inline--fa fa-book fa-w-16 fa-9x">
+                        <g class="fa-group">
+                            <path fill="currentColor"
+                                d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"
+                                class="fa-secondary"></path>
+                            <path fill="currentColor"
+                                d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"
+                                class="fa-primary"></path>
+                        </g>
+                    </svg>
+                    <span class="link-text">מאגר השיעורים</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="live" class="nav-link">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="alien-monster" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                        class="svg-inline--fa fa-alien-monster fa-w-18 fa-9x">
+                        <g class="fa-group">
+
+                            <path fill="currentColor"
+                                d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V384c0 11.8-6.5 22.6-16.9 28.2s-23 5-32.9-1.6l-96-64L416 337.1V320 192 174.9l14.2-9.5 96-64c9.8-6.5 22.4-7.2 32.9-1.6z"
+                                class="fa-secondary"></path>
+                            <path fill="currentColor"
+                                d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V384c0 11.8-6.5 22.6-16.9 28.2s-23 5-32.9-1.6l-96-64L416 337.1V320 192 174.9l14.2-9.5 96-64c9.8-6.5 22.4-7.2 32.9-1.6z"
+                                class="fa-primary">
+                            </path>
+                        </g>
+                    </svg>
+                    <span class="link-text">שיעורים חיים</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="calender" class="nav-link">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="space-station-moon-alt"
+                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                        class="svg-inline--fa fa-space-station-moon-alt fa-w-16 fa-5x">
+                        <g class="fa-group">
+                            <path fill="currentColor"
+                                d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"
+                                class="fa-secondary"></path>
+                            <path fill="currentColor"
+                                d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"
+                                class="fa-primary"></path>
+                        </g>
+                    </svg>
+                    <span class="link-text">לוח שיעורים</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="search" class="nav-link">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="space-shuttle" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"
+                        class="svg-inline--fa fa-space-shuttle fa-w-20 fa-5x">
+                        <g class="fa-group">
+
+                            <path fill="currentColor"
+                                d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"
+                                class="fa-secondary"></path>
+                            <path fill="currentColor"
+                                d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"
+                                class="fa-primary"></path>
+                        </g>
+                    </svg>
+                    <span class="link-text">חיפוש שיעור</span>
+                </a>
+            </li>
+
+            <li class="nav-item" id="themeButton">
+                <a href="dashboard" class="nav-link">
+                    <svg class="theme-icon" id="lightIcon" aria-hidden="true" focusable="false" data-prefix="fad"
+                        data-icon="moon-stars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                        class="svg-inline--fa fa-moon-stars fa-w-16 fa-7x">
+                        <g class="fa-group">
+
+                            <path fill="currentColor"
+                                d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"
+                                class="fa-secondary"></path>
+                            <path fill="currentColor"
+                                d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"
+                                class="fa-primary"></path>
+                        </g>
+                    </svg>
+                    <span class="link-text">אזור אישי</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <div class="header" id="top-image">
+            <div class="titles">
+                ברוכים הבאים לאתר בית המדרש<br />
+                ישיבת ההסדר בקרני שומרון<br />
+                לאסוקי שמעתא - אליבא דהלכתא<br />
+            </div>
+        </div>
+       
+        <div class="rightcolumn">
+            <div class="message">
+                <h1>דף זה יסייע לנהל פה את העניינים</h1>
+                <p>כי בכל זאת, מה זה שווה שאין אזור שמיועד רק לגבאים?</p>
+                <h2><a href="/">חזרה לדף הבית</a></h2>
+            </div>
+        </div>
+    </main>
+</body>
 
 </html>

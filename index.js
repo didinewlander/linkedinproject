@@ -95,4 +95,5 @@ app.use((req, res) => {
     res.status(404).render('404.ejs');
 })
 
+app.use('/youtube',youtubeAPIRouter);
 app.listen(port, console.log(`listening to port ${port}`));

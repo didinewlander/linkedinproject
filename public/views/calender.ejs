@@ -5,83 +5,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="stylesheet" href="../css/Stylesheet.css"></link>
-    <script>
+    <script src="../js/javascript.js"></script>
 
-        async function generateCard() {
-
-            // const url = '/json';
-            fetch('/json')
-                .then((resp) => resp.json())
-                .then((data) => {
-                    for (const video of data) {
-                        const article = document.createElement('article');
-                        const header = document.createElement('header');
-                        const videoTopic = document.createElement('p');
-                        const thumbnailDiv = document.createElement('div');
-                        const imageLink = document.createElement('a');
-                        const videoImage = document.createElement('img');
-                        const videoTitle = document.createElement('p');
-                        const speakerSection = document.createElement('div');
-                        const speakerLink = document.createElement('a');
-                        const speakerImage = document.createElement('img');
-                        const speakerSVG = document.createElement('svg');
-                        const speakerName = document.createElement('div');
-                        const fileDownload = document.createElement('div');
-
-                        article.setAttribute('class', 'card');
-                        header.setAttribute('class', 'card-header')
-                        videoTopic.setAttribute('class', 'video-topic');
-                        thumbnailDiv.setAttribute('class', 'thumbnail');
-                        videoImage.setAttribute('class', 'thumbnail-image');
-                        videoTitle.setAttribute('class', 'video-title');
-
-                        speakerSection.setAttribute('class', 'card-speaker');
-                        speakerLink.setAttribute('class', 'speaker-avatar');
-                        speakerSVG.setAttribute('class', 'half-circle');
-                        speakerName.setAttribute('class', 'speaker-name');
-                        fileDownload.setAttribute('class', 'download-sikum');
-
-                        //header section
-                        titleArray = (video.title).split(/[|,-]+/);
-                        videoTopic.innerText = titleArray[0];
-                        header.appendChild(videoTopic);
-                        //thumbnail section
-                        videoImage.setAttribute('src', video.imageLink); // the image itself
-                        imageLink.setAttribute('href', "https://www.youtube.com/watch?v=" + video.videoId); //link to video
-                        //close header section
-                        imageLink.appendChild(videoImage);
-                        thumbnailDiv.appendChild(imageLink);
-                        header.appendChild(thumbnailDiv);
-                        article.appendChild(header);
-
-                        //speaker section
-                        let prefix = titleArray[titleArray.length - 1].split(" ");
-                        let fullName = prefix.slice(2, prefix.length).join(" ");
-                        //image section
-                        speakerImage.setAttribute('src', "/images/IMG_9207.jpg"); //change to real images in future
-                        speakerLink.setAttribute('href', `/${prefix.join('_')}}`) //will give the page with the speaker's videos
-                        speakerLink.appendChild(speakerImage);
-                        speakerSection.appendChild(speakerLink);
-                        //svg section
-                        speakerSVG.setAttribute('viewBox', "0 0 106 57");
-                        speakerSVG.setAttribute('class', "half-circle");
-                        speakerSVG.innerHTML = `
-                        <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
-                           `;
-                        speakerSection.appendChild(speakerSVG);
-                        //name section
-                        speakerName.innerHTML = `<div class="speaker-name-prefix">${prefix[1]}</div>${fullName}`;
-                        speakerSection.appendChild(speakerName);
-                        article.appendChild(speakerSection);
-                        // //final
-                        document.getElementById("card-list content").appendChild(article);
-                    }
-                });
-        }
-        window.onload = async () => {
-            generateCard();
-        };
-    </script>
 </head>
 
 <body dir="rtl">
@@ -208,138 +133,15 @@
                 לאסוקי שמעתא - אליבא דהלכתא<br />
             </div>
         </div>
-        <div class="search-bar">
-            <!--  place free text searchbar here-->
-        </div>
+       
         <div class="rightcolumn">
-            <div class="card">
-                <h2>גלריית השיעורים</h2>
-                <h5>כאן תוכלו לדפדף בין השיעורים המומלצים שלנו</h5>
-                <section class="card-list">
-                    <article class="card">
-                        <header class="card-header">
-                            <p class="video-topic">הלכה בהליכה</p>
-                            <div class="thumbnail">
-                                <a href="https://www.youtube.com/watch?v=55rovvAZ0xo">
-                                    <img src="https://i3.ytimg.com/vi/55rovvAZ0xo/maxresdefault.jpg"
-                                        class="thumbnail-image">
-                                </a>
-                                <p class="video-title">ספר תורה שנמצא בו טעות</p>
-                            </div>
-                        </header>
-                        <div class="card-speaker">
-                            <a href="#" class="speaker-avatar">
-                                <img src="/images/IMG_9207.jpg">
-                            </a>
-                            <svg class="half-circle" viewBox="0 0 106 57">
-                                <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
-                            </svg>
-                            <div class="speaker-name">
-                                <div class="speaker-name-prefix">הרב</div>
-                                יצחק הלוי
-                            </div>
-                        </div>
-                        <div class="download-sikum">
-                            <p class="fa fa-file"></p><a href="#" class="sikum-link">הורדת סיכום</a>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <header class="card-header">
-                            <p class="video-topic">פרשת השבוע</p>
-                            <div class="thumbnail">
-                                <a href="https://www.youtube.com/watch?v=Nc4z-ANTnKU">
-                                    <img src="https://i3.ytimg.com/vi/Nc4z-ANTnKU/hqdefault.jpg"
-                                        class="thumbnail-image">
-                                </a>
-                                <p class="video-title">"ואלה שמות בני ישראל"- שם זה מהות והמתכון הסודי לגאולה</p>
-                            </div>
-                        </header>
-                        <div class="card-speaker">
-                            <a href="#" class="speaker-avatar">
-                                <img src="/images/IMG_9207.jpg">
-                            </a>
-                            <svg class="half-circle" viewBox="0 0 106 57">
-                                <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
-                            </svg>
-                            <div class="speaker-name">
-                                <div class="speaker-name-prefix">הרב</div>
-                                שי גרין
-                            </div>
-                        </div>
-                        <div class="download-sikum">
-                            <p class="fa fa-file"></p><a href="#" class="sikum-link">הורדת סיכום</a>
-                        </div>
-                    </article>
-
-                    <article class="card">
-                        <header class="card-header">
-                            <p class="video-topic">רב אלוף</p>
-                            <div class="thumbnail">
-                                <a href="https://www.youtube.com/watch?v=GjwGowDxe9IU">
-                                    <img src="http://i3.ytimg.com/vi/GjwGowDxe9I/hqdefault.jpg" class="thumbnail-image">
-                                </a>
-                                <p class="video-title">שליחותו של משה</p>
-                            </div>
-                        </header>
-                        <div class="card-speaker">
-                            <a href="#" class="speaker-avatar">
-                                <img src="/images/IMG_9207.jpg">
-                            </a>
-                            <svg class="half-circle" viewBox="0 0 106 57">
-                                <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
-                            </svg>
-                            <div class="speaker-name">
-                                <div class="speaker-name-prefix">הרב</div>
-                                מידן דריהם
-                            </div>
-                        </div>
-
-                        <div class="download-sikum">
-                            <p class="fa fa-file"></p><a href="#" class="sikum-link">הורדת סיכום</a>
-                        </div>
-                    </article>
-                </section>
-            </div>
-            <div class="card">
-                <h2>שיעורים אחרונים</h2>
-                <section class="card-list content" id="card-list content">
-                </section>
+            <div class="message">
+                <h1>דף זה יחזיק לוח שיעורים</h1>
+                <p>כי מי לא אוהב להיות לו"זר (בקטע טוב כמובן)</p>
+                <h2><a href="/">חזרה לדף הבית</a></h2>
             </div>
         </div>
-        <div class="leftcolumn">
-            <div class="membersonly" style="height: 100px;">
-                <div class="button 1">להעלאת סיכום</div>
-                <div class="button 2">להמלצה על שיעור</div>
-                <div class="button 3">כניסת גבאים</div>
-            </div>
-
-            <div class="card">
-                <h2>השיעורים הנצפים ביותר</h2>
-                <div class="content" id="most-viewed" style="height: 100px;">
-                    <!--
-                        Three videos from youtube, Based on a card template to use across the main page
-                    -->
-                    <div class="class-card"></div>
-                    <div class="class-card"></div>
-                    <div class="class-card"></div>
-                </div>
-            </div>
-            <div class="social" style="height: 100px;">
-                <h3>צור קשר</h3>
-                <a href="tel:+97297929145" class="fa fa-phone"></a>
-                <a href="https://wa.me/972587929144" class="fa fa-whatsapp"></a>
-                <a href="https://www.facebook.com/YeshivatKarnash/" class="fa fa-facebook"></a>
-                <a href="https://www.youtube.com/@YeshivatKarnash" class="fa fa-youtube"></a>
-            </div>
-        </div>
-
     </main>
-
-
-    <div class="credit" style="height: 50px;">
-        <p>האתר נבנה על-ידי ידידיה נוילנדר ה'תשפ"ג 2023</p>
-    </div>
-
 </body>
 
 </html>
