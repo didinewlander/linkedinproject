@@ -73,14 +73,14 @@ app.use(passport.session());
 app.use(methodOverride('_method'));
 
 /*------ WEBSITE SETUP ------*/
-
-app.get('/', checkAuthenticated, (req, res) => {
+/* fix to - app.get('/', checkAuthenticated, (req, res)*/
+app.get('/', (req, res) => {
     console.log("opened")
     res.render('index.ejs', {isConnected: true, name: req.user.name });
     console.log("loaded")
 });
 
-
+/*
 app.get('/login', checkNotAuthenticated, (req, res) => {
     console.log("opened")
     res.render('index.ejs', {isConnected: false})
@@ -123,7 +123,7 @@ app.delete('/logout', (req, res, next) => {
         res.redirect('/login')
     })
 })
-
+*/
 app.all('*', (req, res) => {
     res.status(404)
     if (req.accepts('html')) {
