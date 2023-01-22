@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap');
+
 :root {
+
     font-size: 16px;
     font-family: 'Heebo';
     --text-primary: black;
@@ -6,8 +9,9 @@
     --bg-primary: #23232e;
     --bg-secondary: #141418;
     --transition-speed: 200ms;
-    --card-height: 4000px;
-    --card-width: 350px;
+    --card-height: 450px;
+    --card-width: 250px;
+    --user-width: 100%;
 }
 
 * {
@@ -42,7 +46,6 @@ main {
     background-color: var(--bg-primary);
     transition: width 200ms ease;
     z-index: 1;
-
 }
 
 .navbar-nav {
@@ -79,7 +82,8 @@ main {
 .nav-link:hover {
     filter: grayscale(0%) opacity(1);
     background: var(--bg-secondary);
-    color: white
+    color: white;
+
 }
 
 .link-text {
@@ -128,15 +132,15 @@ main {
 }
 
 .header {
-    height: 50%;
+    padding: 1rem;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .titles {
-    color: white;
-    font-size: 4vh;
+    color: rgb(52, 187, 93);
+    font-size: 30px;
     text-align: center;
     font-weight: bold;
     text-shadow: 2px 2px blue;
@@ -152,7 +156,7 @@ main {
     float: left;
     width: 25%;
 
-    padding: 5px;
+
 }
 
 .card-list.content .card {
@@ -165,7 +169,6 @@ main {
 
 .card-list {
     display: flex;
-    padding: 3rem;
     overflow: scroll;
 }
 
@@ -186,9 +189,8 @@ main {
     display: flex;
     position: relative;
     flex-direction: column;
-    height: --card-height;
-    width: --card-width;
-    min-width: 250px;
+    height: var(--card-height);
+    width: var(--card-width);
     padding: 1.5rem;
     margin: 20px;
     border-radius: 16px;
@@ -278,6 +280,59 @@ main {
 
 }
 
+/*----------Members Only Area----------*/
+.membersonly {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin:10px;
+}
+
+.membersonly .button {
+    width: var(--user-width);
+    font-weight: bold;
+    align-items: center;
+    background-color: #0276FF;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    line-height: 1.15;
+    margin: 1px;
+    padding: 10px 21px;
+}
+
+.membersonly .button:active {
+    background-color: #006AE8;
+}
+
+.membersonly .button:hover {
+    background-color: #1C84FF;
+}
+
+/* 
+.membersonly .button {
+    flex-direction: column;
+    height: var(--card-height);
+    width: var(--user-width);
+    margin: 2px;
+    border-radius: 8px;
+    box-shadow: 0 0 4px #000000;
+    background-color: #55c764;
+    text-size-adjust: 80%;
+    text-align: center;
+    text-anchor: middle;
+    font-weight: bold;
+} */
+
+
+/*----------Social Area----------*/
 .social {
     border-color: #000000;
     border-width: 2px 2px 0;
@@ -285,6 +340,7 @@ main {
     margin-top: 20px;
 }
 
+/*---------creadit area-------*/
 .credit {
     height: 100px;
 }
@@ -372,6 +428,10 @@ main {
     .navbar:hover .link-text {
         display: inline;
         transition: opacity var(--transition-speed);
+    }
+
+    .nav-link {
+        justify-content: right;
     }
 
     article {

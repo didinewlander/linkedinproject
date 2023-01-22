@@ -3,8 +3,6 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-// 
-const mongoose = require('mongoose');
 
 /*------ SECRET SETUP ------*/
 
@@ -44,7 +42,7 @@ function checkNotAuthenticated(req, res, next) {
     next()
 }*/
 /*------ DATABASE SETUP ------*/
-
+const mongoose = require('mongoose');
 const class_connection = require('./Configs/classDB');
 const sikumim_connection = require('./Configs/sikumDB');
 const users_connection = require('./Configs/userDB');
@@ -61,7 +59,10 @@ const youtubeAPIRouter = require('./Routers/youtubeRouter');
 /*------ EXPRESS APP SETUP ------*/
 
 const app = express();
+const port = 3000;
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'public/views'))
+
 app.set('view-engine', 'ejs');
 
 app.use(cors());
@@ -72,9 +73,26 @@ app.use(express.urlencoded({ extended: false }))
 
 // Home page
 app.get('/', (req, res) => {
-    res.render('index.ejs', { isConnected: true });
+    res.render('index.ejs');
 });
+
+app.get('/collection', (req, res) => {
+    res.render('collection.ejs');
+})
+app.get('/live', (req, res) => {
+    res.render('live.ejs');
+})
+app.get('/calender', (req, res) => {
+    res.render('calender.ejs');
+})
+app.get('/search', (req, res) => {
+    res.render('search.ejs');
+})
+app.get('/dashboard', (req, res) => {
+    res.render('dashboard.ejs');
+})
 app.use((req, res) => {
     res.status(404).render('404.ejs');
 })
-app.listen(3000);
+
+app.listen(port, console.log(`listening to port ${port}`));
