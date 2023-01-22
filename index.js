@@ -8,7 +8,7 @@ const passport = require('passport') // for authenticating
 const flash = require('express-flash') // for alerting in server
 const session = require('express-session') // for session
 const methodOverride = require('method-override') // for overriding post method from login
-const initializePassport = require('./passport-config') // for passport configuration
+const initializePassport = require('./Configs/passport-config') // for passport configuration
 
 /*------ SECRET SETUP ------*/
 
@@ -56,8 +56,8 @@ const youtubeAPIRouter = require('./Routers/youtubeRouter');
 /*------ EXPRESS APP SETUP ------*/
 
 const app = express();
-
-app.set('view-engine', 'ejs')
+app.set('views', path.join(__dirname, 'public/views'))
+app.set('view-engine', 'ejs');
 
 app.use(cors());
 app.use(express.json());
@@ -71,17 +71,21 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride('_method'));
-app.use('/', express.static(path.join(__dirname, '/public')))
 
 /*------ WEBSITE SETUP ------*/
 
 app.get('/', checkAuthenticated, (req, res) => {
-    res.render('index.ejs', { name: req.user.name });
+    console.log("opened")
+    res.render('index.ejs', {isConnected: true, name: req.user.name });
+    console.log("loaded")
 });
 
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
-    res.render('login.ejs')
+    console.log("opened")
+    res.render('index.ejs', {isConnected: false})
+    console.log("loaded")
+
 })
 
 app.post('login', passport.authenticate('local', {
@@ -90,10 +94,35 @@ app.post('login', passport.authenticate('local', {
     failureMessage: true,
     failureMessage: "Username Don't exist"
 }))
-// app.use('/', require('./Routers/rootRouter'));
-// app.use('/Dashboard', require('./Routers/dashboardRouter'));
 
-// app.use('/json', youtubeAPIRouter);
+app.get('/register', (req, res) => {
+    res.render('register.ejs');
+})
+
+app.post('/register', async (req, res) => {
+    try {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        users.push({
+            id: Date.now().toString(),
+            name: req.body.name,
+            email: req.body.email,
+            password: hashedPassword
+        });
+
+        res.redirect('/login');
+    }
+    catch { res.redirect('/register') }
+    console.log(users)
+})
+
+app.delete('/logout', (req, res, next) => {
+    req.logOut((err) => {
+        if (err) {
+            return next(err);
+        }
+        res.redirect('/login')
+    })
+})
 
 app.all('*', (req, res) => {
     res.status(404)
