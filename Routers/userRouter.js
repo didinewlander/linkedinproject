@@ -12,10 +12,10 @@ router.route('/').get(async (req, res) => {
     }
 })
 
-router.route('/:id').get(async (req, res) => {
+router.route('/:name').get(async (req, res) => {
     try {
-        const { id } = req.params;
-        const user = await userBL.getUserById(id);
+        const { name } = req.params;
+        const user = await userBL.getUsersByName(name);
         res.json(user);
     } catch (error) {
         res.json(error);
@@ -24,6 +24,22 @@ router.route('/:id').get(async (req, res) => {
 
 router.route('/').post(async (req, res) => {
     try {
+
+        try {
+            const hashedPassword = await bcrypt.hash(req.body.password, 10);
+            const userCreate = {
+                userName: req.body.name,
+                userEmail: req.body.email,
+                userHashedPassword: hashedPassword
+            }
+            userRouter.post(userCreate);
+            res.redirect('/login');
+        }
+        catch (e) {
+            console.log(e);
+            //res.redirect('/register') 
+        }
+        console.log(users)
         const userOBJ = req.body;
         const result = await userBL.createUser(userOBJ);
         res.json(result);

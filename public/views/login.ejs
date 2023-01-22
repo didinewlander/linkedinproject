@@ -1,1 +1,26 @@
-hello
+<html>
+
+<head>
+    <title>התחברות לאתר הישיבה</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+</head>
+
+<body dir="rtl">
+    <form action="/login" method="POST">
+        <div>
+            <label for="email">כתובת מייל:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="password">סיסמה:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+    </form>
+    <button type="submit">התחברות</button>
+    <div class="register">
+        <h3>אין לך חשבון? <a href="/register">להרשמה לאתר</a></h3>
+    </div>
+</body>
+
+</html>

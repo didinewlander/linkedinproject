@@ -6,7 +6,8 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema(
     {
         userName: String,
-        userLink: String
+        userEmail: String,
+        userHashedPassword: String
     },
     { versionKey: false }
 );

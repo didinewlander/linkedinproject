@@ -1,37 +1,30 @@
-const User = require('../Models/userModel')
+const user = require('../Models/userModel');
 
-// REST API Functions
+const getAllUsers = () => { return user.find({}) };
 
-// GET - Get a user - READ
-const getAllUsers = () => { return User.find({}) };
+const getUsersByName = (_name) => { return user.find({userName: _name})};
 
-// GET - Get by id - READ
-const getUserByID = (id) => { return User.find({ _id: id }) };
-
-// POST - Create a new user query
-const createUser = async (obj) => {
-    const newUser = new User(obj);
+const createUser =async(obj)=>{
+    const newUser = new user(obj);
     await newUser.save();
-    console.log("Created a new user query");
-    return "Created a new user query";
-};
+    console.log("created new user");
+    return "New user created";
+}
 
-// PUT - Update a user
-const updateUser = async (id, obj) => {
-    await User.findByIdAndUpdate(id, obj);
-    return "Updated the user query";
-};
+const updateUser = async(id, obj)=>{
+    await user.findByIdAndUpdate(id, obj);
+    return "User updated";
+}
 
-// DELETE - Delete a user
-const deleteUser = async (id) => {
-    await User.findByIdAndDelete(id);
-    return "Deleted the user query";
-};
+const deleteUser = async(id)=>{
+await user.findByIdAndDelete(id);
+return "User deleted";
+}
 
 module.exports = {
     createUser,
     getAllUsers,
-    getUserByID,
+    getUsersByName,
     updateUser,
     deleteUser
 };
