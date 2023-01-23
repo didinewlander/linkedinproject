@@ -1,6 +1,4 @@
 async function generateCard() {
-
-
     fetch('/youtube')
         .then((resp) => resp.json())
         .then((data) => {

@@ -305,7 +305,6 @@ main {
 }
 
 .membersonly .button {
-    width: var(--user-width);
     font-weight: bold;
     align-items: center;
     background-color: #0276FF;
@@ -358,6 +357,8 @@ main {
 /*---------creadit area-------*/
 .credit {
     height: 100px;
+    text-align: center;
+    padding:10px;
 }
 
 .fa {
