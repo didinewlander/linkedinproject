@@ -92,9 +92,9 @@ app.get('/dashboard', (req, res) => {
     res.render('dashboard.ejs');
 })
 app.use('/youtube', require('./Routers/youtubeRouter'));
+
 app.use((req, res) => {
     res.status(404).render('404.ejs');
 })
-
 
 app.listen(port, console.log(`listening to port ${port}`));

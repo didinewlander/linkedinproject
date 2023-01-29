@@ -4,9 +4,53 @@
     <title>ישיבת ההסדר קרני שומרון</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <link rel="stylesheet" href="../css/Stylesheet.css"></link>
+    <link rel="stylesheet" href="../css/Stylesheet.css">
+    </link>
     <script src="../js/javascript.js"></script>
+<style>
 
+    .header {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.header-img {
+    width: 200px;
+    height: 110px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-fit: cover;
+    margin-right: 1rem;
+    flex-shrink: 1rem;
+}
+
+.skeleton {
+    opacity: .7;
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton-text {
+    width: 100%;
+    height: .5rem;
+    margin-bottom: .25rem;
+    border-radius: .125rem;
+}
+.skeleton-text:last-child{
+    margin-bottom: 0;
+    width:80%;
+}
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsl(200, 20%, 70%);
+    }
+
+    100% {
+        background-color: hsl(200, 20%, 95%);
+    }
+}
+
+</style>
 </head>
 
 <body dir="rtl">
@@ -128,19 +172,40 @@
     <main>
         <div class="header" id="top-image">
             <div class="titles">
-                ברוכים הבאים לאתר בית המדרש<br />
-                ישיבת ההסדר בקרני שומרון<br />
-                לאסוקי שמעתא - אליבא דהלכתא<br />
+                מאגר השיעורים<br />
             </div>
         </div>
-        <div class="rightcolumn">
+        <div class="rightcolumn" style=" margin-right: 5rem;">
+
             <div class="message">
                 <h1>דף זה הוא ארכיון השיעורים</h1>
                 <p>אבל אם יגעת ועוד לא מצאת - למה לא להאמין?</p>
                 <h2><a href="/">חזרה לדף הבית</a></h2>
             </div>
+            <div class="collection card" id="collection-card1">
+                <div class="header">
+                    <img src="" class="header-img skeleton">
+                    <div class="title" data-title>
+                        <div class="skeleton skeleton-text"></div>
+                        <div class="skeleton skeleton-text"></div>
+                    </div>
+                </div>
+                <div data-body>
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text"></div>
+                </div>
+            </div>
+            <div class="collection card" id="collection-card2"></div>
+            <div class="collection card" id="collection-card3"></div>
+            <div class="collection card" id="collection-card4"></div>
+            <div class="collection card" id="collection-card5"></div>
+            <div class="collection card" id="collection-card6"></div>
+            <div class="collection card" id="collection-card7"></div>
+            <div class="collection card" id="collection-card8"></div>
         </div>
-       
+
         </div>
 
     </main>

@@ -37,6 +37,7 @@ async function generateCard() {
                 //thumbnail section
                 videoImage.setAttribute('src', video.imageLink); // the image itself
                 imageLink.setAttribute('href', "https://www.youtube.com/watch?v=" + video.videoId); //link to video
+                imageLink.setAttribute('target', '_blank');
                 //close header section
                 imageLink.appendChild(videoImage);
                 thumbnailDiv.appendChild(imageLink);

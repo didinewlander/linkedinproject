@@ -9,7 +9,7 @@
     --bg-primary: #23232e;
     --bg-secondary: #141418;
     --transition-speed: 200ms;
-    --card-height: 450px;
+    --card-height: 350px;
     --card-width: 250px;
     --user-width: 100%;
 }
@@ -40,8 +40,9 @@ body::-webkit-scrollbar-thumb {
 main {
     margin-right: 5rem;
 }
+
 .message {
-    box-shadow:  0 2px 10px rgba(0, 84, 186, 0.5);            
+    box-shadow: 0 2px 10px rgba(0, 84, 186, 0.5);
     text-align: center;
     align-items: center;
     align-content: center;
@@ -52,10 +53,12 @@ main {
     color: var(--text-color);
 
 }
-.message a{
-    color:#000000;
+
+.message a {
+    color: #000000;
     text-decoration: none;
 }
+
 .navbar {
     position: fixed;
     background-color: var(--bg-primary);
@@ -185,6 +188,7 @@ main {
 .card-list {
     display: flex;
     overflow: scroll;
+
 }
 
 .card-list::-webkit-scrollbar {
@@ -206,8 +210,9 @@ main {
     flex-direction: column;
     height: var(--card-height);
     width: var(--card-width);
-    padding: 1.5rem;
-    margin: 20px;
+    padding: 1rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
     border-radius: 16px;
     background: #ffffff;
     box-shadow: .2rem 0 2rem rgb(200, 200, 200);
@@ -219,16 +224,11 @@ main {
 }
 
 .card-list .card:hover~.card {
-    transform: translateX(-130px);
-}
-
-.card-list .card:not(:first-child) {
-    margin-right: -130px;
+    transform: translateX(-10px);
 }
 
 .video-title {
     word-wrap: break-word;
-
 }
 
 .thumbnail-image {
@@ -246,16 +246,15 @@ main {
     text-decoration: none;
     color: #000000;
     font-weight: bold;
-    ;
 }
 
 .card {
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .card-speaker {
-    position: relative;
+    position: absolute;
     display: grid;
     bottom: 0px;
     grid-template-columns: 80px 1fr;
@@ -295,13 +294,15 @@ main {
 
 }
 
+/*----------Video Collection----------*/
+
 /*----------Members Only Area----------*/
 .membersonly {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin:10px;
+    margin: 10px;
 }
 
 .membersonly .button {
@@ -358,7 +359,7 @@ main {
 .credit {
     height: 100px;
     text-align: center;
-    padding:10px;
+    padding: 10px;
 }
 
 .fa {
