@@ -6,8 +6,11 @@ const router = express.Router();
 router.route('/').get(async (req, res) => {
     console.log("arrived at playlists");
     const playlists = await youtubeBL.getLatestPlaylists();
-    console.log("playlists are complete");
-    res.json(playlists);
+    res.json(() => {
+        console.log(playlists.json());
+        return playlists;
+    })
 });
+
 
 module.exports = router;

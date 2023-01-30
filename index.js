@@ -61,14 +61,14 @@ const youtubeAPIRouter = require('./Routers/youtubeRouter');
 const app = express();
 const port = 3000;
 app.use(express.static(path.join(__dirname, 'public')));
-app.set('views', path.join(__dirname, 'public/views'))
-
+app.set('views', path.join(__dirname, 'public/views'));
+app.set('json', path.join(__dirname, 'public/json'));
 app.set('view-engine', 'ejs');
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
-
+app.locals.serverStatus = "Good";
 /*------ WEBSITE SETUP ------*/
 
 // Home page
@@ -77,7 +77,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/collection', (req, res) => {
-    res.render('collection.ejs');
+    res.render('collection.ejs', serverStatus);
 })
 app.get('/live', (req, res) => {
     res.render('live.ejs');
@@ -94,7 +94,6 @@ app.get('/dashboard', (req, res) => {
 app.use('/youtube', require('./Routers/youtubeRouter'));
 
 app.use('/playlists', require('./Routers/playlistRouter'));
-
 app.use((req, res) => {
     res.status(404).render('404.ejs');
 })

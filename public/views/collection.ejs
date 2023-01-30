@@ -15,6 +15,11 @@
             --collapsed-card-height: 170px;
         }
 
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
         /*------------Page Title------------*/
 
         .page-header {
@@ -115,6 +120,7 @@
         /*--Speaker Design--*/
         .speaker {
             display: grid;
+            width: 80%
         }
 
         .speaker-img {
@@ -195,17 +201,26 @@
                 justify-content: center;
                 margin: 0 auto;
             }
+
             .grid {
-            display: flexbox;
-            align-items: center;
+                display: flexbox;
+                align-items: center;
                 align-content: center;
                 justify-content: center;
                 margin: 0 auto;
-            gap: 1rem;
-            grid-template-columns: none;
-            padding: 1rem;
-        }
+                gap: 1rem;
+                grid-template-columns: none;
+                padding: 1rem;
+            }
 
+            .collection .card {
+                width: 30rem;
+            }
+
+            .header-img {
+                width: 25rem;
+                aspect-ratio: 16/9;
+            }
         }
     </style>
 </head>
@@ -351,12 +366,6 @@
                     <ion-icon name="chevron-down"></ion-icon>
                     <!-- Wait for title fix update launch and fix here-->
                 </div>
-                <!-- <div data-body>
-                    <div class="skeleton skeleton-text"></div>
-                    <div class="skeleton skeleton-text"></div>
-                    <div class="skeleton skeleton-text"></div>
-                    <div class="skeleton skeleton-text"></div>
-                </div> -->
                 <div class="speaker">
                     <a href="" target="_blank" speakerLink><img src="" class="speaker-img skeleton" speakerThumbnail>
                         <div class="skeleton skeleton-text" id="speaker-name" speakerName></div>
@@ -370,6 +379,7 @@
     <script>
         const grid = document.querySelector('.grid');
         const cardTemplate = document.getElementById('collection-card')
+
         for (let i = 0; i < 10; i++) {
             const newObject = cardTemplate.cloneNode(true);
             newObject.id = `${newObject.id}-${i}`;
@@ -380,22 +390,34 @@
         fetch("/playlists")
             .then(res => res.json())
             .then(playlists => {
+                console.log(playlists)
                 grid.innerHTML = ''
-                for (let i = 0; i < playlists.length; i++) {
-                    const playlist = playlists[i];
-                    const div = cardTemplate.cloneNode(true);
-                    const textSet = playlist.playlistTitle.split(/[|,-]+/);
-                    console.log(textSet);
-                    div.id = `${div.id}-${i}`;
-                    div.children[2].className = `expand num${i}`;
-                    div.querySelector('[videoLink]').href = `https://www.youtube.com/playlist?list=${playlist.playlistID}`;
-                    div.querySelector('[speakerLink]').href = `/${textSet[1]}`;
-                    div.querySelector('[speakerName]').textContent = `${textSet[1]}`;
-                    div.querySelector('[data-title]').textContent = textSet[0];
-                    //div.querySelector('[data-body]').textContent = playlist.playlistReleaseDate;
-                    div.querySelector('[videoThumbnail]').src = playlist.playlistImageLink;
-                    div.querySelector('[speakerThumbnail]').src = `/image/${textSet[1]}`;
-                    grid.append(div)
+                try {
+                    for (let i = 0; i < playlists.length; i++) {
+                        const playlist = playlists[i];
+                        const div = cardTemplate.cloneNode(true);
+                        const regexString = /[|,-]+/
+                        const textSet = playlist.playlistTitle.split(regexString);
+                        div.id = `${div.id}-${i}`;
+                        div.children[2].className = `expand num${i}`;
+
+                        div.querySelector('[videoLink]').href = `https://www.youtube.com/playlist?list=${playlist.playlistID}`;
+                        div.querySelector('[speakerLink]').href = `/${textSet[1]}`;
+                        div.querySelector('[speakerName]').textContent = `${textSet[1]}`;
+                        div.querySelector('[data-title]').textContent = textSet[0];
+                        //div.querySelector('[data-body]').textContent = playlist.playlistReleaseDate;
+                        div.querySelector('[videoThumbnail]').src = playlist.playlistImageLink;
+                        div.querySelector('[speakerThumbnail]').src = `/image/${textSet[1]}`;
+                        grid.append(div)
+                    }
+                } catch (error) {
+                    alert('שגיאת שרת. נא לנסות שוב במועד מאוחר יותר');
+                    cardTemplate.querySelector('[videoLink]').href = `https://www.youtube.com/watch?v=BmTk1qpldyo`;
+                    cardTemplate.querySelector('[speakerLink]').href = `/404`;
+                    cardTemplate.querySelector('[speakerName]').textContent = `אין סרטון`;
+                    cardTemplate.querySelector('[data-title]').textContent = 'אין סרטון';
+                    cardTemplate.querySelector('[videoThumbnail]').src = "https://w7.pngwing.com/pngs/694/87/png-transparent-page-not-found-illustration-thumbnail.png";
+                    cardTemplate.querySelector('[speakerThumbnail]').src = `/404`;
                 }
             })
         function expandCard(obj) {
