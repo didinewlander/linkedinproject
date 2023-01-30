@@ -160,6 +160,53 @@
                 background-color: hsl(200, 20%, 95%);
             }
         }
+
+        /*------ Small Screen display */
+        @media only screen and (max-width:760px) {
+
+            .rightcolumn,
+            .leftcolumn {
+                width: 100%;
+            }
+
+            .navbar {
+                bottom: 0;
+                width: 100vw;
+                height: 5rem;
+
+            }
+
+            svg {
+                width: 6vw;
+            }
+
+            .logo {
+                display: none;
+
+            }
+
+            .navbar-nav {
+                flex-direction: row;
+            }
+
+            main {
+                align-items: center;
+                align-content: center;
+                justify-content: center;
+                margin: 0 auto;
+            }
+            .grid {
+            display: flexbox;
+            align-items: center;
+                align-content: center;
+                justify-content: center;
+                margin: 0 auto;
+            gap: 1rem;
+            grid-template-columns: none;
+            padding: 1rem;
+        }
+
+        }
     </style>
 </head>
 
@@ -296,23 +343,27 @@
                     <div class="skeleton skeleton-text"></div>
                 </div>
                 <div class="header">
-                    <img src="" class="header-img skeleton">
+                    <a href="" target="_blank" videoLink>
+                        <img src="" class="header-img skeleton" videoThumbnail>
+                    </a>
                 </div>
                 <div class="expand" id="expand" onclick="expandCard(this)">
                     <ion-icon name="chevron-down"></ion-icon>
-<!-- Wait for title fix update launch and fix here-->
+                    <!-- Wait for title fix update launch and fix here-->
                 </div>
-                <div data-body>
+                <!-- <div data-body>
                     <div class="skeleton skeleton-text"></div>
                     <div class="skeleton skeleton-text"></div>
                     <div class="skeleton skeleton-text"></div>
                     <div class="skeleton skeleton-text"></div>
-                </div>
+                </div> -->
                 <div class="speaker">
-                    <div class="skeleton skeleton-text" id="speaker-name"></div>
-                    <img src="" class="speaker-img skeleton">
+                    <a href="" target="_blank" speakerLink><img src="" class="speaker-img skeleton" speakerThumbnail>
+                        <div class="skeleton skeleton-text" id="speaker-name" speakerName></div>
+                    </a>
                 </div>
             </div>
+        </div>
         </div>
         </div>
     </main>
@@ -326,6 +377,27 @@
             newObject.children[2].className = `expand num${i}`;
             grid.append(newObject);
         }
+        fetch("/playlists")
+            .then(res => res.json())
+            .then(playlists => {
+                grid.innerHTML = ''
+                for (let i = 0; i < playlists.length; i++) {
+                    const playlist = playlists[i];
+                    const div = cardTemplate.cloneNode(true);
+                    const textSet = playlist.playlistTitle.split(/[|,-]+/);
+                    console.log(textSet);
+                    div.id = `${div.id}-${i}`;
+                    div.children[2].className = `expand num${i}`;
+                    div.querySelector('[videoLink]').href = `https://www.youtube.com/playlist?list=${playlist.playlistID}`;
+                    div.querySelector('[speakerLink]').href = `/${textSet[1]}`;
+                    div.querySelector('[speakerName]').textContent = `${textSet[1]}`;
+                    div.querySelector('[data-title]').textContent = textSet[0];
+                    //div.querySelector('[data-body]').textContent = playlist.playlistReleaseDate;
+                    div.querySelector('[videoThumbnail]').src = playlist.playlistImageLink;
+                    div.querySelector('[speakerThumbnail]').src = `/image/${textSet[1]}`;
+                    grid.append(div)
+                }
+            })
         function expandCard(obj) {
             obj.parentElement.classList.toggle("active");
         }
@@ -334,7 +406,6 @@
         cardExpand.onclick = () => {
             card.classList.toggle("active");
         };
-
     </script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

@@ -14,4 +14,19 @@ const getAllVideos = async () => {
   console.log("items completed successfully");
   return videosList;
 };
-module.exports = { getAllVideos };//, getJsonVideos
+
+const getLatestPlaylists = async () => {
+  let { data } = await youtubeWS.getLatestPlaylists();
+  console.log("started working on playlists");
+  const videosList = data.items.map((playlist) => {
+    return {
+      playlistID: playlist.id,
+      playlistTitle: playlist.snippet.title,
+      playlistImageLink: playlist.snippet.thumbnails.high.url,
+      playlistReleaseDate: playlist.snippet.publishedAt
+    };
+  });
+  console.log("playlists completed successfully");
+  return videosList;
+};
+module.exports = { getAllVideos, getLatestPlaylists };//, getJsonVideos
