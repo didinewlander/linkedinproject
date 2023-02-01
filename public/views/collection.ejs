@@ -11,8 +11,8 @@
     <style>
         :root {
             --card-width: 240px;
-            --card-height: 300px;
-            --collapsed-card-height: 170px;
+            --card-height: 270px;
+            --collapsed-card-height: 180px;
         }
 
         a {
@@ -113,7 +113,7 @@
 
         .card.active {
             height: var(--card-height);
-            box-shadow: 0px 0px 8px hsl(0, 0%, 80%);
+            box-shadow: 0px 0px 5px hsl(0, 0%, 80%);
             border-bottom: 0px solid hsl(0, 0%, 75%);
         }
 
@@ -141,7 +141,7 @@
         /*------------Loading Skeleton------------*/
 
         .skeleton {
-            opacity: .7;
+            opacity: 1;
             animation: skeleton-loading 1s linear infinite alternate;
         }
 
@@ -347,9 +347,7 @@
                 מאגר השיעורים<br />
             </div>
         </div>
-        <div class="tags">
-
-        </div>
+        <div class="tags"> </div>
 
         <div class="collection">
             <div class="grid"></div>
@@ -364,61 +362,42 @@
                 </div>
                 <div class="expand" id="expand" onclick="expandCard(this)">
                     <ion-icon name="chevron-down"></ion-icon>
-                    <!-- Wait for title fix update launch and fix here-->
                 </div>
                 <div class="speaker">
-                    <a href="" target="_blank" speakerLink><img src="" class="speaker-img skeleton" speakerThumbnail>
-                        <div class="skeleton skeleton-text" id="speaker-name" speakerName></div>
+                    <a href="" target="_blank" speakerLink> לעוד שיעורים של
+                        <div class="lowerName" style="font-weight: bold;" speakerName>
+                            <div class="skeleton skeleton-text" id="speaker-name"></div>
+                        </div>
                     </a>
                 </div>
             </div>
-        </div>
-        </div>
         </div>
     </main>
     <script>
         const grid = document.querySelector('.grid');
         const cardTemplate = document.getElementById('collection-card')
-
-        for (let i = 0; i < 10; i++) {
-            const newObject = cardTemplate.cloneNode(true);
-            newObject.id = `${newObject.id}-${i}`;
-
-            newObject.children[2].className = `expand num${i}`;
-            grid.append(newObject);
-        }
         fetch("/playlists")
             .then(res => res.json())
             .then(playlists => {
-                console.log(playlists)
                 grid.innerHTML = ''
-                try {
-                    for (let i = 0; i < playlists.length; i++) {
-                        const playlist = playlists[i];
-                        const div = cardTemplate.cloneNode(true);
-                        const regexString = /[|,-]+/
-                        const textSet = playlist.playlistTitle.split(regexString);
-                        div.id = `${div.id}-${i}`;
-                        div.children[2].className = `expand num${i}`;
-
-                        div.querySelector('[videoLink]').href = `https://www.youtube.com/playlist?list=${playlist.playlistID}`;
-                        div.querySelector('[speakerLink]').href = `/${textSet[1]}`;
-                        div.querySelector('[speakerName]').textContent = `${textSet[1]}`;
-                        div.querySelector('[data-title]').textContent = textSet[0];
-                        //div.querySelector('[data-body]').textContent = playlist.playlistReleaseDate;
-                        div.querySelector('[videoThumbnail]').src = playlist.playlistImageLink;
-                        div.querySelector('[speakerThumbnail]').src = `/image/${textSet[1]}`;
-                        grid.append(div)
-                    }
-                } catch (error) {
-                    alert('שגיאת שרת. נא לנסות שוב במועד מאוחר יותר');
-                    cardTemplate.querySelector('[videoLink]').href = `https://www.youtube.com/watch?v=BmTk1qpldyo`;
-                    cardTemplate.querySelector('[speakerLink]').href = `/404`;
-                    cardTemplate.querySelector('[speakerName]').textContent = `אין סרטון`;
-                    cardTemplate.querySelector('[data-title]').textContent = 'אין סרטון';
-                    cardTemplate.querySelector('[videoThumbnail]').src = "https://w7.pngwing.com/pngs/694/87/png-transparent-page-not-found-illustration-thumbnail.png";
-                    cardTemplate.querySelector('[speakerThumbnail]').src = `/404`;
+                for (let i = 0; i < playlists.length; i++) {
+                    const playlist = playlists[i];
+                    const div = cardTemplate.cloneNode(true);
+                    const regexString = /[|,-]+/
+                    const textSet = playlist.playlistTitle.split(regexString);
+                    div.id = `${div.id}-${i}`;
+                    div.children[2].className = `expand num${i}`;
+                    div.querySelector('[videoLink]').href = `https://www.youtube.com/playlist?list=${playlist.playlistID}`;
+                    div.querySelector('[speakerLink]').href = `/${playlist.speakerName}`;
+                    div.querySelector('[speakerName]').textContent = playlist.speakerName;
+                    div.querySelector('[speakerName]').className = 'title';
+                    div.querySelector('[data-title]').textContent = textSet[0];
+                    div.querySelector('[videoThumbnail]').src = playlist.playlistImageLink;
+                    //   div.querySelector('[speakerThumbnail]').src = playlist.speakerImgUrl;
+                    grid.append(div)
                 }
+                cardTemplate.innerText = '';
+                cardTemplate.className = ''
             })
         function expandCard(obj) {
             obj.parentElement.classList.toggle("active");

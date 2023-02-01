@@ -68,7 +68,7 @@ app.set('view-engine', 'ejs');
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
-app.locals.serverStatus = "Good";
+
 /*------ WEBSITE SETUP ------*/
 
 // Home page
@@ -77,7 +77,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/collection', (req, res) => {
-    res.render('collection.ejs', serverStatus);
+    res.render('collection.ejs');
 })
 app.get('/live', (req, res) => {
     res.render('live.ejs');
@@ -92,8 +92,10 @@ app.get('/dashboard', (req, res) => {
     res.render('dashboard.ejs');
 })
 app.use('/youtube', require('./Routers/youtubeRouter'));
+app.use('/mostviewed', require('./Routers/mostviewedRouter'));
 
 app.use('/playlists', require('./Routers/playlistRouter'));
+
 app.use((req, res) => {
     res.status(404).render('404.ejs');
 })

@@ -6,7 +6,6 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="stylesheet" href="../css/Stylesheet.css">
     </link>
-    <script src="../js/javascript.js"></script>
 
 </head>
 
@@ -139,90 +138,58 @@
         </div>
         <div class="rightcolumn">
             <div class="card">
-                <h2>גלריית השיעורים</h2>
-                <h5>כאן תוכלו לדפדף בין השיעורים המומלצים שלנו</h5>
-                <section class="card-list">
-                    <article class="card">
-                        <header class="card-header">
-                            <p class="video-topic">הלכה בהליכה</p>
-                            <div class="thumbnail">
-                                <a href="https://www.youtube.com/watch?v=55rovvAZ0xo" target="_blank">
-                                    <img src="https://i3.ytimg.com/vi/55rovvAZ0xo/maxresdefault.jpg"
-                                        class="thumbnail-image">
-                                </a>
-                                <p class="video-title">ספר תורה שנמצא בו טעות</p>
-                            </div>
-                        </header>
-                        <div class="card-speaker">
-                            <a href="#" class="speaker-avatar">
-                                <img src="/images/IMG_9207.jpg">
-                            </a>
-                            <svg class="half-circle" viewBox="0 0 106 57">
-                                <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
-                            </svg>
-                            <div class="speaker-name">
-                                <div class="speaker-name-prefix">הרב</div>
-                                יצחק הלוי
-                            </div>
+                <h2>שיעורים אחרונים מבית המדרש</h2>
+                <div class="collection">
+                    <div class="grid-latest"></div>
+                    <div class="collection card" id="collection-card-most">
+                        <div class="title" data-title>
+                            <div class="skeleton skeleton-text"></div>
                         </div>
-
-                    </article>
-                    <article class="card">
-                        <header class="card-header">
-                            <p class="video-topic">פרשת השבוע</p>
-                            <div class="thumbnail">
-                                <a href="https://www.youtube.com/watch?v=Nc4z-ANTnKU" target="_blank">
-                                    <img src="https://i3.ytimg.com/vi/Nc4z-ANTnKU/hqdefault.jpg"
-                                        class="thumbnail-image">
-                                </a>
-                                <p class="video-title">"ואלה שמות בני ישראל"- שם זה מהות והמתכון הסודי לגאולה</p>
-                            </div>
-                        </header>
-                        <div class="card-speaker">
-                            <a href="#" class="speaker-avatar">
-                                <img src="/images/IMG_9207.jpg">
+                        <div class="header">
+                            <a href="" target="_blank" videoLink>
+                                <img src="" class="header-img skeleton" videoThumbnail>
                             </a>
-                            <svg class="half-circle" viewBox="0 0 106 57">
-                                <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
-                            </svg>
-                            <div class="speaker-name">
-                                <div class="speaker-name-prefix">הרב</div>
-                                שי גרין
-                            </div>
                         </div>
-
-                    </article>
-
-                    <article class="card">
-                        <header class="card-header">
-                            <p class="video-topic">רב אלוף</p>
-                            <div class="thumbnail">
-                                <a href="https://www.youtube.com/watch?v=GjwGowDxe9IU" target="_blank">
-                                    <img src="http://i3.ytimg.com/vi/GjwGowDxe9I/hqdefault.jpg" class="thumbnail-image">
-                                </a>
-                                <p class="video-title">שליחותו של משה</p>
-                            </div>
-                        </header>
-                        <div class="card-speaker">
-                            <a href="#" class="speaker-avatar">
-                                <img src="/images/IMG_9207.jpg">
+                        <div class="expand" id="expand" onclick="expandCard(this)">
+                            <ion-icon name="chevron-down"></ion-icon>
+                        </div>
+                        <div class="speaker">
+                            <a href="" target="_blank" speakerLink> לעוד שיעורים של
+                                <div class="lowerName" style="font-weight: bold;" speakerName>
+                                    <div class="skeleton skeleton-text" id="speaker-name"></div>
+                                </div>
                             </a>
-                            <svg class="half-circle" viewBox="0 0 106 57">
-                                <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
-                            </svg>
-                            <div class="speaker-name">
-                                <div class="speaker-name-prefix">הרב</div>
-                                מידן דריהם
-                            </div>
                         </div>
-                    </article>
-                </section>
+                    </div>
+                </div>
             </div>
             <div class="card">
-                <h2>שיעורים אחרונים</h2>
-                <section class="card-list content" id="card-list content">
-                </section>
+                <h2>השיעורים הנצפים ביותר</h2>
+                <div class="collection">
+                    <div class="grid-most"></div>
+                    <div class="collection card" id="collection-card-late">
+                        <div class="title" data-title>
+                            <div class="skeleton skeleton-text"></div>
+                        </div>
+                        <div class="header">
+                            <a href="" target="_blank" videoLink>
+                                <img src="" class="header-img skeleton" videoThumbnail>
+                            </a>
+                        </div>
+                        <div class="expand" id="expand" onclick="expandCard(this)">
+                            <ion-icon name="chevron-down"></ion-icon>
+                        </div>
+                        <div class="speaker">
+                            <a href="" target="_blank" speakerLink> לעוד שיעורים של
+                                <div class="lowerName" style="font-weight: bold;" speakerName>
+                                    <div class="skeleton skeleton-text" id="speaker-name"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
         <div class="leftcolumn">
             <div class="membersonly" style="height: 100px;">
@@ -232,11 +199,8 @@
             </div>
 
             <div class="card">
-                <h2>השיעורים הנצפים ביותר</h2>
                 <div class="content" id="most-viewed" style="height: 100px;">
-                    <!--
-                        Three videos from youtube, Based on a card template to use across the main page
-                    -->
+
                     <div class="class-card"></div>
                     <div class="class-card"></div>
                     <div class="class-card"></div>
@@ -249,14 +213,82 @@
                 <a href="https://www.facebook.com/YeshivatKarnash/" class="fa fa-facebook" target="_blank"></a>
                 <a href="https://www.youtube.com/@YeshivatKarnash" class="fa fa-youtube" target="_blank"></a>
             </div>
+            <div class="credit" style="height: 50px;">
+                <p>האתר נבנה על-ידי ידידיה נוילנדר ה'תשפ"ג 2023</p>
+            </div>
         </div>
+
 
     </main>
 
+    <script>
+        const grid = document.querySelector('.grid-most');
+        let cardTemplate = document.getElementById('collection-card-most')
+        fetch("/mostviewed")
+            .then(res => res.json())
+            .then(likedVideos => {
+                grid.innerHTML = ''
+                for (let i = 0; i < likedVideos.length; i++) {
+                    const video = likedVideos[i];
+                    const div = cardTemplate.cloneNode(true);
+                    div.id = `${div.id}-${i}`;
+                    div.children[2].className = `expand num${i}`;
+                    const regexString = /[|,-]+/
+                    let titleString = video.videoTitle.replace(/&quot;/g,'\"');
+                    titleString = titleString.replace(/&#39;/g,`\'`);
 
-    <div class="credit" style="height: 50px;">
-        <p>האתר נבנה על-ידי ידידיה נוילנדר ה'תשפ"ג 2023</p>
-    </div>
+                    const textSet = titleString.split(regexString);
+                    div.querySelector('[videoLink]').href = `https://www.youtube.com/watch?v=${video.videoID}`;
+                    div.querySelector('[speakerLink]').href = `/${video.speakerName}`;
+                    div.querySelector('[speakerName]').textContent = video.speakerName;
+                    div.querySelector('[speakerName]').className = 'title';
+                    div.querySelector('[data-title]').textContent = textSet[0];
+                    div.querySelector('[videoThumbnail]').src = video.videoImageLink;
+                    grid.append(div)
+                }
+                cardTemplate.innerText = '';
+                cardTemplate.className = ''
+            })
+            cardTemplate = document.getElementById('collection-card-late')
+
+            const gridLate = document.querySelector('.grid-latest');
+            fetch("/youtube")
+            .then(res => res.json())
+            .then(likedVideos => {
+                grid.innerHTML = ''
+                for (let i = 0; i < likedVideos.length; i++) {
+                    const video = likedVideos[i];
+                    const div = cardTemplate.cloneNode(true);
+                    div.id = `${div.id}-${i}`;
+                    div.children[2].className = `expand num${i}`;
+                    const regexString = /[|,-]+/
+                    let titleString = video.videoTitle.replace(/&quot;/g,'\"');
+                    titleString = titleString.replace(/&#39;/g,`\'`);
+
+                    const textSet = titleString.split(regexString);
+                    div.querySelector('[videoLink]').href = `https://www.youtube.com/watch?v=${video.videoID}`;
+                    div.querySelector('[speakerLink]').href = `/${video.speakerName}`;
+                    div.querySelector('[speakerName]').textContent = video.speakerName;
+                    div.querySelector('[speakerName]').className = 'title';
+                    div.querySelector('[data-title]').textContent = textSet[0];
+                    div.querySelector('[videoThumbnail]').src = video.videoImageLink;
+                    gridLate.append(div)
+                }
+                cardTemplate.innerText = '';
+                cardTemplate.className = ''
+            })
+        function expandCard(obj) {
+            obj.parentElement.classList.toggle("active");
+        }
+        const card = document.querySelector(".card");
+        const cardExpand = document.querySelector(".expand");
+        cardExpand.onclick = () => {
+            card.classList.toggle("active");
+        };
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 
 </body>
 

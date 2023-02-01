@@ -1,90 +1,151 @@
 const youtubeWS = require('../DAL/youtubeDAL');
 const rabanimImagesDAL = require('../DAL/imagesJson');
-const errorReturn = {
-  playlistTitle: "Missing playlist title",
-  playlistID: "undefined",
-  playlistImageLink: "#",
-  playlistReleaseDate: "Missing playlist release date",
-  speakerImg: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
-};
+
 const addImageToQuery = async (valueSet) => {
   let links = await rabanimImagesDAL.getRabanimImages();
-  console.log("accessing links");
-  let tempSet = []
-  for (const value of valueSet) {
-    if (value.type === 'video') // this is a video and not a playlist
-    {
-      let nameset = value.title.split("|");
-      let speakerImgUrl = links.find(link => link.name == nameset[1]);
-      const newOBJ = {
-        title: value.title,
-        videoId: value.videoId,
-        imageLink: value.imageLink,
-        date: value.date,
-        speakerImg: speakerImgUrl
-      }
-      tempSet.push(newOBJ);
-    }
-    else {
-      let nameset = value.playlistTitle.split("|");
-      let speakerImgUrl = links.find(link => link.name == nameset[1]);
-      const newOBJ = {
-        playlistTitle: value.playlistTitle,
-        playlistID: value.playlistID,
-        playlistImageLink: value.playlistImageLink,
-        playlistReleaseDate: value.playlistReleaseDate,
-        speakerImg: speakerImgUrl
-      }
-      tempSet.push(newOBJ);
-    }
+  let names = [], urls = [];
+  for (let i = 0; i < links.length; i++) {
+    names[i] = links[i].name;
+    urls[i] = links[i].url;
   }
-  return tempSet;
+  if (valueSet[0].playlistID) { // for playlists
+    let playlistSet = [];
+    for (let i = 0; i < valueSet.length; i++) {
+      const element = valueSet[i];
+      let name = "כללי";
+      let url = "https://villagesonmacarthur.com/wp-content/uploads/2020/12/Blank-Avatar.png";
+      for (let j = 0; j < names.length; j++) {
+        element.playlistTitle = element.playlistTitle.replace(`-`, ' ');
+        if (element.playlistTitle.includes(names[j].trim())) {
+          name = names[j];
+          url = urls[j];
+          break;
+        }
+      }
+      const newOBJ = {
+        playlistTitle: element.playlistTitle,
+        playlistID: element.playlistID,
+        playlistImageLink: element.playlistImageLink,
+        playlistReleaseDate: element.playlistReleaseDate,
+        speakerName: name,
+        speakerImgUrl: url
+      }
+      playlistSet.push(newOBJ);
+    }
+    return playlistSet;
+  }
+  else {
+    let videoSet = [];
+    for (let i = 0; i < valueSet.length; i++) {
+      const element = valueSet[i];
+      let name = "כללי";
+      let url = "https://villagesonmacarthur.com/wp-content/uploads/2020/12/Blank-Avatar.png";
+      for (let j = 0; j < names.length; j++) {
+        element.videoTitle = element.videoTitle.replace(`-`, ' ');
+        if (element.videoTitle.includes(names[j].trim())) {
+          name = names[j];
+          url = urls[j];
+          break;
+        }
+      }
+      const newOBJ = {
+        videoTitle: element.videoTitle,
+        videoID: element.videoID,
+        videoImageLink: element.videoImageLink,
+        videoReleaseDate: element.videoReleaseDate,
+        speakerName: name,
+        speakerImgUrl: url
+      }
+      videoSet.push(newOBJ);
+    }
+    return videoSet;
+  }
 };
-const getAllVideos = async () => {
-  let { data } = await youtubeWS.getAllVideos();
-  console.log(data.json());
+
+const getLatestTenVideos = async () => {
+  let { data } = await youtubeWS.getLatestTenVideos();
+  console.log("started working on latest videos");
+
   try {
-    const videosList = data.items.map((video) => {
+    let videosList = data.items.map((video) => {
       return {
-        type: "video",
-        title: video.snippet.title,
-        videoId: video.id.videoId,
-        imageLink: video.snippet.thumbnails.high.url,
-        date: video.snippet.publishTime,
+        videoID: video.id.videoId,
+        videoTitle: video.snippet.title,
+        videoImageLink: video.snippet.thumbnails.high.url,
+        videoReleaseDate: video.snippet.publishedAt
       };
     });
-    console.log("Completed videos setup - level 1");
-    return videosList;
+  } catch (err) {
+    const errMsg =
+		[{
+			errorAlert: "true",
+			videoTitle: "Missing video title",
+			videoID: "undefined",
+			videoImageLink: "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=2000",
+			videoReleaseDate: "Missing playlist release date",
+			speakerImg: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+		}]
+		return errMsg;
   }
-  catch {
-    console.log("error retrieving videos from youtube");
-    return errorReturn;
-  }
-
+  console.log("videos completed successfully");
+  videosList = await addImageToQuery(videosList);
+  return videosList;
 };
 
 const getLatestPlaylists = async () => {
-  let { data } = await youtubeWS.getLatestPlaylists()
-  console.log(data.json());
+  let { data } = await youtubeWS.getLatestPlaylists();
+  console.log("started working on playlists");
+  let videosList = data.items.map((playlist) => {
+    return {
+      playlistID: playlist.id,
+      playlistTitle: playlist.snippet.title,
+      playlistImageLink: playlist.snippet.thumbnails.high.url,
+      playlistReleaseDate: playlist.snippet.publishedAt
+    };
+  });
+  console.log("playlists completed successfully");
+  videosList = await addImageToQuery(videosList);
+  return videosList;
+  /*const errMsg =
+		[{
+			errorAlert: "true",
+			playlistTitle: "Missing playlist title",
+			playlistID: "undefined",
+			playlistImageLink: "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=2000",
+			playlistReleaseDate: "Missing playlist release date",
+			speakerImg: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+		}]
+		return errMsg;*/
+};
+
+const getMostViewedVideos = async () => {
+  let { data } = await youtubeWS.getMostViewedVideos();
+
+  console.log("started working on videos");
   try {
-    const videosList = data.items.map((playlist) => {
+    let videosList = data.items.map((video) => {
       return {
-        type: "playlist",
-        playlistID: playlist.id,
-        playlistTitle: playlist.snippet.title,
-        playlistImageLink: playlist.snippet.thumbnails.high.url,
-        playlistReleaseDate: playlist.snippet.publishedAt
+        videoID: video.id.videoId,
+        videoTitle: video.snippet.title,
+        videoImageLink: video.snippet.thumbnails.high.url,
+        videoReleaseDate: video.snippet.publishedAt
       };
     });
-
-    console.log("Completed playlists setup - level 1");
-    videosList = addImageToQuery(videosList);
-    return videosList;
+  } catch (err) {
+    const errMsg =
+		[{
+			errorAlert: "true",
+			videoTitle: "Missing video title",
+			videoID: "undefined",
+			videoImageLink: "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=2000",
+			videoReleaseDate: "Missing playlist release date",
+			speakerImg: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+		}]
+		return errMsg;
   }
-  catch {
-    console.log("error retrieving playlists from youtube");
-    return errorReturn;
-  }
-
+  console.log("videos completed successfully");
+  videosList = await addImageToQuery(videosList);
+  return videosList;
 };
-module.exports = { getAllVideos, getLatestPlaylists };//, getJsonVideos
+
+module.exports = { getLatestTenVideos, getLatestPlaylists, getMostViewedVideos };//, getJsonVideos

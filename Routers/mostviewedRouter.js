@@ -4,11 +4,9 @@ const youtubeBL = require('../YeshivaBL/youtubeBL');
 const router = express.Router();
 
 router.route('/').get(async (req, res) => {
-    console.log("arrived at route");
-    const videos = await youtubeBL.getLatestTenVideos();
-    console.log("completed processing videos");
-    res.json(videos);
+    console.log("arrived at liked");
+    const mostViewedVideos = await youtubeBL.getMostViewedVideos();
+    res.json(mostViewedVideos);
 });
-
 
 module.exports = router;

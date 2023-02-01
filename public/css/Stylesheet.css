@@ -167,6 +167,7 @@ main {
 
 .rightcolumn {
     float: right;
+    margin-right: 1rem;
     width: 75%;
 }
 
@@ -176,7 +177,165 @@ main {
 
 
 }
+:root {
+    --card-width: 240px;
+    --card-height: 270px;
+    --collapsed-card-height: 180px;
+}
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/*------------Page Title------------*/
+
+.page-header {
+    color: rgb(52, 187, 93);
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 2px 1px 3px blue;
+    padding: 1rem;
+}
+
+/*------------Tags------------*/
+
+
+/*------------Collection------------*/
+.collection {
+    padding: 1rem;
+}
+
+/*------------Grid------------*/
+.grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 0.1fr));
+    padding: 1rem;
+}
+
+/*------------Card Design------------*/
+
+/*--Card Shape--*/
+.collection .card {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    flex-direction: column;
+
+    height: var(--collapsed-card-height);
+    width: var(--card-width);
+
+    padding: 1rem;
+    margin-top: 10px;
+    border-radius: 16px;
+
+    background: #ffffff;
+    box-shadow: 0px 0px 8px hsl(0, 0%, 95%);
+    border-bottom: 2px solid hsl(0, 0%, 51%);
+    transition: height ease-in-out 0.5s, box-shadow ease-out 0.5s, border-bottom ease-in-out 0.5s;
+}
+
+/*--Thumbnail Design--*/
+.header {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.header-img {
+    width: 200px;
+    height: 110px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: -1rem;
+    flex-shrink: 1rem;
+}
+
+/*------Expand Button------*/
+.expand ion-icon {
+    font-size: 20px;
+    color: rgb(0, 0, 255);
+    transition: transform ease-in-out 0.5s;
+}
+
+.expand {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    background: rgb(9, 197, 9);
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/*------Expand Settings------*/
+.card.active .expand ion-icon {
+    transform: rotate(-180deg);
+}
+
+.card.active {
+    height: var(--card-height);
+    box-shadow: 0px 0px 5px hsl(0, 0%, 80%);
+    border-bottom: 0px solid hsl(0, 0%, 75%);
+}
+
+/*--Speaker Design--*/
+.speaker {
+    display: grid;
+    width: 80%
+}
+
+.speaker-img {
+    display: block;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin: 1rem 0;
+}
+
+.speaker .skeleton-text {
+    display: block;
+    width: 50%;
+    margin: 2rem 4rem;
+}
+
+/*------------Loading Skeleton------------*/
+
+.skeleton {
+    opacity: 1;
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton-text {
+    width: 100%;
+    height: .5rem;
+    margin-bottom: .25rem;
+    border-radius: .2rem;
+}
+
+.skeleton-text:last-child {
+    margin-bottom: 0;
+    width: 80%;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsl(200, 20%, 70%);
+    }
+
+    100% {
+        background-color: hsl(200, 20%, 95%);
+    }
+}
+
+/* 
 .card-list.content .card {
     background: #e6f0e6;
 }
@@ -294,7 +453,7 @@ main {
 
 }
 
-/*----------Video Collection----------*/
+----------Video Collection---------- */
 
 /*----------Members Only Area----------*/
 .membersonly {

@@ -1,52 +1,53 @@
 const axios = require('axios');
 require('dotenv').config();
 
-const getAllVideos = () => {
-    console.log("retrived general api");
-    const url = process.env.YOUTUBE_KARNASH_LATEST_TEN;
-    return axios.get(url)
-        .catch(function (error) {
-            if (error.response) {
-              // The request was made and the server responded with a status code
-              // that falls out of the range of 2xx
-              console.log(error.response.data);
-              console.log(error.response.status);
-              console.log(error.response.headers);
-            } else if (error.request) {
-              // The request was made but no response was received
-              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-              // http.ClientRequest in node.js
-              console.log(error.request);
-            } else {
-              // Something happened in setting up the request that triggered an Error
-              console.log('Error', error.message);
-            }
-            console.log(error.config);
-          });
+const getMostViewedVideos = () => {
+	console.log("retrived most viewed videos api");
+	const url = process.env.YOUTUBE_KARNASH_MOST_VIEWED;
+	return axios.get(url).catch(err => {const errMsg = 
+		[{
+			errorAlert: "true",
+			videoTitle: "Missing video title",
+			videoID: "undefined",
+			videoImageLink: "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=2000",
+			videoReleaseDate: "Missing playlist release date",
+			speakerImg: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+		}]
+		return errMsg;
+	});
+};
+
+
+const getLatestTenVideos = () => {
+	console.log("retrived latest videos api");
+	const url = process.env.YOUTUBE_KARNASH_LATEST_TEN;
+	return axios.get(url).catch(err => {const errMsg =
+		[{
+			errorAlert: "true",
+			videoTitle: "Missing video title",
+			videoID: "undefined",
+			videoImageLink: "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=2000",
+			videoReleaseDate: "Missing playlist release date",
+			speakerImg: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+		}]
+		return errMsg;
+	});
 };
 
 const getLatestPlaylists = () => {
-    console.log("retrived playlist api");
-    const url = process.env.YOUTUBE_KARNASH_LATEST_PLAYLIST;
-    return axios.get(url)
-        .catch(function (error) {
-            if (error.response) {
-              // The request was made and the server responded with a status code
-              // that falls out of the range of 2xx
-              console.log(error.response.data);
-              console.log(error.response.status);
-              console.log(error.response.headers);
-            } else if (error.request) {
-              // The request was made but no response was received
-              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-              // http.ClientRequest in node.js
-              console.log(error.request);
-            } else {
-              // Something happened in setting up the request that triggered an Error
-              console.log('Error', error.message);
-            }
-            console.log(error.config);
-          });
+	console.log("retrived latest playlist api");
+	const url = process.env.YOUTUBE_KARNASH_LATEST_PLAYLIST;
+	return axios.get(url).catch(err => {const errMsg =
+		[{
+			errorAlert: "true",
+			playlistTitle: "Missing playlist title",
+			playlistID: "undefined",
+			playlistImageLink: "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=2000",
+			playlistReleaseDate: "Missing playlist release date",
+			speakerImg: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+		}]
+		return errMsg;
+	});
 };
 
-module.exports = { getAllVideos, getLatestPlaylists };
+module.exports = { getMostViewedVideos, getLatestTenVideos, getLatestPlaylists };
