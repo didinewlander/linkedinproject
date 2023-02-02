@@ -75,47 +75,62 @@ const getLatestTenVideos = async () => {
         videoReleaseDate: video.snippet.publishedAt
       };
     });
+    console.log("videos completed successfully");
+    videosList = await addImageToQuery(videosList);
+    return videosList;
   } catch (err) {
     const errMsg =
-		[{
-			errorAlert: "true",
-			videoTitle: "Missing video title",
-			videoID: "undefined",
-			videoImageLink: "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=2000",
-			videoReleaseDate: "Missing playlist release date",
-			speakerImg: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
-		}]
-		return errMsg;
+      [{
+        errorAlert: "true",
+        videoTitle: "Missing video title",
+        videoID: "undefined",
+        videoImageLink: "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=2000",
+        videoReleaseDate: "Missing playlist release date",
+        speakerImg: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+      }]
+    return errMsg;
   }
-  console.log("videos completed successfully");
-  videosList = await addImageToQuery(videosList);
-  return videosList;
+
 };
 
 const getLatestPlaylists = async () => {
   let { data } = await youtubeWS.getLatestPlaylists();
   console.log("started working on playlists");
-  let videosList = data.items.map((playlist) => {
-    return {
-      playlistID: playlist.id,
-      playlistTitle: playlist.snippet.title,
-      playlistImageLink: playlist.snippet.thumbnails.high.url,
-      playlistReleaseDate: playlist.snippet.publishedAt
-    };
-  });
-  console.log("playlists completed successfully");
-  videosList = await addImageToQuery(videosList);
-  return videosList;
+  try {
+    let videosList = data.items.map((playlist) => {
+      return {
+        playlistID: playlist.id,
+        playlistTitle: playlist.snippet.title,
+        playlistImageLink: playlist.snippet.thumbnails.high.url,
+        playlistReleaseDate: playlist.snippet.publishedAt
+      };
+    });
+    videosList = await addImageToQuery(videosList);
+    console.log("playlists completed successfully");
+    return videosList;
+  } catch (error) {
+    const errMsg =
+      [{
+        errorAlert: "true",
+        playlistTitle: "Missing playlist title",
+        playlistID: "undefined",
+        playlistImageLink: "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=2000",
+        videoReleaseDate: "Missing playlist release date",
+        speakerImg: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+      }]
+    return errMsg;
+  }
+
   /*const errMsg =
-		[{
-			errorAlert: "true",
-			playlistTitle: "Missing playlist title",
-			playlistID: "undefined",
-			playlistImageLink: "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=2000",
-			playlistReleaseDate: "Missing playlist release date",
-			speakerImg: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
-		}]
-		return errMsg;*/
+    [{
+      errorAlert: "true",
+      playlistTitle: "Missing playlist title",
+      playlistID: "undefined",
+      playlistImageLink: "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=2000",
+      playlistReleaseDate: "Missing playlist release date",
+      speakerImg: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+    }]
+    return errMsg;*/
 };
 
 const getMostViewedVideos = async () => {
@@ -131,21 +146,21 @@ const getMostViewedVideos = async () => {
         videoReleaseDate: video.snippet.publishedAt
       };
     });
+    console.log("videos completed successfully");
+    videosList = await addImageToQuery(videosList);
+    return videosList;
   } catch (err) {
     const errMsg =
-		[{
-			errorAlert: "true",
-			videoTitle: "Missing video title",
-			videoID: "undefined",
-			videoImageLink: "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=2000",
-			videoReleaseDate: "Missing playlist release date",
-			speakerImg: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
-		}]
-		return errMsg;
+      [{
+        errorAlert: "true",
+        videoTitle: "Missing video title",
+        videoID: "undefined",
+        videoImageLink: "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=2000",
+        videoReleaseDate: "Missing playlist release date",
+        speakerImg: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+      }]
+    return errMsg;
   }
-  console.log("videos completed successfully");
-  videosList = await addImageToQuery(videosList);
-  return videosList;
 };
 
 module.exports = { getLatestTenVideos, getLatestPlaylists, getMostViewedVideos };//, getJsonVideos

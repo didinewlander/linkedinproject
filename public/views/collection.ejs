@@ -170,23 +170,16 @@
         /*------ Small Screen display */
         @media only screen and (max-width:760px) {
 
-            .rightcolumn,
-            .leftcolumn {
-                width: 100%;
-            }
-
             .navbar {
                 bottom: 0;
                 width: 100vw;
                 height: 5rem;
-
             }
 
             svg {
-                width: 6vw;
+                width: 5vw;
             }
-
-            .logo {
+            #currentPage {
                 display: none;
 
             }
@@ -199,7 +192,7 @@
                 align-items: center;
                 align-content: center;
                 justify-content: center;
-                margin: 0 auto;
+                margin: 1rem;
             }
 
             .grid {
@@ -214,7 +207,7 @@
             }
 
             .collection .card {
-                width: 30rem;
+                width: 100%;
             }
 
             .header-img {
@@ -228,7 +221,7 @@
 <body dir="rtl">
     <nav class="navbar">
         <ul class="navbar-nav">
-            <li class="logo">
+            <li class="logo nav-item">
                 <a href="/" class="nav-link">
                     <span class="link-text logo-text">בימ"ד קרנ"ש</span>
                     <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="angle-double-right"
@@ -247,7 +240,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="collection" class="nav-link">
+                <a href="collection" class="nav-link" id="currentPage">
                     <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="cat" role="img"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                         class="svg-inline--fa fa-book fa-w-16 fa-9x">

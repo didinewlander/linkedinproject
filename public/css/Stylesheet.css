@@ -18,6 +18,11 @@
     box-sizing: border-box;
 }
 
+h2 {
+    text-align: center;
+    ;
+}
+
 body {
     background-color: white;
     margin: 0;
@@ -154,12 +159,18 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
 }
 
 .titles {
     color: rgb(52, 187, 93);
-    font-size: 30px;
+    font-size: 3rem;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
     font-weight: bold;
     text-shadow: 2px 2px blue;
     padding: 3rem;
@@ -167,7 +178,9 @@ main {
 
 .rightcolumn {
     float: right;
-    margin-right: 1rem;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
     width: 75%;
 }
 
@@ -177,6 +190,7 @@ main {
 
 
 }
+
 :root {
     --card-width: 240px;
     --card-height: 270px;
@@ -205,6 +219,7 @@ a {
 /*------------Collection------------*/
 .collection {
     padding: 1rem;
+
 }
 
 /*------------Grid------------*/
@@ -215,10 +230,25 @@ a {
     padding: 1rem;
 }
 
+.grid-latest {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 0.1fr));
+    padding: 1rem;
+}
+
+.grid-most {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 0.1fr));
+    padding: 1rem;
+}
+
 /*------------Card Design------------*/
 
 /*--Card Shape--*/
 .collection .card {
+
     display: flex;
     overflow: hidden;
     position: relative;
@@ -230,6 +260,7 @@ a {
     padding: 1rem;
     margin-top: 10px;
     border-radius: 16px;
+
 
     background: #ffffff;
     box-shadow: 0px 0px 8px hsl(0, 0%, 95%);
@@ -480,6 +511,7 @@ a {
     line-height: 1.15;
     margin: 1px;
     padding: 10px 21px;
+    cursor: not-allowed;
 }
 
 .membersonly .button:active {
@@ -512,6 +544,7 @@ a {
     border-width: 2px 2px 0;
     text-align: center;
     margin-top: 20px;
+    margin-bottom: 3rem;
 }
 
 /*---------creadit area-------*/
@@ -559,30 +592,80 @@ a {
     .rightcolumn,
     .leftcolumn {
         width: 100%;
+        margin-bottom: 3rem;
+        float: none;
+    }
+
+    .titles {
+        font-size: 2rem;
     }
 
     .navbar {
         bottom: 0;
-        width: 100vw;
+        width: 100%;
         height: 5rem;
-
     }
 
     svg {
-        width: 6vw;
+        width: 20%;
     }
 
     .logo {
-        display: none;
+        color: var(--text-secondary);
+        background: var(--bg-secondary);
+        font-size: 1vw;
+        margin-bottom: 0rem;
 
+    }
+
+    #currentPage {
+        display: none;
     }
 
     .navbar-nav {
         flex-direction: row;
+        width: 20%
     }
 
     main {
-        margin: 0;
+        margin-bottom: 3rem;
+        margin-right: 0;
+        align-items: center;
+        align-content: center;
+        align-self: center;
+    }
+
+    .collection {
+        align-items: center;
+        align-content: center;
+        align-self: center;
+        vertical-align: middle;
+        margin-bottom: 3rem;
+
+    }
+
+    img {
+        width: 45vw;
+        height: 45vw;
+    }
+
+    .nav-link svg {
+        min-width: 1.5rem;
+        max-width: 2rem;
+        margin: 0 1.5rem;
+    }
+
+    .message {
+        box-shadow: 0 2px 10px rgba(0, 84, 186, 0.5);
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        align-self: center;
+        vertical-align: middle;
+        padding: 1rem;
+        margin-bottom: 5rem;
+        color: var(--text-color);
+
     }
 }
 

@@ -12,8 +12,8 @@
 <body dir="rtl">
     <nav class="navbar">
         <ul class="navbar-nav">
-            <li class="logo">
-                <a href="#" class="nav-link">
+            <li class="logo" >
+                <a href="#" class="nav-link"  id="currentPage">
                     <span class="link-text logo-text">בימ"ד קרנ"ש</span>
                     <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="angle-double-right"
                         role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
@@ -223,14 +223,16 @@
 
     <script>
         const grid = document.querySelector('.grid-most');
-        let cardTemplate = document.getElementById('collection-card-most')
+        const gridLate = document.querySelector('.grid-latest');
+        const templateMost = document.getElementById('collection-card-most')
+        const templateLate = document.getElementById('collection-card-late')
         fetch("/mostviewed")
             .then(res => res.json())
             .then(likedVideos => {
                 grid.innerHTML = ''
                 for (let i = 0; i < likedVideos.length; i++) {
                     const video = likedVideos[i];
-                    const div = cardTemplate.cloneNode(true);
+                    const div = templateMost.cloneNode(true);
                     div.id = `${div.id}-${i}`;
                     div.children[2].className = `expand num${i}`;
                     const regexString = /[|,-]+/
@@ -246,19 +248,17 @@
                     div.querySelector('[videoThumbnail]').src = video.videoImageLink;
                     grid.append(div)
                 }
-                cardTemplate.innerText = '';
-                cardTemplate.className = ''
+                templateMost.innerText = '';
+                templateMost.className = ''
             })
-            cardTemplate = document.getElementById('collection-card-late')
 
-            const gridLate = document.querySelector('.grid-latest');
             fetch("/youtube")
             .then(res => res.json())
             .then(likedVideos => {
                 grid.innerHTML = ''
                 for (let i = 0; i < likedVideos.length; i++) {
                     const video = likedVideos[i];
-                    const div = cardTemplate.cloneNode(true);
+                    const div = templateLate.cloneNode(true);
                     div.id = `${div.id}-${i}`;
                     div.children[2].className = `expand num${i}`;
                     const regexString = /[|,-]+/
@@ -274,8 +274,8 @@
                     div.querySelector('[videoThumbnail]').src = video.videoImageLink;
                     gridLate.append(div)
                 }
-                cardTemplate.innerText = '';
-                cardTemplate.className = ''
+                templateLate.innerText = '';
+                templateLate.className = ''
             })
         function expandCard(obj) {
             obj.parentElement.classList.toggle("active");
