@@ -20,7 +20,6 @@
 
 h2 {
     text-align: center;
-    ;
 }
 
 body {
@@ -106,7 +105,6 @@ main {
     filter: grayscale(0%) opacity(1);
     background: var(--bg-secondary);
     color: white;
-
 }
 
 .link-text {
@@ -366,126 +364,6 @@ a {
     }
 }
 
-/* 
-.card-list.content .card {
-    background: #e6f0e6;
-}
-
-.card-list.content .half-circle {
-    stroke: #1134c0;
-}
-
-.card-list {
-    display: flex;
-    overflow: scroll;
-
-}
-
-.card-list::-webkit-scrollbar {
-    width: 0.25rem;
-
-}
-
-.card-list::-webkit-scrollbar-track {
-    visibility: hidden;
-}
-
-.card-list::-webkit-scrollbar-thumb {
-    visibility: hidden;
-}
-
-.card-list .card {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    height: var(--card-height);
-    width: var(--card-width);
-    padding: 1rem;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 16px;
-    background: #ffffff;
-    box-shadow: .2rem 0 2rem rgb(200, 200, 200);
-    transition: .2s;
-}
-
-.card-list .card:hover {
-    transform: translateY(-1rem);
-}
-
-.card-list .card:hover~.card {
-    transform: translateX(-10px);
-}
-
-.video-title {
-    word-wrap: break-word;
-}
-
-.thumbnail-image {
-    width: 200px;
-    height: 110px;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-.thumbnail-image:hover {
-    box-shadow: 0 0 2px 1px rgba(0, 84, 186, 0.5);
-}
-
-.sikum-link {
-    text-decoration: none;
-    color: #000000;
-    font-weight: bold;
-}
-
-.card {
-    padding: 20px;
-    margin-top: 10px;
-}
-
-.card-speaker {
-    position: absolute;
-    display: grid;
-    bottom: 0px;
-    grid-template-columns: 80px 1fr;
-    align-items: center;
-    margin: 3rem 0 10;
-}
-
-.speaker-avatar img {
-    display: block;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    filter: grayscale(100%);
-    margin: 10px 10px;
-}
-
-.half-circle {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    width: 60px;
-    fill: none;
-    stroke: #11c029;
-    stroke-width: 8;
-    stroke-linecap: round;
-    pointer-events: none;
-}
-
-.speaker-name-prefix {
-    font-weight: bold;
-    color: #102148;
-}
-
-.video-topic {
-    font-style: italic;
-    font-weight: bold;
-
-}
-
-----------Video Collection---------- */
-
 /*----------Members Only Area----------*/
 .membersonly {
     display: flex;
@@ -522,20 +400,6 @@ a {
     background-color: #1C84FF;
 }
 
-/* 
-.membersonly .button {
-    flex-direction: column;
-    height: var(--card-height);
-    width: var(--user-width);
-    margin: 2px;
-    border-radius: 8px;
-    box-shadow: 0 0 4px #000000;
-    background-color: #55c764;
-    text-size-adjust: 80%;
-    text-align: center;
-    text-anchor: middle;
-    font-weight: bold;
-} */
 
 
 /*----------Social Area----------*/
@@ -587,7 +451,7 @@ a {
     font-size: 18px;
 }
 
-@media only screen and (max-width:760px) {
+@media only screen and (max-width:600px) {
 
     .rightcolumn,
     .leftcolumn {
@@ -602,20 +466,27 @@ a {
 
     .navbar {
         bottom: 0;
-        width: 100%;
+        width: 100vw;
         height: 5rem;
     }
 
     svg {
-        width: 20%;
+        width: 80%;
     }
 
     .logo {
-        color: var(--text-secondary);
-        background: var(--bg-secondary);
         font-size: 1vw;
         margin-bottom: 0rem;
+        background: var(--bg-primary);
+    }
 
+    .logo svg {
+        transform: none;
+        transition: none;
+    }
+
+    .navbar:hover .logo svg {
+        transform: none;
     }
 
     #currentPage {
@@ -627,12 +498,16 @@ a {
         width: 20%
     }
 
+
+    .nav-link {
+        justify-content: center;
+        min-width: 1.5rem;
+        margin: 0 1.5rem;
+    }
+
     main {
         margin-bottom: 3rem;
         margin-right: 0;
-        align-items: center;
-        align-content: center;
-        align-self: center;
     }
 
     .collection {
@@ -649,11 +524,6 @@ a {
         height: 45vw;
     }
 
-    .nav-link svg {
-        min-width: 1.5rem;
-        max-width: 2rem;
-        margin: 0 1.5rem;
-    }
 
     .message {
         box-shadow: 0 2px 10px rgba(0, 84, 186, 0.5);
@@ -669,7 +539,7 @@ a {
     }
 }
 
-@media only screen and (min-width:760px) {
+@media only screen and (min-width:600px) {
     .navbar {
         top: 0;
         width: 5rem;
