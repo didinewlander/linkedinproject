@@ -1,5 +1,5 @@
 const youtubeWS = require('../DAL/youtubeDAL');
-const rabanimImagesDAL = require('../DAL/imagesJson');
+const rabanimImagesDAL = require('../DAL/imagesJsonDAL');
 
 const addImageToQuery = async (valueSet) => {
   let links = await rabanimImagesDAL.getRabanimImages();
