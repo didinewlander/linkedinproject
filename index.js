@@ -13,6 +13,7 @@ const userUri = process.env.USER_DB_CONNECTION;
 const classUri = process.env.CLASS_DB_CONNECTION;
 const sikumUri = process.env.SIKUM_DB_CONNECTION;
 const youtubeAPI = process.env.YOUTUBE_KARNASH_API;
+const port = process.env.PORT;
 
 /*------ AUTHENTICATION SETUP ------> reuse when relavent
 
@@ -59,7 +60,7 @@ const youtubeAPIRouter = require('./Routers/youtubeRouter');
 /*------ EXPRESS APP SETUP ------*/
 
 const app = express();
-const port = 3000;
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'public/views'));
 app.set('json', path.join(__dirname, 'public/json'));
@@ -93,9 +94,7 @@ app.get('/dashboard', (req, res) => {
 })
 app.use('/youtube', require('./Routers/youtubeRouter'));
 app.use('/mostviewed', require('./Routers/mostviewedRouter'));
-
 app.use('/playlists', require('./Routers/playlistRouter'));
-
 app.use((req, res) => {
     res.status(404).render('404.ejs');
 })
