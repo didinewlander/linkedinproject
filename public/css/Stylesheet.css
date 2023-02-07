@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap');
 
 :root {
 
@@ -12,6 +12,9 @@
     --card-height: 350px;
     --card-width: 250px;
     --user-width: 100%;
+    --card-width: 240px;
+    --card-height: 270px;
+    --collapsed-card-height: 180px;
 }
 
 * {
@@ -41,7 +44,7 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
     background: #3ec450;
-       border-radius: 16px;
+    border-radius: 16px;
 }
 
 main {
@@ -227,7 +230,6 @@ a {
 }
 
 .autocomplete-input {
-
     width: calc(100%-50px);
     padding: 20px 15px;
     border: none;
@@ -434,6 +436,8 @@ a {
     }
 }
 
+/*----------Calander Design------------*/
+
 /*----------Members Only Area----------*/
 .membersonly {
     display: flex;
@@ -470,7 +474,155 @@ a {
     background-color: #1C84FF;
 }
 
+/*----------Dashboard Design----------*/
+.statistics {
+    float: left;
+    padding: .5rem;
+    margin-top: 2rem;
+    width: 25%;
+}
 
+.dashboard-container {
+    padding: 2rem;
+    float: right;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 75%;
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.dashcard {
+    display: grid;
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 16px;
+    outline: none;
+    box-shadow: 1px 5px 3px rgb(190, 207, 207);
+    font-family: heebo;
+    font-size: large;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    text-align: center;
+
+}
+
+.dashboard-main {
+    margin-bottom: 1rem;
+}
+.dashboard .user-name{
+    font-size: 2rem;
+    font-weight: bolder;
+
+}
+.dashboard .main-card-content {
+    padding: 10px;
+    font-weight: normal;
+}
+
+.dashboard-header {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 1rem;
+}
+
+.dashboard .dashboard-body {
+    font-weight: lighter;
+    font-size: medium;
+    padding: .5rem;
+}
+
+.dashboard .dashboard-footer {
+    width: 100%;
+    height: 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: heebo;
+}
+
+.dashboard button:hover {
+    background: #4e4eff;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.7) 0 1px 6px inset;
+
+}
+
+.pop-up-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 16px;
+    z-index: 10;
+    background-color: white;
+    width: 800px;
+    max-width: 80%;
+    padding: .5rem;
+}
+
+.pop-up-window.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+
+.modal-header .modal-title {
+    width: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.modal-header .close-modal {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    height: 100%;
+
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    font-family: heebo;
+    font-size: 1.5rem;
+}
+
+.modal-body {
+    padding: 10px 10px;
+
+}
+
+.overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
 
 /*----------Social Area----------*/
 .social {
@@ -524,7 +676,9 @@ a {
 @media only screen and (max-width:600px) {
 
     .rightcolumn,
-    .leftcolumn {
+    .leftcolumn,
+    .statistics,
+    .dashboard-container {
         width: 100%;
         margin-bottom: 3rem;
         float: none;
@@ -576,7 +730,7 @@ a {
     }
 
     main {
-        margin-bottom: 3rem;
+        margin-bottom: 5rem;
         margin-right: 0;
     }
 
@@ -606,6 +760,12 @@ a {
         margin-bottom: 5rem;
         color: var(--text-color);
 
+    }
+
+    .membersonly {
+        display: none;
+        margin: 0;
+        padding: 0;
     }
 }
 

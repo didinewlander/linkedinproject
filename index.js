@@ -60,7 +60,16 @@ const youtubeAPIRouter = require('./Routers/youtubeRouter');
 /*------ EXPRESS APP SETUP ------*/
 
 const app = express();
+let userInfo = {
+    statisticData: {
+        enters: 0,
+        videos: 0
+    }
+}
 
+let userManage = {
+    
+}
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'public/views'));
 app.set('json', path.join(__dirname, 'public/json'));
@@ -90,7 +99,8 @@ app.get('/search', (req, res) => {
     res.render('search.ejs');
 })
 app.get('/dashboard', (req, res) => {
-    res.render('dashboard.ejs');
+    res.render('dashboard.ejs', userInfo);
+    userInfo.statisticData.enters += 1;
 })
 app.use('/youtube', require('./Routers/youtubeRouter'));
 app.use('/mostviewed', require('./Routers/mostviewedRouter'));
