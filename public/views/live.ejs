@@ -4,8 +4,9 @@
     <title>ישיבת ההסדר קרני שומרון</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <link rel="stylesheet" href="../css/Stylesheet.css"></link>
-    <link rel="icon" type="image/x-icon" href="../images/karnash-logo.ico"/>
+    <link rel="stylesheet" href="../css/Stylesheet.css">
+    </link>
+    <link rel="icon" type="image/x-icon" href="../images/karnash-logo.ico" />
 
     <script src="../js/javascript.js"></script>
 
@@ -14,21 +15,33 @@
 <body dir="rtl">
     <%- include ('./navbar.ejs') %>
 
-    <main>
-        <div class="header" id="top-image">
-            <div class="titles">
-              שידורים חיים מערוץ היוטיוב של הישיבה
-            </div>
-        </div>
-        <div class="rightcolumn">
-            <div class="message">
+        <main>
+            <div class="rightcolumn">
+                <div class="header" id="top-image">
+                    <div class="titles">
+                        שידורים חיים<br />מערוץ היוטיוב של הישיבה
+                    </div>
+                </div>
+                <!-- <div class="message">
                 <h1>דף זה יחזיק שידורים חיים</h1>
                 <p>אבל גם מלאכת המשכן לקחה יותר מכמה ימים</p>
                 <h2><a href="/">חזרה לדף הבית</a></h2>
 
+            </div> -->
+                <div class="live-wrapper">
+                    <div class="not-live" not-live-container>
+                        <div class="not-live-message">
+                            אין כרגע שיעור המשודר מבית המדרש, ניתן לעבור למאגר השיעורים או לחיפוש בכדי לקבל שיעור מתאים
+                        </div><br />
+                        <div class="not-live-buttons">
+                            <a href="collection">למאגר השיעורים</a>
+                            <a href="search">לדף החיפוש</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </main>
+            </div>
+        </main>
 
 </body>
 
