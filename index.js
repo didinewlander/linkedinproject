@@ -105,6 +105,7 @@ app.get('/dashboard', (req, res) => {
 app.use('/youtube', require('./Routers/youtubeRouter'));
 app.use('/mostviewed', require('./Routers/mostviewedRouter'));
 app.use('/playlists', require('./Routers/playlistRouter'));
+app.use('/jsontest', require('./Routers/jsontestRouter'));
 app.use((req, res) => {
     res.status(404).render('404.ejs');
 })
