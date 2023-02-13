@@ -6,28 +6,77 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="stylesheet" href="../css/Stylesheet.css">
     </link>
-    <script src="../js/javascript.js"></script>
     <link rel="icon" type="image/x-icon" href="../images/karnash-logo.ico" />
-
 
 </head>
 
 <body dir="rtl">
     <%- include ('./navbar.ejs') %>
         <main>
-            
-            <div class="rightcolumn">
-                <div class="header" id="top-image">
-                    <div class="titles">לוח השיעורים של בית המדרש
+
+
+            <div class="header" id="top-image">
+                <div class="titles">לוח השיעורים של בית המדרש
+                </div>
+            </div>
+            <template learning-unit-template>
+                <li>
+                    <div class="learning-unit">
+                        <div class="topic" topic>נושא השיעור</div>
+                        <div class="learning-content">
+                            <div class="audience same-line" audience>קהל</div>
+                            <div class="teacher same-line" teacher>המלמד</div>
+                        </div>
+                        <div class="learning-time" learnTime>משעה עד שעה</div>
+                    </div>
+                </li>
+            </template>
+            <div class="message">התצוגה מתאימה כרגע רק למסכים רחבים</div>
+            <div class="calendar-container">
+                <div class="board">
+                    <div class="scroller-holder">
+                        <div class="calendar">
+                            <div class="morning daily">
+                                <div class="part-header">בוקר</div>
+                                <div class="part-content">
+                                    <ul class="unit-list" morning>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="noon daily">
+                                <div class="part-header ">צהריים</div>
+                                <div class="part-content">
+                                    <ul class="unit-list" noon></ul>
+                                </div>
+
+                            </div>
+                            <div class="evening daily">
+                                <div class="part-header">ערב</div>
+                                <div class="part-content">
+                                    <ul class="unit-list" evening></ul>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="message">
-                    <h1>דף זה יחזיק לוח שיעורים</h1>
-                    <p>כי מי לא אוהב להיות לו"זר (בקטע טוב כמובן)</p>
-                    <h2><a href="/">חזרה לדף הבית</a></h2>
+                <div class="weekdays">
+                    <div class="day" onclick="loadCalendarDay(1)">ראשון</div>
+                    <div class="day" onclick="loadCalendarDay(2)">שני</div>
+                    <div class="day" onclick="loadCalendarDay(3)">שלישי</div>
+                    <div class="day" onclick="loadCalendarDay(4)">רביעי</div>
+                    <div class="day" onclick="loadCalendarDay(5)">חמישי</div>
+                    <div class="day" onclick="loadCalendarDay(6)">שישי</div>
                 </div>
             </div>
         </main>
+
+
+        <script src="../js/javascript.js"></script>
+        <script>
+            loadCalendarDay(1);
+        </script>
 </body>
 
 </html>

@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="stylesheet" href="../css/Stylesheet.css">
-    <link rel="icon" type="image/x-icon" href="../images/karnash-logo.ico"/>
+    <link rel="icon" type="image/x-icon" href="../images/karnash-logo.ico" />
 
     </link>
 
@@ -14,92 +14,109 @@
 <body dir="rtl">
     <%- include ('./navbar.ejs') %>
 
-    <main>
+        <main>
 
-        <!-- <div class="message">
+            <!-- <div class="message">
                 <h1>דף זה יסייע לנהל פה את העניינים</h1>
                 <p>כי בכל זאת, מה זה שווה שאין אזור שמיועד רק לגבאים?</p>
                 <h2><a href="/">חזרה לדף הבית</a></h2>
             </div> -->
-        <div class="dashboard-container">
-            <div class="dashboard" id="dashboard">
-                <div class="dashboard-main dashcard">
-                    <div class="user-name">
-                        ברוכים הבאים לממשק הניהול
-                    </div>
-                    <div class="main-card-content">
-                        דף זה יאפשר לך לשלוט בתוכן האתר - תכנון לוח השיעורים,
-                        ניהול משתמשים, הערות מערכתיות למקרה של תקלה,
-                        ניהול התוכן המרכזי שמוצג בדף הבית ועוד ועוד
-                    </div>
-
-                </div>
-                <div class="pop-up-window" id="modal">
-                    <div class="modal-header">
-                        <div class="modal-title" modal-title>כותרת להחלפה</div>
-                        <button data-close-button class="close-modal">סגירה</button>
-                    </div>
-                    <div class="modal-body">
+            <div class="dashboard-container">
+                <div class="dashboard" id="dashboard">
+                    <div class="dashboard-main dashcard">
+                        <div class="user-name">
+                            ברוכים הבאים לממשק הניהול
+                        </div>
+                        <div class="main-card-content">
+                            דף זה יאפשר לך לשלוט בתוכן האתר - תכנון לוח השיעורים,
+                            ניהול משתמשים, הערות מערכתיות למקרה של תקלה,
+                            ניהול התוכן המרכזי שמוצג בדף הבית ועוד ועוד
+                        </div>
 
                     </div>
-                </div>
-                <div class="dashboard-users dashcard">
-                    <div class="dashboard-users-container">
-                        <div class="users-container dashboard-header" card-title>
-                            ניהול משתמשים
+                    <div class="pop-up-window" id="modal">
+                        <div class="modal-header">
+                            <div class="modal-title" modal-title>כותרת להחלפה</div>
+                            <button data-close-button class="close-modal">סגירה</button>
                         </div>
-                        <div class="users-container dashboard-body">
-                            כאן תוכלו לנהל את המשתמשים באתר - תלמידים שרוצים להעלות סיכומים או גבאים וצוות ניהול שתוכלו
-                            בעזרתם לשלוט פה ביד רמה ובתעצומות נפש
-                        </div>
-                        <button class="users-container dashboard-footer" data-modal-target="#modal" id="users">
-                            פתיחת ממשק
-                        </button>
-                    </div>
-                </div>
-                <div class="dashboard-classes dashcard">
-                    <div class="dashboard-classes-container">
+                        <div class="modal-body">
 
-                        <div class="classes-container dashboard-header" card-title>
-                            ניהול שיעורים
                         </div>
-                        <div class="classes-container dashboard-body">
-                            כאן תוכל לנהל את מערכות השיעורים - אילו שיעורים יככבו בדף הבית, אילו סיכומים מאושרים לשימוש נרחב, וכמובן ניהול מערכת השעות של השיעורים
-                        </div>
-                        <button class="classes-container dashboard-footer" data-modal-target="#modal" id="classes">
-                            פתיחת ממשק
-                        </button>
                     </div>
-                </div>
-                <div class="dashboard-more dashcard">
-                    <div class="dashboard-more-container">
-                        <div class="more-container dashboard-header" card-title>
-                            עוד
+                    <div class="dashboard-upload dashcard">
+                        <div class="dashboard-upload-container">
+                            <div class="upload-container dashboard-header" card-title>
+                                העלאת סיכומים
+                            </div>
+                            <div class="upload-container dashboard-body">
+                                כאן תוכלו להעלות סיכומים של שיעור שתבחרו מהרשימה (אל דאגה, נקל עליכם את החיפוש פה
+                                בחלונית)
+                            </div>
+                            <button class="upload-container dashboard-footer" data-modal-target="#modal" id="upload">
+                                פתיחת ממשק
+                            </button>
                         </div>
-                        <div class="more-container dashboard-body">
-                            כאן יתאפשר לך להתעסק בנתונים נוספים הקשורים למערכת
+                    </div>
+
+                    <div class="dashboard-users dashcard">
+                        <div class="dashboard-users-container">
+                            <div class="users-container dashboard-header" card-title>
+                                ניהול משתמשים
+                            </div>
+                            <div class="users-container dashboard-body">
+                                כאן תוכלו לנהל את המשתמשים באתר - תלמידים שרוצים להעלות סיכומים או גבאים וצוות ניהול
+                                שתוכלו
+                                בעזרתם לשלוט פה ביד רמה ובתעצומות נפש
+                            </div>
+                            <button class="users-container dashboard-footer" data-modal-target="#modal" id="users">
+                                פתיחת ממשק
+                            </button>
                         </div>
-                        <button class="more-container dashboard-footer" data-modal-target="#modal" id="more">
-                            פתיחת ממשק
-                        </button>
+                    </div>
+                    <div class="dashboard-classes dashcard">
+                        <div class="dashboard-classes-container">
+
+                            <div class="classes-container dashboard-header" card-title>
+                                ניהול שיעורים
+                            </div>
+                            <div class="classes-container dashboard-body">
+                                כאן תוכל לנהל את מערכות השיעורים - אילו שיעורים יככבו בדף הבית, אילו סיכומים מאושרים
+                                לשימוש נרחב, וכמובן ניהול מערכת השעות של השיעורים
+                            </div>
+                            <button class="classes-container dashboard-footer" data-modal-target="#modal" id="classes">
+                                פתיחת ממשק
+                            </button>
+                        </div>
+                    </div>
+                    <div class="dashboard-more dashcard">
+                        <div class="dashboard-more-container">
+                            <div class="more-container dashboard-header" card-title>
+                                עוד
+                            </div>
+                            <div class="more-container dashboard-body">
+                                כאן יתאפשר לך להתעסק בנתונים נוספים הקשורים למערכת
+                            </div>
+                            <button class="more-container dashboard-footer" data-modal-target="#modal" id="more">
+                                פתיחת ממשק
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="statistics">
-            <div class="dashboard-statistics dashcard">
-                <h3>נתוני שימוש באתר</h3>
-                <div class="entering-counter">
-                    <%= statisticData.enters %>
-                </div>
-                <div class="video-clicks-counter">
-                    <%= statisticData.videos %>
+            <div class="statistics">
+                <div class="dashboard-statistics dashcard">
+                    <h3>נתוני שימוש באתר</h3>
+                    <div class="entering-counter">
+                        <%= statisticData.enters %>
+                    </div>
+                    <div class="video-clicks-counter">
+                        <%= statisticData.videos %>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="overlay" id="overlay"></div>
-    </main>
-    <script src="../js/javascript.js"></script>
+            <div class="overlay" id="overlay"></div>
+        </main>
+        <script src="../js/javascript.js"></script>
 
 </body>
 

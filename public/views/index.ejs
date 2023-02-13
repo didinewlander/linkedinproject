@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="stylesheet" href="../css/Stylesheet.css">
     </link>
-    <link rel="icon" type="image/x-icon" href="../images/karnash-logo.ico"/>
+    <link rel="icon" type="image/x-icon" href="../images/karnash-logo.ico" />
 
 
 </head>
@@ -14,168 +14,112 @@
 <body dir="rtl">
 
     <%- include ('./navbar.ejs') %>
-    <main>
-        <div class="header" id="top-image">
-            <div class="titles">
-                ברוכים הבאים לאתר בית המדרש<br />
-                ישיבת ההסדר בקרני שומרון<br />
-                לאסוקי שמעתא - אליבא דהלכתא<br />
+        <main>
+            <div class="header" id="top-image">
+                <div class="titles">
+                    ברוכים הבאים לאתר בית המדרש<br />
+                    ישיבת ההסדר בקרני שומרון<br />
+                    לאסוקי שמעתא - אליבא דהלכתא<br />
+                </div>
             </div>
-        </div>
 
-        <div class="rightcolumn-index">
-            <div class="card">
-                <h2>שיעורים אחרונים מבית המדרש</h2>
-                <div class="collection">
-                    <div class="grid-latest"></div>
-                    <div class="collection card" id="collection-card-most">
-                        <div class="title" data-title>
-                            <div class="skeleton skeleton-text"></div>
-                        </div>
-                        <div class="header">
-                            <a href="" target="_blank" videoLink>
-                                <img src="" class="header-img skeleton" videoThumbnail>
-                            </a>
-                        </div>
-                        <div class="expand" id="expand" onclick="expandCard(this)">
-                            <ion-icon name="chevron-down"></ion-icon>
-                        </div>
-                        <div class="speaker">
-                            <a href="" target="_blank" speakerLink> לעוד שיעורים של
-                                <div class="lowerName" style="font-weight: bold;" speakerName>
-                                    <div class="skeleton skeleton-text" id="speaker-name"></div>
-                                </div>
-                            </a>
+            <div class="rightcolumn-index">
+                <div class="card">
+                    <h2>שיעורים אחרונים מבית המדרש</h2>
+                    <div class="collection">
+                        <div class="grid-latest"></div>
+                        <div class="collection card" id="collection-card-late">
+                            <div class="title" data-title>
+                                <div class="skeleton skeleton-text"></div>
+                            </div>
+                            <div class="header">
+                                <a href="" target="_blank" videoLink>
+                                    <img src="" class="header-img skeleton" videoThumbnail>
+                                </a>
+                            </div>
+                            <div class="expand" id="expand" onclick="expandCard(this)">
+                                <ion-icon name="chevron-down"></ion-icon>
+                            </div>
+                            <div class="speaker">
+                                <a href="" target="_blank" speakerLink> לעוד שיעורים של
+                                    <div class="lowerName" style="font-weight: bold;" speakerName>
+                                        <div class="skeleton skeleton-text" id="speaker-name"></div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <h2>השיעורים הנצפים ביותר</h2>
-                <div class="collection">
-                    <div class="grid-most"></div>
-                    <div class="collection card" id="collection-card-late">
-                        <div class="title" data-title>
-                            <div class="skeleton skeleton-text"></div>
-                        </div>
-                        <div class="header">
-                            <a href="" target="_blank" videoLink>
-                                <img src="" class="header-img skeleton" videoThumbnail>
-                            </a>
-                        </div>
-                        <div class="expand" id="expand" onclick="expandCard(this)">
-                            <ion-icon name="chevron-down"></ion-icon>
-                        </div>
-                        <div class="speaker">
-                            <a href="" target="_blank" speakerLink> לעוד שיעורים של
-                                <div class="lowerName" style="font-weight: bold;" speakerName>
-                                    <div class="skeleton skeleton-text" id="speaker-name"></div>
-                                </div>
-                            </a>
-                        </div>
+            <div class="leftcolumn">
+                <div class="membersonly" style="height: 100px;">
+                    <div class="button 1">להעלאת סיכום</div>
+                    <div class="button 2">להמלצה על שיעור</div>
+                    <div class="button 3">כניסת גבאים</div>
+                </div>
+
+                <div class="card">
+                    <div class="content" id="most-viewed" style="height: 100px;">
+
+                        <div class="class-card"></div>
+                        <div class="class-card"></div>
+                        <div class="class-card"></div>
                     </div>
                 </div>
-            </div>
-
-        </div>
-        <div class="leftcolumn">
-            <div class="membersonly" style="height: 100px;">
-                <div class="button 1">להעלאת סיכום</div>
-                <div class="button 2">להמלצה על שיעור</div>
-                <div class="button 3">כניסת גבאים</div>
-            </div>
-
-            <div class="card">
-                <div class="content" id="most-viewed" style="height: 100px;">
-
-                    <div class="class-card"></div>
-                    <div class="class-card"></div>
-                    <div class="class-card"></div>
+                <div class="social" style="height: 100px;">
+                    <h3>צור קשר</h3>
+                    <a href="tel:+97297929145" class="fa fa-phone"></a>
+                    <a href="https://wa.me/972587929144" class="fa fa-whatsapp" target="_blank"></a>
+                    <a href="https://www.facebook.com/YeshivatKarnash/" class="fa fa-facebook" target="_blank"></a>
+                    <a href="https://www.youtube.com/@YeshivatKarnash" class="fa fa-youtube" target="_blank"></a>
+                </div>
+                <div class="credit" style="height: 50px;">
+                    <p>האתר נבנה על-ידי ידידיה נוילנדר ה'תשפ"ג 2023</p>
                 </div>
             </div>
-            <div class="social" style="height: 100px;">
-                <h3>צור קשר</h3>
-                <a href="tel:+97297929145" class="fa fa-phone"></a>
-                <a href="https://wa.me/972587929144" class="fa fa-whatsapp" target="_blank"></a>
-                <a href="https://www.facebook.com/YeshivatKarnash/" class="fa fa-facebook" target="_blank"></a>
-                <a href="https://www.youtube.com/@YeshivatKarnash" class="fa fa-youtube" target="_blank"></a>
-            </div>
-            <div class="credit" style="height: 50px;">
-                <p>האתר נבנה על-ידי ידידיה נוילנדר ה'תשפ"ג 2023</p>
-            </div>
-        </div>
 
 
-    </main>
+        </main>
 
-    <script>
-        const grid = document.querySelector('.grid-most');
-        const gridLate = document.querySelector('.grid-latest');
-        const templateMost = document.getElementById('collection-card-most')
-        const templateLate = document.getElementById('collection-card-late')
-        fetch("/mostviewed")
-            .then(res => res.json())
-            .then(likedVideos => {
-                grid.innerHTML = ''
-                for (let i = 0; i < likedVideos.length; i++) {
-                    const video = likedVideos[i];
-                    const div = templateMost.cloneNode(true);
-                    div.id = `${div.id}-${i}`;
-                    div.children[2].className = `expand num${i}`;
-                    const regexString = /[|,-]+/
-                    let titleString = video.videoTitle.replace(/&quot;/g, '\"');
-                    titleString = titleString.replace(/&#39;/g, `\'`);
+        <script>
+            const gridLate = document.querySelector('.grid-latest');
+            const templateLate = document.getElementById('collection-card-late');
+            fetch("/youtube")
+                .then(res => res.json())
+                .then(likedVideos => {
+                    for (let i = 0; i < likedVideos.length; i++) {
+                        const video = likedVideos[i];
+                        const div = templateLate.cloneNode(true);
+                        div.id = `${div.id}-${i}`;
+                        div.children[2].className = `expand num${i}`;
+                        const regexString = /[|,-]+/
+                        let titleString = video.videoTitle.replace(/&quot;/g, '\"');
+                        titleString = titleString.replace(/&#39;/g, `\'`);
 
-                    const textSet = titleString.split(regexString);
-                    div.querySelector('[videoLink]').href = `https://www.youtube.com/watch?v=${video.videoID}`;
-                    div.querySelector('[speakerLink]').href = `/search/${video.speakerName}`;
-                    div.querySelector('[speakerName]').textContent = video.speakerName;
-                    div.querySelector('[speakerName]').className = 'title';
-                    div.querySelector('[data-title]').textContent = textSet[0];
-                    div.querySelector('[videoThumbnail]').src = video.videoImageLink;
-                    grid.append(div)
-                }
-                templateMost.innerText = '';
-                templateMost.className = ''
-            })
+                        const textSet = titleString.split(regexString);
+                        div.querySelector('[videoLink]').href = `https://www.youtube.com/watch?v=${video.videoID}`;
+                        div.querySelector('[speakerLink]').href = `/${video.speakerName}`;
+                        div.querySelector('[speakerName]').textContent = video.speakerName;
+                        div.querySelector('[speakerName]').className = 'title';
+                        div.querySelector('[data-title]').textContent = textSet[0];
+                        div.querySelector('[videoThumbnail]').src = video.videoImageLink;
+                        gridLate.append(div)
+                    }
+                    templateLate.innerText = '';
+                    templateLate.className = ''
+                })
+            function expandCard(obj) {
+                obj.parentElement.classList.toggle("active");
+            }
+            const card = document.querySelector(".card");
+            const cardExpand = document.querySelector(".expand");
+            cardExpand.onclick = () => {
+                card.classList.toggle("active");
+            };
 
-        fetch("/youtube")
-            .then(res => res.json())
-            .then(likedVideos => {
-                grid.innerHTML = ''
-                for (let i = 0; i < likedVideos.length; i++) {
-                    const video = likedVideos[i];
-                    const div = templateLate.cloneNode(true);
-                    div.id = `${div.id}-${i}`;
-                    div.children[2].className = `expand num${i}`;
-                    const regexString = /[|,-]+/
-                    let titleString = video.videoTitle.replace(/&quot;/g, '\"');
-                    titleString = titleString.replace(/&#39;/g, `\'`);
-
-                    const textSet = titleString.split(regexString);
-                    div.querySelector('[videoLink]').href = `https://www.youtube.com/watch?v=${video.videoID}`;
-                    div.querySelector('[speakerLink]').href = `/${video.speakerName}`;
-                    div.querySelector('[speakerName]').textContent = video.speakerName;
-                    div.querySelector('[speakerName]').className = 'title';
-                    div.querySelector('[data-title]').textContent = textSet[0];
-                    div.querySelector('[videoThumbnail]').src = video.videoImageLink;
-                    gridLate.append(div)
-                }
-                templateLate.innerText = '';
-                templateLate.className = ''
-            })
-        function expandCard(obj) {
-            obj.parentElement.classList.toggle("active");
-        }
-        const card = document.querySelector(".card");
-        const cardExpand = document.querySelector(".expand");
-        cardExpand.onclick = () => {
-            card.classList.toggle("active");
-        };
-        
-    </script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        </script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 
 </body>
