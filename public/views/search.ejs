@@ -4,47 +4,48 @@
     <title>ישיבת ההסדר קרני שומרון</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <link rel="icon" type="image/x-icon" href="../images/karnash-logo.ico"/>
-    <link rel="stylesheet" href="../css/Stylesheet.css"/>
+    <link rel="icon" type="image/x-icon" href="../images/karnash-logo.ico" />
+    <link rel="stylesheet" href="../css/Stylesheet.css" />
 </head>
 
 <body dir="rtl">
     <%- include ('./navbar.ejs') %>
-    <main>
-        <div class="header" id="top-image">
-            <div class="titles">
-                יגעת ומצאת - תלמד ותבין
+        <main>
+            <div class="header" id="top-image">
+                <div class="titles">
+                    יגעת ומצאת - תלמד ותבין
+                </div>
             </div>
-        </div>
 
-        <div class="rightcolumn" style="width:95%">
-            <!-- <div class="message">
-                <h1>דף זה יסייע לחפש שיעורים </h1>
-                <p>אבל ניסית לומר שלוש פעמים 'אמר רבי בנימין'?</p>
-                <h2><a href="/">חזרה לדף הבית</a></h2>
-            </div> -->
-            <div class="search-wrapper">
-                <div class="search-bar" onfocus="fetchSearchResults()">
-                    <label for="search">
-                        <h2>חיפוש נושא או שיעור</h2>
-                    </label>
-                    <input type="text" class="autocomplete-input" placeholder="חיפוש רב או נושא" data-search>
-                    <br />
-                    <div class="results" onblur="cleanResults()" data-result-container>
+            <div class="rightcolumn" style="width:95%">
+                <div class="search-wrapper">
+                    <div class="search-bar" onfocus="fetchSearchResults()">
+                        <label for="search">
+                            <h2>חיפוש נושא או שיעור</h2>
+                        </label>
+                        <input type="text" class="autocomplete-input" placeholder="חיפוש רב או נושא" data-search>
+                        <br />
+                        <div class="results" onblur="cleanResults()" data-result-container> </div>
+                        <div class="result-list">
+                            <div class="result-list-playlist" result-list-playlist>
 
+                            </div>
+                            <div class="result-list-latest" result-list-latest>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <template data-result-template>
+                    <div class="search-result">
+                        <div class="result-header" result-header></div>
+                        <div class="result-content" result-body></div>
+                    </div>
+                </template>
             </div>
-            <template data-result-template>
-                <div class="search-result">
-                    <div class="result-header" result-header></div>
-                    <div class="result-content" result-body></div>
-                </div>
-            </template>
-        </div>
 
-    </main>
-    <script src="../js/javascript.js"></script>
+        </main>
+        <script src="../js/javascript.js"></script>
 </body>
 
 </html>

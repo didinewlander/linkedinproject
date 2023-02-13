@@ -89,7 +89,7 @@ fetch("/jsontest")
 
 function loadCalendarDay(dayIndex) {
 
-    const data = [
+    const calendar = [
         {
             day: 1,
             parts:
@@ -456,8 +456,7 @@ function loadCalendarDay(dayIndex) {
                 ]
         }
     ]
-    // Get the data for the specified day
-    const dayData = data[dayIndex - 1];
+    const dayData = calendar[dayIndex - 1];
 
     // Get the morning, noon, and evening containers
     const morningContainer = document.querySelector("[morning]");

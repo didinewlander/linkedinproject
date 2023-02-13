@@ -1,5 +1,5 @@
 /*------ REQUIREMENTS ------*/
-
+const scheduler = require('node-schedule');
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -8,6 +8,8 @@ const path = require('path');
 
 
 require('dotenv').config();
+let i = 0
+scheduler.scheduleJob('*/1 * * * *', ()=> console.log(`hi + ${i++}`));
 
 const userUri = process.env.USER_DB_CONNECTION;
 const classUri = process.env.CLASS_DB_CONNECTION;
