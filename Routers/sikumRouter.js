@@ -1,5 +1,5 @@
 const express = require('express');
-const sikumBL = require('../YeshivaBL/sikumBL');
+const sikumBL = require('../BL/sikumBL');
 
 const router = express.Router();
 

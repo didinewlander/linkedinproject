@@ -9,6 +9,7 @@ const path = require('path');
 
 require('dotenv').config();
 let i = 0
+scheduler.scheduleJob('*/15 * * * *', () => require('./BL/videoListUpdaterBL'));
 
 const userUri = process.env.USER_DB_CONNECTION;
 const classUri = process.env.CLASS_DB_CONNECTION;
@@ -57,6 +58,7 @@ const userRouter = require('./Routers/userRouter');
 const classRouter = require('./Routers/classRouter');
 const sikumRouter = require('./Routers/sikumRouter');
 const youtubeAPIRouter = require('./Routers/youtubeRouter');
+const jsonUpdate = require('./BL/jsonBL')
 
 /*------ EXPRESS APP SETUP ------*/
 
@@ -69,7 +71,7 @@ let userInfo = {
 }
 
 let userManage = {
-    
+
 }
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'public/views'));
@@ -103,6 +105,8 @@ app.get('/dashboard', (req, res) => {
     res.render('dashboard.ejs', userInfo);
     userInfo.statisticData.enters += 1;
 })
+app.get('/update', jsonUpdate.update);
+
 app.use('/youtube', require('./Routers/youtubeRouter'));
 app.use('/mostviewed', require('./Routers/mostviewedRouter'));
 app.use('/playlists', require('./Routers/playlistRouter'));

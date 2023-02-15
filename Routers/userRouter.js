@@ -1,5 +1,5 @@
 const express = require('express');
-const userBL = require('../YeshivaBL/userBL');
+const userBL = require('../BL/userBL');
 
 const router = express.Router();
 
