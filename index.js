@@ -14,10 +14,6 @@ require('dotenv').config();
 //     require('./BL/videoListUpdaterBL').fullVideoListPullData();
 // });
 
-// scheduler.scheduleJob('/15 * * * *', () => {
-//     console.log('Called weekly full update');
-//     require('./BL/videoListUpdaterBL').fullVideoListPullData();
-// })
 
 
 const userUri = process.env.USER_DB_CONNECTION;
@@ -92,6 +88,12 @@ app.use(express.urlencoded({ extended: true }))
 /*------ WEBSITE SETUP ------*/
 video_connection(videoUri); // connect to video server DB
 
+
+scheduler.scheduleJob('/1 * * * *', () => {
+    console.log('Called weekly full update');
+    require('./BL/videoListUpdaterBL').timedUpdate();
+})
+
 // Home page
 app.get('/', (req, res) => {
     res.render('index.ejs');
@@ -123,4 +125,4 @@ app.use((req, res) => {
     res.status(404).render('404.ejs');
 })
 
-app.listen(port, console.log(`Connecting and listening to port ${port}`));
+app.listen(port, console.log(`\x1b[32mConnecting and listening to port ${port}\x1b[0m\n- - * * * - -`));

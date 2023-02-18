@@ -37,7 +37,7 @@ const getLatestTenVideos = () => {
 };
 
 const getLatestFiftyVideos = () => {
-	console.log("|------ Fetching Youtube Data ------|\n|------ Pulling latest 50 videos from youtube ------|");
+	console.log(`\x1b[33m`,`|------ Fetching Youtube Data ------|\n\x1b[36m |------ Pulling latest 50 videos from youtube ------|`,`\x1b[0m`);
 	const url = process.env.YOUTUBE_KARNASH_LATEST_FIFTY;
 	return axios.get(url).catch(err => {
 		const errMsg =

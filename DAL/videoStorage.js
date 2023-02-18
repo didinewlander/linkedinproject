@@ -62,10 +62,10 @@ const getVideoByPlaylistId = async (_playlistId) => {
 const createVideo = async (video) => {
     try {
         await video.save()
-            .then((result) => console.log(`New video added to database! Video ID is: ${video.videoId} -- the video was saved at ${new Date().toString()}`))
+            .then((result) => console.log(`\x1b[32mNew video added to database! \x1b[37mVideo ID is: \x1b[36m${video.videoId} \x1b[32-- the video was saved at ${new Date().toString()}\x1b[0m`))
             .catch((err) => {
                 if (err[0] == 'MongoServerError' || err.code === 11000) {
-                    console.log(`Duplicate video id found! Video ID is: ${video.videoId} -- the video was not added to the database.`);
+                    console.log(`\x1b[33mDuplicate video id found! \x1b[37mVideo ID is: \x1b[36m${video.videoId} \x1b[31m-- the video was not added to the database.\x1b[0m`);
                 }
                 else {
                     console.log('Error saving video to DB', err);

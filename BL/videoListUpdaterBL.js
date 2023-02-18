@@ -42,7 +42,7 @@ const fullVideoListPullData = async () => {
 
 const timedUpdate = async (latestVideoId) => {
     try {
-        console.log("TimedUpdate called");
+        console.log(`\x1b[1m`,`TimedUpdate called`,`\x1b[0m`);
         let { data } = await youtubeWS.getLatestFiftyVideos();
         let videoList = data.items.map((item) => {
             try {
@@ -83,15 +83,15 @@ const cleanDataBeforeSubmition = async (videoList) => {
 };
 
 const pushDataToVideoStorage = async (finalVideoDataToPush) => {
-    console.log("================================");
+    console.log(`\x1b[37m================================\x1b[0m`);
     try {
         await Promise.all(finalVideoDataToPush.map(async (obj) => {
             const newVideo = new videoInput(obj);
             return videoStorage.createVideo(newVideo);
         }));
-        console.log(`Videos updated successfully at ${new Date().toString()}`);
+        console.log(`\n\x1b[33mVideos updated successfully at\x1b[37m ${new Date().toString()}\x1b[0m`);
     } catch (err) {
-        console.log(`error creating video ${obj.videoId}`);
+        console.log(`\x1b[31merror creating video ${obj.videoId}\x1b[0m`);
     }
 }
 const addNameAndUrlToSpeaker = (videoList, speakerNames, speakerProfileImages) => {
