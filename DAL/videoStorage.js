@@ -5,7 +5,7 @@ const getAllVideos = async () => {
     try {
         return await videoInput.find({});
     } catch (error) {
-        throw new Error('Error fetching all videos');
+        console.log('Error fetching all videos');
     }
 };
 
@@ -13,7 +13,7 @@ const getVideoById = async (_id) => {
     try {
         return await videoInput.find({ videoId: _id });
     } catch (error) {
-        throw new Error('Error fetching video by ID');
+        console.log('Error fetching video by ID');
     }
 };
 
@@ -21,7 +21,7 @@ const getVideoBeforeOrAtDate = async (_date) => {
     try {
         return await videoInput.find({ publishedAt: { $lte: _date } });
     } catch (error) {
-        throw new Error('Error fetching videos before or at given date');
+        console.log('Error fetching videos before or at given date');
     }
 };
 
@@ -29,7 +29,7 @@ const getVideoAfterDate = async (_date) => {
     try {
         return await videoInput.find({ publishedAt: { $gt: _date } });
     } catch (error) {
-        throw new Error('Error fetching videos after given date');
+        console.log('Error fetching videos after given date');
     }
 };
 
@@ -37,7 +37,7 @@ const getVideoBySpeaker = async (_speaker) => {
     try {
         return await videoInput.find({ speaker: { $in: [_speaker] } });
     } catch (error) {
-        throw new Error('Error fetching videos by speaker');
+        console.log('Error fetching videos by speaker');
     }
 };
 
@@ -45,7 +45,7 @@ const getVideoByTags = async (_tags) => {
     try {
         return await videoInput.find({ tags: { $in: [_tags] } });
     } catch (error) {
-        throw new Error('Error fetching videos by tags');
+        console.log('Error fetching videos by tags');
     }
 };
 
@@ -53,24 +53,25 @@ const getVideoByPlaylistId = async (_playlistId) => {
     try {
         return await videoInput.find({ playlistId: _playlistId });
     } catch (error) {
-        throw new Error('Error fetching videos by playlist ID');
+        console.log('Error fetching videos by playlist ID');
     }
 };
 
 /*--------- Create Function ----------*/
 
-const createVideo = async (obj) => {
-    const newVideo = new videoInput(obj);
-
+const createVideo = async (video) => {
     try {
-        const checkIfExist = await getVideoById(obj.videoId);
-        if (checkIfExist.videoId === obj.videoId) {
-            throw new Error("Video already exists");
-        }
-        else {
-            await newVideo.save();
-            return `${newVideo.videoId} Video saved to DB at ${new Date().toString()}`;
-        }
+        await video.save()
+            .then((result) => console.log(`New video added to database! Video ID is: ${video.videoId} -- the video was saved at ${new Date().toString()}`))
+            .catch((err) => {
+                if (err[0] == 'MongoServerError' || err.code === 11000) {
+                    console.log(`Duplicate video id found! Video ID is: ${video.videoId} -- the video was not added to the database.`);
+                }
+                else {
+                    console.log('Error saving video to DB', err);
+                }
+            })
+
     } catch (error) {
         return `${error} or Error with video creation`;
     }

@@ -1,51 +1,101 @@
 const videoStorage = require('../DAL/videoStorage');
 const youtubeWS = require('../DAL/youtubeDAL');
 const rabanimImagesDAL = require('../DAL/imagesJsonDAL');
+const videoInput = require('../Models/videoModelInput');
 
 const fullVideoListPullData = async () => {
     let { data } = youtubeWS.getAllVideos();
+    let counter = 0;
+    console.log("Starting pulling videos from youtube");
     try {
         let fullVideoList = await data.items.map((item) => {
-            return {
-                "videoId": item.id.videoId,
-                "kind": item.id.kind,
-                "publishedAt": item.snippet.publishedAt,
-                "title": item.snippet.title,
-                "description": item.snippet.description,
-                "thumbnail": {
-                    "default": item.snippet.thumbnails.default.url,
-                    "high": item.snippet.thumbnails.high.url
-                },
-                "speaker": [],
-                "playlistId": [],
-                "tags": [],
-                "speakerImage": ""
+            if (item.id.videoId) {
+                console.log(counter++);
+                return {
+                    "videoId": item.id.videoId,
+                    "kind": item.id.kind,
+                    "publishedAt": item.snippet.publishedAt,
+                    "title": item.snippet.title,
+                    "description": item.snippet.description,
+                    "thumbnail": {
+                        "default": item.snippet.thumbnails.default.url,
+                        "high": item.snippet.thumbnails.high.url
+                    },
+                    "speaker": [],
+                    "playlistId": [],
+                    "tags": [],
+                    "speakerImage": ""
+                }
             }
-
         });
         /* After getting all the data,
  I want to clean it here.
  because this is a full update of the data -
  it should be cleaned before insertion */
         const finalVideoDataToPush = cleanDataBeforeSubmition(fullVideoList);
-        try {
-            for (obj in finalVideoDataToPush) {
-                await videoStorage.createVideo(obj);
-            }
-        } catch (error) {
-            return `error creating video ${obj.videoId}`;
-        }
+        pushDataToVideoStorage(finalVideoDataToPush);
     }
     catch (error) {
         return "error with getting the videos from youtube";
     }
 }
 
+const timedUpdate = async (latestVideoId) => {
+    try {
+        console.log("TimedUpdate called");
+        let { data } = await youtubeWS.getLatestFiftyVideos();
+        let videoList = data.items.map((item) => {
+            try {
+                return {
+                    "videoId": item.id.videoId,
+                    "kind": item.id.kind,
+                    "publishedAt": item.snippet.publishedAt,
+                    "title": item.snippet.title,
+                    "description": item.snippet.description,
+                    "thumbnail": {
+                        "default": item.snippet.thumbnails.default.url,
+                        "high": item.snippet.thumbnails.high.url
+                    },
+                    "speaker": [],
+                    "playlistId": [],
+                    "tags": [],
+                    "speakerImage": ""
+                }
+            }
+            catch (err) {
+                console.log(err);
+            }
+        });
+        pushDataToVideoStorage(videoList);
+    } catch (error) {
+        return "error with getting the videos from youtube";
+
+    }
+
+}
+
 const cleanDataBeforeSubmition = async (videoList) => {
+    console.log("================================");
     let speakersList = await rabanimImagesDAL.getRabanimImages();
     let speakerNames = speakersList.map(speaker => speaker.name);
     let speakerProfileImages = speakersList.map(speaker => speaker.url);
+    return addNameAndUrlToSpeaker(videoList, speakerNames, speakerProfileImages);
+};
 
+const pushDataToVideoStorage = async (finalVideoDataToPush) => {
+    console.log("================================");
+    try {
+        await Promise.all(finalVideoDataToPush.map(async (obj) => {
+            const newVideo = new videoInput(obj);
+            return videoStorage.createVideo(newVideo);
+        }));
+        console.log(`Videos updated successfully at ${new Date().toString()}`);
+    } catch (err) {
+        console.log(`error creating video ${obj.videoId}`);
+    }
+}
+const addNameAndUrlToSpeaker = (videoList, speakerNames, speakerProfileImages) => {
+    console.log("Finishing up this video")
     const dataCopy = videoList.map(element => {
         let name = "כללי";
         let url = "https://villagesonmacarthur.com/wp-content/uploads/2020/12/Blank-Avatar.png";
@@ -58,11 +108,12 @@ const cleanDataBeforeSubmition = async (videoList) => {
                 break;
             }
         }
-        element.speaker.push(name)
+        element.speaker.push(name);
         element.speakerImage = url;
         return element;
     });
     return dataCopy;
-};
+}
 
-module.exports = {fullVideoListPullData}
+
+module.exports = { timedUpdate, fullVideoListPullData }

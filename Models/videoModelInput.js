@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 const videoSchema = new mongoose.Schema(
     {
-        videoId: String,
+        videoId: {type: String, unique: true},
         kind: String,
         publishedAt: String,
         title: String,
@@ -21,7 +21,7 @@ const videoSchema = new mongoose.Schema(
 
 
 // A 'model' is a user with which we construct documents in a collection
-const videoInput = mongoose.model('YVDS', videoSchema);
+const videoInput = mongoose.model('Videos', videoSchema);
 // The first argument is the singular name of the collection that will be created for the model (Mongoose will create the database collection for the above model 'person').
 // The second argument is the schema to use in creating the model.
 

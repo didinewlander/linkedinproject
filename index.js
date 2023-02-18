@@ -8,10 +8,20 @@ const path = require('path');
 
 
 require('dotenv').config();
-let i = 0
-scheduler.scheduleJob('*/15 * * * *', () => require('./BL/videoListUpdaterBL'));
+
+// scheduler.scheduleJob('30 2 * * 0', () => {
+//     console.log('Called weekly full update');
+//     require('./BL/videoListUpdaterBL').fullVideoListPullData();
+// });
+
+// scheduler.scheduleJob('/15 * * * *', () => {
+//     console.log('Called weekly full update');
+//     require('./BL/videoListUpdaterBL').fullVideoListPullData();
+// })
+
 
 const userUri = process.env.USER_DB_CONNECTION;
+const videoUri = process.env.VIDEO_DB_CONNECTION ;
 const classUri = process.env.CLASS_DB_CONNECTION;
 const sikumUri = process.env.SIKUM_DB_CONNECTION;
 const youtubeAPI = process.env.YOUTUBE_KARNASH_API;
@@ -46,11 +56,8 @@ function checkNotAuthenticated(req, res, next) {
 }*/
 /*------ DATABASE SETUP ------*/
 const mongoose = require('mongoose');
-const class_connection = require('./Configs/classDB');
-const sikumim_connection = require('./Configs/sikumDB');
-const users_connection = require('./Configs/userDB');
+const video_connection = require('./Configs/videosDB');
 
-//users_connection(userUri);
 
 /*------ ROUTES SETUP ------*/
 
@@ -83,6 +90,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
 /*------ WEBSITE SETUP ------*/
+video_connection(videoUri); // connect to video server DB
 
 // Home page
 app.get('/', (req, res) => {
@@ -115,4 +123,4 @@ app.use((req, res) => {
     res.status(404).render('404.ejs');
 })
 
-app.listen(port, console.log(`listening to port ${port}`));
+app.listen(port, console.log(`Connecting and listening to port ${port}`));

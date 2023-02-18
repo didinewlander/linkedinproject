@@ -35,14 +35,34 @@ const getLatestTenVideos = () => {
 		return errMsg;
 	});
 };
+
+const getLatestFiftyVideos = () => {
+	console.log("|------ Fetching Youtube Data ------|\n|------ Pulling latest 50 videos from youtube ------|");
+	const url = process.env.YOUTUBE_KARNASH_LATEST_FIFTY;
+	return axios.get(url).catch(err => {
+		const errMsg =
+			[{
+				errorAlert: "true",
+				videoTitle: "Missing video title",
+				videoID: "undefined",
+				videoImageLink: "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=2000",
+				videoReleaseDate: "Missing playlist release date",
+				speakerImg: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+			}]
+		return errMsg;
+	});
+};
 const getAllVideos = async () => {
 	console.log("full update pull in progress");
-	let nextPageToken = "";
+	let nextPageToken =` %20`;
 	let videos = [];
+	let counter =0;
 	try {
-		while (nextPageToken !== null) {
-			let url =`${process.env.YOUTUBE_KARNASH_LATEST}${nextPageToken}&key=${process.env.YOUTUBE_KARNASH_API}`;
-			const response = await axios.get(url).catch(err => {
+		while (nextPageToken !== null || nextPageToken !== undefined) {
+			console.log(counter++);
+			let url = `${process.env.YOUTUBE_KARNASH_LATEST}${nextPageToken}&key=${process.env.YOUTUBE_KARNASH_API}`;
+			const response = await axios.get(url)
+			.catch(err => {
 				const errMsg =
 					[{
 						errorAlert: "true",
@@ -52,8 +72,8 @@ const getAllVideos = async () => {
 						videoReleaseDate: "Missing playlist release date",
 						speakerImg: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
 					}]
-				return errMsg;
-			})
+				return err;
+			})			
 			nextPageToken = response.data.nextPageToken;
 			const searchResults = response.data.items;
 			videos.push(...searchResults);
@@ -61,7 +81,7 @@ const getAllVideos = async () => {
 		return videos;
 
 	} catch (error) {
-		console.error('Error fetching search results from YouTube API');
+		console.error('Some error occurred - might be a quota error, or some error with the API key. Please check your settings');
 	}
 };
 
@@ -82,4 +102,4 @@ const getLatestPlaylists = () => {
 	});
 };
 
-module.exports = { getMostViewedVideos, getLatestTenVideos, getLatestPlaylists, getAllVideos };
+module.exports = { getMostViewedVideos, getLatestTenVideos, getLatestPlaylists, getAllVideos, getLatestFiftyVideos };
