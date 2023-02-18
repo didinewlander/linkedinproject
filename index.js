@@ -89,10 +89,10 @@ app.use(express.urlencoded({ extended: true }))
 video_connection(videoUri); // connect to video server DB
 
 
-scheduler.scheduleJob('/1 * * * *', () => {
-    console.log('Called weekly full update');
-    require('./BL/videoListUpdaterBL').timedUpdate();
-})
+// scheduler.scheduleJob('/1 * * * *', () => {
+//     console.log('Called weekly full update');
+//     require('./BL/videoListUpdaterBL').timedUpdate();
+// })
 
 // Home page
 app.get('/', (req, res) => {
