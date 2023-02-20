@@ -4,9 +4,8 @@ const youtubeBL = require('../BL/youtubeBL');
 const router = express.Router();
 
 router.route('/').get(async (req, res) => {
-    console.log("arrived at route");
-    const videos = await youtubeBL.getLatestTenVideos();
-    console.log("completed processing videos");
+    console.log(`\x1b[34m|------ Called Youtube Latest 10 Videos ------|\x1b[0m\n`);
+    const videos = await youtubeBL.getLatestTenVideos(); 
     res.json(videos);
 });
 

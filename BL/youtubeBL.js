@@ -1,5 +1,6 @@
 const youtubeWS = require('../DAL/youtubeDAL');
 const rabanimImagesDAL = require('../DAL/imagesJsonDAL');
+const backupMongoRequest = require('../DAL/videoStorage');
 
 const addImageToQuery = async (valueSet) => {
   let links = await rabanimImagesDAL.getRabanimImages();
@@ -63,11 +64,12 @@ const addImageToQuery = async (valueSet) => {
 };
 
 const getLatestTenVideos = async () => {
-  let { data } = await youtubeWS.getLatestTenVideos();
-  console.log("started working on latest videos");
-
+  let videosList = [];
   try {
-    let videosList = data.items.map((video) => {
+    let { data } = await youtubeWS.getLatestTenVideos();
+    console.log(`\x1b[37mData is received and sent to processing...\x1b[0m\n${data}`);
+    videosList = data.items.map((video) => {
+      console.log(video);
       return {
         videoID: video.id.videoId,
         videoTitle: video.snippet.title,
@@ -75,20 +77,37 @@ const getLatestTenVideos = async () => {
         videoReleaseDate: video.snippet.publishedAt
       };
     });
-    console.log("videos completed successfully");
+    console.log(`\n\x1b[32mVideos completed successfully\x1b[0m`);
     videosList = await addImageToQuery(videosList);
     return videosList;
-  } catch (err) {
-    const errMsg =
-      [{
-        errorAlert: "true",
-        videoTitle: "Missing video title",
-        videoID: "undefined",
-        videoImageLink: "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=2000",
-        videoReleaseDate: "Missing playlist release date",
-        speakerImg: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
-      }]
-    return errMsg;
+  }
+  catch (err) {
+    try {
+      videosList = await backupMongoRequest.getAllVideos().then(console.log(`\x1b[32m\tUsed mongoDB video web server SUCCESSFULLY\x1b[0m`))
+      let results = videosList.map((video) => {
+        return {
+          videoID: video.videoId,
+          videoTitle: video.title,
+          videoImageLink: video.thumbnail.high,
+          videoReleaseDate: video.publishedAt
+        };
+      });
+      return results.slice(0, 10);
+    } catch (error) {
+      const errMsg =
+        [{
+          errorAlert: "true",
+          videoTitle: "Missing video title",
+          videoID: "undefined",
+          videoImageLink: "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=2000",
+          videoReleaseDate: "Missing playlist release date",
+          speakerImg: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+        }]
+      console.log(`\x1b[31m\tFailed to use mongoDB video web server\x1b[0m`);
+
+      return errMsg;
+    }
+
   }
 
 };

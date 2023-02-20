@@ -4,13 +4,11 @@ const rabanimImagesDAL = require('../DAL/imagesJsonDAL');
 const videoInput = require('../Models/videoModelInput');
 
 const fullVideoListPullData = async () => {
-    let { data } = youtubeWS.getAllVideos();
-    let counter = 0;
-    console.log("Starting pulling videos from youtube");
     try {
-        let fullVideoList = await data.items.map((item) => {
+        console.log(`\x1b[33m|------ Full Fetching Of Youtube Data ------|\x1b[0m`);
+        let { data } = await youtubeWS.getAllVideos();
+        let fullVideoList = data.items.map((item) => {
             if (item.id.videoId) {
-                console.log(counter++);
                 return {
                     "videoId": item.id.videoId,
                     "kind": item.id.kind,
@@ -42,7 +40,7 @@ const fullVideoListPullData = async () => {
 
 const timedUpdate = async (latestVideoId) => {
     try {
-        console.log(`\x1b[1m`,`TimedUpdate called`,`\x1b[0m`);
+        console.log(`\x1b[1m`, `TimedUpdate called`, `\x1b[0m`);
         let { data } = await youtubeWS.getLatestFiftyVideos();
         let videoList = data.items.map((item) => {
             try {
